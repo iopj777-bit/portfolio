@@ -215,12 +215,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     display:grid; grid-template-columns:1fr 64px;
     gap:16px; align-items:center; padding:18px;
   }
-  .axis-img{
+  .axis > .axis-img{
     grid-column:2; grid-row:1;
     width:64px; height:64px; aspect-ratio:1/1;
     border-radius:8px; font-size:.65rem;
   }
-  .axis > div{grid-column:1; grid-row:1}
+  .axis > div:not(.axis-img){grid-column:1; grid-row:1}
   .axis .lead{margin-top:0;font-size:.78rem}
   .axis h3{font-size:1.05rem;margin-bottom:6px}
   .axis p{font-size:.85rem}
