@@ -140,23 +140,17 @@ header{
 .tool img{width:22px;height:22px;object-fit:contain}
 .tool span{font-size:.88rem;font-weight:600}
 
-/* 강점 3축 카드 */
+/* 강점 3축 — 아이콘 / 강점 / 설명 */
 .axes{
   display:grid; grid-template-columns:repeat(3,1fr);
-  gap:clamp(20px,3vw,40px);
-  margin-top:clamp(48px,6vw,76px);
+  gap:clamp(24px,3.5vw,56px);
+  margin-top:clamp(52px,6vw,80px);
 }
 .axis{text-align:left}
-.axis-icon{
-  width:56px; height:56px; margin-bottom:22px;
-  border:1px solid var(--line); border-radius:14px;
-  background:var(--paper);
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-.axis-icon img{width:100%;height:100%;object-fit:cover}
+.axis-icon{height:52px;margin-bottom:20px}
+.axis-icon img{height:52px;width:auto;object-fit:contain}
 .axis .lead{margin:0 0 2px;font-size:.82rem;color:var(--muted)}
-.axis h3{margin:0 0 10px;font-size:1.12rem;font-weight:800;letter-spacing:-.035em}
+.axis h3{margin:0 0 10px;font-size:1.12rem;font-weight:800;letter-spacing:-.03em}
 .axis p{font-size:.88rem;color:#5A5E68;line-height:1.7}
 
 
@@ -170,7 +164,7 @@ header{
   font-weight:800; letter-spacing:-.035em; line-height:1.3;
 }
 .proj{
-  display:grid; grid-template-columns:180px 1fr 300px;
+  display:grid; grid-template-columns:180px 1fr 340px;
   gap:44px; align-items:start;
   padding:44px 0; border-top:1px solid var(--line);
   transition:opacity .2s;
@@ -180,7 +174,7 @@ header{
 .proj h3{font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-.035em;line-height:1.34}
 .proj h3 span{display:block}
 .proj h3 span:last-child{color:var(--muted);font-weight:700}
-.proj .desc{margin-top:16px;font-size:.94rem;color:#4A4E58;max-width:520px}
+.proj .desc{margin-top:16px;font-size:.94rem;color:#4A4E58;max-width:560px}
 .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
 .tag{
   font-size:.76rem; font-weight:600; color:var(--blue);
@@ -205,23 +199,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
    ========================================================== */
 @media (max-width:960px){
   .proj{grid-template-columns:1fr;gap:24px}
-  .thumb{max-width:420px}
-
-  /* 강점 3축 — 모바일: 이미지를 우측 작은 썸네일로 */
-  .axes{grid-template-columns:1fr;gap:10px;margin-top:40px}
-  .axis{
-    display:grid; grid-template-columns:1fr 64px;
-    gap:16px; align-items:center; padding:18px;
-  }
-  .axis > .axis-img{
-    grid-column:2; grid-row:1;
-    width:64px; height:64px; aspect-ratio:1/1;
-    border-radius:8px; font-size:.65rem;
-  }
-  .axis > div:not(.axis-img){grid-column:1; grid-row:1}
-  .axis .lead{margin-top:0;font-size:.78rem}
-  .axis h3{font-size:1.05rem;margin-bottom:6px}
-  .axis p{font-size:.85rem}
+  .thumb{max-width:460px}
+  .axes{grid-template-columns:1fr;gap:34px;margin-top:46px}
 }
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr}
@@ -230,6 +209,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 @media (max-width:600px){
   .nav ul{gap:18px}
   .nav ul a{font-size:.82rem}
+  .axis-icon,.axis-icon img{height:44px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -243,7 +223,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <!-- ===== 헤더 ===== -->
 <header>
   <nav class="nav">
-    <a href="#" class="logo">2026 조가인 Portfolio</a>
+    <a href="#" class="logo">조가인</a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
@@ -307,30 +287,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
       <div class="tool"><img src="images/logo-krds.png" alt=""><span>KRDS</span></div>
     </div>
 
+    <!-- 강점 3축 — 아이콘은 배경 투명 PNG -->
     <div class="axes">
       <div class="axis">
-        <div class="axis-img"><img src="images/axis-1.jpg" alt=""></div>
-        <div>
-          <p class="lead">요구사항을 읽어내는</p>
-          <h3>해석력</h3>
-          <p>VFX 소스데이터, 주택금융·보증처럼 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
-        </div>
+        <div class="axis-icon"><img src="images/icon-1.png" alt=""></div>
+        <p class="lead">요구사항을 읽어내는</p>
+        <h3>해석력</h3>
+        <p>VFX 소스데이터, 주택금융·보증처럼 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
       </div>
       <div class="axis">
-        <div class="axis-img"><img src="images/axis-2.jpg" alt=""></div>
-        <div>
-          <p class="lead">복잡함을 화면으로 옮기는</p>
-          <h3>설계력</h3>
-          <p>복잡한 요구사항과 프로세스를 일반 사용자가 이해할 수 있는 화면으로 옮깁니다.</p>
-        </div>
+        <div class="axis-icon"><img src="images/icon-2.png" alt=""></div>
+        <p class="lead">복잡함을 화면으로 옮기는</p>
+        <h3>설계력</h3>
+        <p>복잡한 요구사항과 프로세스를 일반 사용자가 이해할 수 있는 화면으로 옮깁니다.</p>
       </div>
       <div class="axis">
-        <div class="axis-img"><img src="images/axis-3.jpg" alt=""></div>
-        <div>
-          <p class="lead">제안부터 운영까지 이어온</p>
-          <h3>수행력</h3>
-          <p>설계뿐 아니라 제안·QA·감리·오픈 후 운영까지 프로젝트 전 과정을 경험했습니다.</p>
-        </div>
+        <div class="axis-icon"><img src="images/icon-3.png" alt=""></div>
+        <p class="lead">제안부터 운영까지 이어온</p>
+        <h3>수행력</h3>
+        <p>설계뿐 아니라 제안·QA·감리·오픈 후 운영까지 프로젝트 전 과정을 경험했습니다.</p>
       </div>
     </div>
 
