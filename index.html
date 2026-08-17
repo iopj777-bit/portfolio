@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ↓↓↓ 브라우저 탭에 뜨는 제목. 검색 결과에도 노출됩니다. -->
 <title>조가인 | 서비스 기획자 포트폴리오</title>
 <meta name="description" content="공공·금융 도메인 서비스 기획자 조가인의 포트폴리오">
 
-<!-- 폰트 불러오기 (Pretendard: 한글 / JetBrains Mono: 영문 라벨) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +15,19 @@
 <style>
 /* ==========================================================
    1. 디자인 토큰
-   색상·간격을 여기서 한 번만 바꾸면 사이트 전체에 반영됩니다.
    ========================================================== */
 :root{
-  --ink:#0B0B0C;        /* 본문 검정 */
-  --blue:#1B45D7;       /* 포인트 컬러 — 이 값만 바꾸면 전체 톤이 바뀜 */
+  --ink:#0B0B0C;
+  --blue:#1B45D7;
   --paper:#FFFFFF;
-  --mist:#F3F4F8;       /* 연한 회색 배경 */
-  --line:#E3E5EC;       /* 구분선 */
-  --muted:#71757F;      /* 보조 텍스트 */
+  --mist:#F3F4F8;
+  --line:#E3E5EC;
+  --muted:#71757F;
 
-  --gut:clamp(20px,5vw,80px);   /* 좌우 여백 — 화면 크기에 따라 자동 조절 */
-  --max:1240px;                 /* 콘텐츠 최대 너비 */
+  --gut:clamp(20px,5vw,80px);
+  --max:1240px;
 }
 
-/* 기본 초기화 */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -43,7 +39,6 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 
-/* 공통 레이아웃 */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
 .mono{
   font-family:'JetBrains Mono',monospace;
@@ -52,12 +47,11 @@ a{color:inherit;text-decoration:none}
 }
 section{padding:clamp(80px,11vw,160px) 0}
 
-/* 키보드 사용자용 포커스 표시 (접근성) */
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 
 /* ==========================================================
-   2. 헤더 (상단 고정 내비게이션)
+   2. 헤더
    ========================================================== */
 header{
   position:sticky; top:0; z-index:50;
@@ -75,16 +69,13 @@ header{
 
 
 /* ==========================================================
-   3. 히어로 — 첫 화면
+   3. 히어로
    ========================================================== */
 .hero{padding:8px 0 clamp(70px,9vw,110px)}
-
 .hero-grid{
   display:grid; grid-template-columns:1.6fr 1fr;
   gap:clamp(28px,4vw,56px); align-items:start;
 }
-
-/* 왼쪽 — 파란 카피 박스 */
 .headline-box{
   background:var(--blue); color:#fff;
   padding:clamp(24px,3vw,40px) clamp(26px,3vw,44px);
@@ -104,56 +95,82 @@ header{
   color:var(--blue); border-bottom:1px solid var(--blue);
 }
 
-/* 오른쪽 — 정보 테이블 + 사진을 하나의 카드로 묶음 */
-.info-card{
-  border:1px solid var(--blue);
-  border-radius:4px;
-  overflow:hidden;
-}
+/* 정보 테이블 + 사진 카드 */
+.info-card{border:1px solid var(--blue);border-radius:4px;overflow:hidden}
 .fact{
   display:flex; justify-content:space-between; gap:16px;
-  padding:11px 14px;
-  border-bottom:1px solid var(--blue);
+  padding:11px 14px; border-bottom:1px solid var(--blue);
   font-size:.85rem; color:var(--blue);
 }
 .fact span:first-child{font-weight:600}
-.fact span:last-child{text-align:right; opacity:.72}
-
+.fact span:last-child{text-align:right;opacity:.72}
 .hero-photo{
-  aspect-ratio:3/4;
-  background:var(--mist);
+  aspect-ratio:3/4; background:var(--mist);
   display:flex; align-items:center; justify-content:center;
   font-size:.78rem; color:var(--muted);
 }
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* 히어로 반응형 — 좁은 화면에서 1단으로 */
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-photo{aspect-ratio:4/3}
+
+/* ==========================================================
+   4. About — 소개 + 도구 + 강점 3축
+   ========================================================== */
+.about{background:var(--mist);text-align:center}
+
+.about-intro{max-width:680px;margin:0 auto}
+.about-intro h2{
+  font-size:clamp(1.9rem,4.2vw,3.1rem);
+  font-weight:800; letter-spacing:-.045em; line-height:1.22;
 }
+.about-intro p{
+  margin-top:18px; font-size:clamp(.92rem,1.3vw,1.02rem);
+  color:#3E424C; line-height:1.8;
+}
+
+/* 도구 줄 */
+.tools{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:16px clamp(28px,4vw,52px);
+  margin-top:clamp(40px,5vw,60px); padding:26px 0;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  opacity:.6; transition:opacity .3s;
+}
+.tools:hover{opacity:1}
+.tool{display:flex;align-items:center;gap:8px}
+.tool img{width:22px;height:22px;object-fit:contain}
+.tool span{font-size:.88rem;font-weight:600}
+
+/* 강점 3축 카드 — PC */
+.axes{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:clamp(14px,2vw,22px);
+  margin-top:clamp(48px,6vw,76px);
+}
+.axis{
+  background:var(--paper); border-radius:12px;
+  padding:16px 16px 24px; text-align:left;
+}
+.axis-img{
+  aspect-ratio:16/10; border-radius:8px; overflow:hidden;
+  background:#EDEFF4;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.75rem; color:var(--muted); flex-shrink:0;
+}
+.axis-img img{width:100%;height:100%;object-fit:cover}
+.axis .lead{margin:18px 0 2px;font-size:.82rem;color:var(--muted)}
+.axis h3{margin:0 0 9px;font-size:1.18rem;font-weight:800;letter-spacing:-.035em}
+.axis p{font-size:.88rem;color:#5A5E68;line-height:1.65}
 
 
 /* ==========================================================
-   4. 강점 3축
+   5. 프로젝트 목록
    ========================================================== */
-.approach{background:var(--mist)}
 .sec-head{margin-bottom:clamp(44px,6vw,72px)}
 .sec-head h2{
   margin-top:16px;
   font-size:clamp(1.6rem,3.4vw,2.5rem);
   font-weight:800; letter-spacing:-.035em; line-height:1.3;
 }
-.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
-.axis{background:var(--mist);padding:38px 32px 42px}
-.axis .mono{color:var(--blue)}
-.axis h3{margin:18px 0 14px;font-size:1.32rem;font-weight:800;letter-spacing:-.03em}
-.axis p{font-size:.93rem;color:#4A4E58}
-
-
-/* ==========================================================
-   5. 프로젝트 목록
-   ========================================================== */
 .proj{
   display:grid; grid-template-columns:180px 1fr 300px;
   gap:44px; align-items:start;
@@ -163,7 +180,7 @@ header{
 .proj:last-child{border-bottom:1px solid var(--line)}
 .proj:hover{opacity:.62}
 .proj h3{font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-.035em;line-height:1.34}
-.proj h3 span{display:block}           /* 프로젝트명 2줄 표기 */
+.proj h3 span{display:block}
 .proj h3 span:last-child{color:var(--muted);font-weight:700}
 .proj .desc{margin-top:16px;font-size:.94rem;color:#4A4E58;max-width:520px}
 .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
@@ -171,32 +188,12 @@ header{
   font-size:.76rem; font-weight:600; color:var(--blue);
   border:1px solid var(--blue); border-radius:999px; padding:4px 12px;
 }
-/* 썸네일 자리 — 이미지 넣기 전엔 회색 박스로 보입니다 */
-.thumb{
-  background:transparent;
-  border:none;
-  border-radius:4px;
-  overflow:hidden;
-  font-size:.78rem; color:var(--muted);
-}
+.thumb{border-radius:4px;overflow:hidden;font-size:.78rem;color:var(--muted)}
 .thumb img{width:100%;height:auto;display:block}
 
 
 /* ==========================================================
-   6. 소개 / 스킬
-   ========================================================== */
-.about{background:var(--ink);color:#fff}
-.about .mono{color:#8C93A8}
-.about h2{color:#fff}
-.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(40px,7vw,100px)}
-.about-grid p{color:#C9CCD6;margin-bottom:18px;font-size:.98rem}
-.skill-row{padding:18px 0;border-top:1px solid #24262E;display:flex;justify-content:space-between;gap:24px}
-.skill-row span:first-child{color:#8C93A8;font-size:.85rem;white-space:nowrap}
-.skill-row span:last-child{text-align:right;font-size:.92rem;font-weight:500}
-
-
-/* ==========================================================
-   7. 연락처 / 푸터
+   6. 연락처 / 푸터
    ========================================================== */
 .contact h2{font-size:clamp(1.8rem,5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.22}
 .contact a.mail{color:var(--blue);border-bottom:2px solid var(--blue)}
@@ -206,21 +203,37 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 
 /* ==========================================================
-   8. 반응형 — 화면이 좁아질 때만 적용되는 규칙
+   7. 반응형
    ========================================================== */
 @media (max-width:960px){
   .proj{grid-template-columns:1fr;gap:24px}
   .thumb{max-width:420px}
-  .about-grid{grid-template-columns:1fr}
-  .axes{grid-template-columns:1fr}
+
+  /* 강점 3축 — 모바일: 이미지를 우측 작은 썸네일로 */
+  .axes{grid-template-columns:1fr;gap:10px;margin-top:40px}
+  .axis{
+    display:grid; grid-template-columns:1fr 64px;
+    gap:16px; align-items:center; padding:18px;
+  }
+  .axis-img{
+    grid-column:2; grid-row:1;
+    width:64px; height:64px; aspect-ratio:1/1;
+    border-radius:8px; font-size:.65rem;
+  }
+  .axis > div{grid-column:1; grid-row:1}
+  .axis .lead{margin-top:0;font-size:.78rem}
+  .axis h3{font-size:1.05rem;margin-bottom:6px}
+  .axis p{font-size:.85rem}
+}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{aspect-ratio:4/3}
 }
 @media (max-width:600px){
   .nav ul{gap:18px}
   .nav ul a{font-size:.82rem}
-  .hero-meta{gap:20px 32px}
 }
 
-/* 움직임을 줄이도록 설정한 사용자를 위한 배려 (접근성) */
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important}
 }
@@ -234,19 +247,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   <nav class="nav">
     <a href="#" class="logo">조가인</a>
     <ul>
-      <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
+
 
 <!-- ===== 히어로 ===== -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
 
-      <!-- 왼쪽 -->
       <div>
         <div class="headline-box">
           <h1>
@@ -263,7 +276,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         <a class="hero-cta" href="#work">프로젝트 보기</a>
       </div>
 
-        <!-- 오른쪽 -->
       <div>
         <div class="info-card">
           <div class="fact"><span>경력</span><span>4년</span></div>
@@ -279,39 +291,56 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 
-
-<!-- ===== 강점 3축 ===== -->
-<section class="approach">
+<!-- ===== About — 소개 + 도구 + 강점 3축 ===== -->
+<section id="about" class="about">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="mono">Approach</p>
-      <h2>일하는 방식</h2>
+
+    <div class="about-intro">
+      <h2>번역하는 기획자</h2>
+      <p>SI 환경에서 공공기관과 금융기관 프로젝트를 맡아 왔습니다. RFP 분석부터 정보구조 설계, 화면정의서 작성, 오픈 이후 운영까지 한 사이클을 반복해서 경험했습니다.</p>
+      <p>행정안전부 디지털정부 UI/UX 가이드라인(KRDS) 고도화 사업에 컨설팅으로 참여해 8개 공공기관의 준수 여부를 검토했고, 가이드라인 회의에 직접 참석했습니다.</p>
+      <p>다음 단계로는 하나의 서비스를 길게 맡아 사용자 데이터를 보며 개선해 나가는 환경에서 일하고 싶습니다.</p>
     </div>
+
+    <!-- 도구 — 로고 이미지가 없으면 <img> 태그만 지우세요 -->
+    <div class="tools">
+      <div class="tool"><img src="images/logo-ppt.png" alt=""><span>PowerPoint</span></div>
+      <div class="tool"><img src="images/logo-excel.png" alt=""><span>Excel</span></div>
+      <div class="tool"><img src="images/logo-krds.png" alt=""><span>KRDS</span></div>
+    </div>
+
     <div class="axes">
       <div class="axis">
-        <p class="mono">01 — Interpret</p>
-        <h3>해석력</h3>
-        <p>RFP에 적힌 문장과 담당자가 실제로 원하는 것은 다를 때가 많습니다. 요구사항 뒤의 의도를 먼저 확인하고 설계에 반영합니다.</p>
+        <div class="axis-img"><img src="images/axis-1.jpg" alt=""></div>
+        <div>
+          <p class="lead">요구사항을 읽어내는</p>
+          <h3>해석력</h3>
+          <p>VFX 소스데이터, 주택금융·보증처럼 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
+        </div>
       </div>
       <div class="axis">
-        <p class="mono">02 — Understand</p>
-        <h3>이해력</h3>
-        <p>서비스의 목표부터 운영 담당자가 매일 마주할 화면까지 함께 봅니다. 오픈 이후에도 유지되는 구조를 설계합니다.</p>
+        <div class="axis-img"><img src="images/axis-2.jpg" alt=""></div>
+        <div>
+          <p class="lead">복잡함을 화면으로 옮기는</p>
+          <h3>설계력</h3>
+          <p>복잡한 요구사항과 프로세스를 일반 사용자가 이해할 수 있는 화면으로 옮깁니다.</p>
+        </div>
       </div>
       <div class="axis">
-        <p class="mono">03 — Adapt</p>
-        <h3>적응력</h3>
-        <p>기획자는 디자이너·개발자·고객사 사이에 서 있습니다. 처음 맡는 도메인에서도 빠르게 맥락을 파악하고 논의의 중심을 잡습니다.</p>
+        <div class="axis-img"><img src="images/axis-3.jpg" alt=""></div>
+        <div>
+          <p class="lead">제안부터 운영까지 이어온</p>
+          <h3>수행력</h3>
+          <p>설계뿐 아니라 제안·QA·감리·오픈 후 운영까지 프로젝트 전 과정을 경험했습니다.</p>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
 
-<!-- ===== 프로젝트 =====
-     프로젝트를 추가하려면 <article class="proj">...</article> 블록 전체를
-     복사해서 아래에 붙이고 내용만 바꾸면 됩니다.
--->
+<!-- ===== 프로젝트 ===== -->
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
@@ -339,8 +368,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
           <span class="tag">벤치마킹</span>
         </div>
       </div>
-      <div class="thumb"><img src="images/썸네일/HF_thum.png"
-       alt="HF 모바일 개인화 홈과 전세ON 신청 프로세스 화면"></div>
+      <div class="thumb"><img src="images/썸네일/HF_thum.png" alt="HF 모바일 개인화 홈과 전세ON 신청 프로세스 화면"></div>
     </article>
 
     <article class="proj">
@@ -392,46 +420,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 
-<!-- ===== 소개 ===== -->
-<section id="about" class="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="mono">About</p>
-      <h2>조가인 · 서비스 기획자</h2>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p>
-          SI 환경에서 공공기관과 금융기관 프로젝트를 맡아 왔습니다.
-          RFP 분석부터 정보구조 설계, 화면정의서 작성, 오픈 이후 운영까지
-          한 사이클을 반복해서 경험했습니다.
-        </p>
-        <p>
-          행정안전부 디지털정부 UI/UX 가이드라인(KRDS) 고도화 사업에
-          컨설팅으로 참여해 8개 공공기관의 준수 여부를 검토했고,
-          가이드라인 회의에 직접 참석했습니다. 공공 서비스의 접근성 기준을
-          문서가 아닌 실제 판단 기준으로 다룰 수 있습니다.
-        </p>
-        <p>
-          다음 단계로는 하나의 서비스를 길게 맡아 사용자 데이터를 보며
-          개선해 나가는 환경에서 일하고 싶습니다.
-        </p>
-      </div>
-      <div>
-        <div class="skill-row"><span>기획</span><span>IA · 화면정의서 · 프로세스 설계</span></div>
-        <div class="skill-row"><span>도메인</span><span>공공 · 금융 · 교육 · 정부</span></div>
-        <div class="skill-row"><span>가이드라인</span><span>KRDS · 웹 접근성</span></div>
-        <div class="skill-row"><span>도구</span><span>Figma · PowerPoint · Excel</span></div>
-        <div class="skill-row"><span>협업</span><span>디자이너 · 퍼블리셔 · 개발 · 고객사</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===== 연락처 =====
-     아래 이메일 주소를 본인 것으로 꼭 바꿔주세요.
--->
+<!-- ===== 연락처 ===== -->
 <section id="contact" class="contact">
   <div class="wrap">
     <p class="mono" style="margin-bottom:24px">Contact</p>
