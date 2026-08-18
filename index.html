@@ -69,15 +69,20 @@ header{
 
 
 /* ==========================================================
-   3. 히어로
+   3. 히어로 — 좌: 타이틀 / 우: 프로젝트 표 + 사진
    ========================================================== */
 .hero{border-top:1px solid var(--line);padding:clamp(32px,4vw,56px) 0 clamp(40px,5vw,72px)}
 .hero-grid{
-  display:grid; grid-template-columns:minmax(300px,400px) 1fr;
+  display:grid; grid-template-columns:1fr minmax(300px,400px);
   gap:clamp(32px,5vw,80px); align-items:start;
 }
+.hero-left{padding-top:clamp(8px,1.5vw,24px)}
+.hero-left h1{
+  font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:800; line-height:1.35; letter-spacing:-.04em;
+}
 
-/* 좌측 — 대표 프로젝트 표 + 사진 */
+/* 우측 — 대표 프로젝트 표 + 사진 */
 .hl{border:1px solid var(--ink);border-bottom:none}
 .hl-row{
   display:flex; justify-content:space-between; gap:14px;
@@ -91,27 +96,6 @@ header{
   font-size:.85rem; color:#6C6F78; overflow:hidden;
 }
 .photo img{width:100%;height:100%;object-fit:cover}
-
-/* 우측 — 타이틀 + CTA */
-.hero-right{
-  min-height:100%; display:flex; flex-direction:column;
-  justify-content:space-between; gap:48px;
-  padding-top:clamp(8px,1.5vw,20px);
-}
-.hero-right h1{
-  font-size:clamp(1.9rem,4.2vw,3.5rem);
-  font-weight:800; line-height:1.35; letter-spacing:-.04em;
-}
-.cta{
-  align-self:flex-end;
-  display:inline-flex; align-items:center; gap:12px;
-  background:var(--ink); color:#fff;
-  padding:18px 26px; border-radius:4px;
-  font-size:.95rem; font-weight:600;
-  transition:opacity .2s;
-}
-.cta:hover{opacity:.82}
-.cta .arrow{font-size:1.05rem;line-height:1}
 
 
 /* ==========================================================
@@ -144,15 +128,19 @@ header{
 .about-body p:last-child{margin-bottom:0}
 
 .about-sub{
-  display:grid; grid-template-columns:minmax(240px,300px) 1fr;
+  display:grid; grid-template-columns:1fr 1fr;
   gap:clamp(28px,4vw,64px); align-items:start;
   margin-top:clamp(40px,4.5vw,64px);
 }
 .blk-title{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
 
-.job{display:grid;grid-template-columns:minmax(150px,auto) minmax(120px,auto) 1fr;gap:8px 24px;padding:9px 0;font-size:.92rem;align-items:baseline}
-.job .term{color:var(--muted);font-size:.86rem}
-.job .co{font-weight:600}
+/* 경력 — flex 로 처리해 세로 잘림 방지 */
+.job{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 28px;
+  padding:11px 0; font-size:.95rem;
+}
+.job .term{color:var(--muted);font-size:.88rem;min-width:160px}
+.job .co{font-weight:700;letter-spacing:-.02em;min-width:120px}
 .job .role{color:#4A4E58}
 
 .skills{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
@@ -226,12 +214,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 
 /* ==========================================================
-   9. 반응형
+   9. 플로팅 버튼 — 스크롤 시 나타남
+   ========================================================== */
+.floating{
+  position:fixed; right:clamp(16px,3vw,40px); bottom:clamp(16px,3vw,40px);
+  z-index:60;
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--ink); color:#fff;
+  padding:15px 22px; border-radius:999px;
+  font-size:.92rem; font-weight:600;
+  box-shadow:0 6px 24px rgba(0,0,0,.18);
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .3s, transform .3s, visibility .3s;
+}
+.floating.show{opacity:1;visibility:visible;transform:translateY(0)}
+.floating:hover{opacity:.85}
+
+
+/* ==========================================================
+   10. 반응형
    ========================================================== */
 @media (max-width:1100px){
   .hero-grid{grid-template-columns:1fr;gap:32px}
-  .hero-right{gap:32px}
-  .cta{align-self:flex-start}
   .photo{max-width:400px}
   .axes{grid-template-columns:1fr;gap:26px}
   .about-grid,.about-sub{grid-template-columns:1fr;gap:22px}
@@ -247,7 +251,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   .nav ul{gap:14px}
   .nav ul a{font-size:.85rem}
   .logo{font-size:.9rem}
-  .job{grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .job{gap:4px 16px;padding:13px 0;border-top:1px solid var(--line)}
+  .job .term,.job .co{min-width:0}
+  .floating{padding:13px 18px;font-size:.86rem}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -276,7 +282,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   <div class="wrap">
     <div class="hero-grid">
 
-      <!-- 좌측 -->
+      <!-- 좌측: 타이틀 -->
+      <div class="hero-left">
+        <h1>
+          사용자 언어로<br>
+          번역하는 서비스 기획자<br>
+          조가인
+        </h1>
+      </div>
+
+      <!-- 우측: 대표 프로젝트 + 사진 -->
       <div>
         <div class="hl">
           <div class="hl-row"><span>한국주택금융공사 비대면채널 UI/UX 고도화</span><span>2026.06</span></div>
@@ -284,16 +299,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
           <div class="hl-row"><span>한국영상자료원 소스데이터 공유 플랫폼 구축</span><span>2024.02</span></div>
         </div>
         <div class="photo"><img src="images/profile.jpg" alt="조가인"></div>
-      </div>
-
-      <!-- 우측 -->
-      <div class="hero-right">
-        <h1>
-          사용자 언어로<br>
-          번역하는 서비스 기획자<br>
-          조가인
-        </h1>
-        <a class="cta" href="#work">프로젝트 보기 <span class="arrow">↓</span></a>
       </div>
 
     </div>
@@ -347,7 +352,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
       </div>
     </div>
 
-    <div class="about-sub">
+        <div class="about-sub">
       <div>
         <h3 class="blk-title">경력</h3>
         <div class="job">
@@ -528,6 +533,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <span class="mono">Seoul, Korea</span>
   </div>
 </footer>
+
+
+<!-- ===== 플로팅 버튼 =====
+     PDF 파일을 준비하면 href를 "portfolio.pdf" 로 바꾸고
+     download 속성을 살려두세요.
+-->
+<a class="floating" id="floatBtn" href="#" download>
+  포트폴리오 PDF <span aria-hidden="true">↓</span>
+</a>
+
+<script>
+// 화면 한 번 정도 스크롤하면 버튼이 나타납니다
+(function(){
+  var btn = document.getElementById('floatBtn');
+  function toggle(){
+    if (window.scrollY > window.innerHeight * 0.6) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  }
+  window.addEventListener('scroll', toggle, {passive:true});
+  toggle();
+})();
+</script>
 
 </body>
 </html>
