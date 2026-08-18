@@ -191,9 +191,9 @@ header{
   font-weight:800; letter-spacing:-.035em; line-height:1.3;
 }
 .proj{
-  display:grid; grid-template-columns:180px 1fr 300px;
+  display:grid; grid-template-columns:1fr 200px 300px;
   gap:44px; align-items:center;
-  padding:40px 0; border-top:1px solid var(--line);
+  padding:36px 0; border-top:1px solid var(--line);
   transition:opacity .2s;
 }
 .proj:last-child{border-bottom:1px solid var(--line)}
@@ -201,12 +201,14 @@ header{
 .proj h3{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:800;letter-spacing:-.035em;line-height:1.4}
 .proj h3 span{display:block}
 .proj h3 span:last-child{color:var(--muted);font-weight:700}
-.proj .desc{margin-top:14px;font-size:.92rem;color:#4A4E58;max-width:560px;line-height:1.8}
-.tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.proj .desc{margin-top:14px;font-size:.92rem;color:#4A4E58;line-height:1.75}
+.tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .tag{
   font-size:.74rem; font-weight:600; color:var(--blue);
   border:1px solid var(--blue); border-radius:999px; padding:4px 12px;
 }
+.proj-meta .mono{display:block;font-size:.78rem}
+.proj-meta .mono + .mono{margin-top:8px}
 .thumb{border-radius:8px;overflow:hidden}
 .thumb img{width:100%;height:auto;display:block}
 
@@ -271,8 +273,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   .about-sub{gap:40px}
 }
 @media (max-width:960px){
-  .proj{grid-template-columns:1fr;gap:22px}
-  .thumb{max-width:300px}
+  .proj{grid-template-columns:1fr;gap:20px}
+  .proj-meta{order:-1}
+  .thumb{max-width:460px}
   .row{grid-template-columns:1fr;gap:6px;padding:18px 0}
   .role-tag{justify-self:start;margin-top:4px}
 }
@@ -431,24 +434,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <!-- ===== 주요 프로젝트 ===== -->
 <section id="work">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="mono">Selected Work</p>
-          <h2 class="sec-title">Selected Work</h2>
-    </div>
+        <h2 class="sec-title">Key Projects</h2>
 
-    <article class="proj">
-      <div>
-        <p class="mono">2025.10 — 2026.06</p>
-        <p class="mono" style="margin-top:8px">기여 40%</p>
-      </div>
+        <article class="proj">
       <div>
         <h3><span>한국주택금융공사</span><span>비대면채널 UI/UX 고도화</span></h3>
-        <p class="desc">
-          주택보증·주택연금·상품찾기·모바일 대출 서비스의 화면설계를 담당했습니다.
-          개인화 메인 홈 구조를 설계하고, 흩어져 있던 상품 탐색 경로를 통합한
-          'HF 찾기' 메뉴를 신규 제안했습니다. 신청 프로세스의 입력 항목을 분석해
-          단계를 재구성하고 타 금융기관 벤치마킹을 진행했습니다.
-        </p>
+        <p class="desc">주택금융 4개 서비스의 화면을 설계했습니다. 흩어진 상품 탐색 경로를 'HF 찾기' 메뉴로 통합하고, 신청 프로세스를 재구성했습니다.</p>
         <div class="tags">
           <span class="tag">개인화 설계</span>
           <span class="tag">IA 재구성</span>
@@ -456,21 +447,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
           <span class="tag">벤치마킹</span>
         </div>
       </div>
+      <div class="proj-meta">
+        <p class="mono">2025.10 — 2026.06</p>
+        <p class="mono">기여 40%</p>
+      </div>
       <div class="thumb"><img src="images/썸네일/HF_thum.png" alt="HF 모바일 개인화 홈과 전세ON 신청 프로세스 화면"></div>
     </article>
 
     <article class="proj">
       <div>
-        <p class="mono">2025.04 — 2025.07</p>
-        <p class="mono" style="margin-top:8px">기여 100%</p>
-      </div>
-      <div>
         <h3><span>21대 대통령실</span><span>임시홈페이지 구축 · 운영</span></h3>
-        <p class="desc">
-          3인 팀에서 단독 기획자로 6개 서비스의 설계와 운영을 담당했습니다.
-          짧은 일정 안에서 오픈 우선순위를 정리하고, 오픈 이후 발생하는
-          수정 요청을 직접 응대하며 운영까지 이어갔습니다.
-        </p>
+        <p class="desc">3인 팀의 단독 기획자로 6개 서비스의 설계와 운영을 맡았습니다. 짧은 일정 안에서 오픈 우선순위를 정리하고, 오픈 이후 운영까지 이어갔습니다.</p>
         <div class="tags">
           <span class="tag">단독 기획</span>
           <span class="tag">6개 서비스</span>
@@ -478,7 +465,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
           <span class="tag">KRDS 준수</span>
         </div>
       </div>
+      <div class="proj-meta">
+        <p class="mono">2025.04 — 2025.07</p>
+        <p class="mono">기여 100%</p>
+      </div>
       <div class="thumb"><img src="images/썸네일/president_thum.png" alt="21대 대통령실 임시홈페이지 메인 화면"></div>
+    </article>
+
+    <article class="proj">
+      <div>
+        <h3><span>한국영상자료원</span><span>소스데이터 공유 플랫폼 구축</span></h3>
+        <p class="desc">243p 분량의 화면정의서와 FO/BO 정보구조를 설계했습니다. 복잡한 회원 체계를 표준화하고, 사용자 유형별 마이페이지와 CMS 화면을 설계했습니다.</p>
+        <div class="tags">
+          <span class="tag">화면정의서 243p</span>
+          <span class="tag">회원 체계 표준화</span>
+          <span class="tag">CMS 설계</span>
+          <span class="tag">테스트 시나리오</span>
+        </div>
+      </div>
+      <div class="proj-meta">
+        <p class="mono">2023.10 — 2024.02</p>
+        <p class="mono">기여 80%</p>
+      </div>
+      <div class="thumb"><img src="images/썸네일/kofa_thum.png" alt="한국영상자료원 소스데이터 공유 플랫폼 메인 화면"></div>
     </article>
 
     <article class="proj">
