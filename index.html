@@ -21,12 +21,12 @@
   --blue:#1B45D7;
   --paper:#FFFFFF;
   --mist:#F3F4F8;
-  --line:#E3E5EC;
+  --line:#DCDEE5;
   --muted:#71757F;
 
   --gut:clamp(20px,4vw,56px);
   --max:1720px;
-}
+  --sec:clamp(56px,6vw,92px);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,10 +43,10 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
 .mono{
   font-family:'JetBrains Mono',monospace;
-  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
   color:var(--muted);
 }
-section{padding:clamp(80px,11vw,160px) 0}
+section{padding:var(--sec) 0;border-top:1px solid var(--line)}
 
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
@@ -56,161 +56,198 @@ section{padding:clamp(80px,11vw,160px) 0}
    ========================================================== */
 header{
   position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.88); backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.9); backdrop-filter:blur(12px);
 }
 .nav{
-  max-width:var(--max); margin:0 auto; padding:18px var(--gut);
+  max-width:var(--max); margin:0 auto; padding:20px var(--gut);
   display:flex; align-items:center; justify-content:space-between;
 }
-.logo{font-weight:800;font-size:1.05rem;letter-spacing:-.03em}
-.nav ul{display:flex;gap:32px;list-style:none}
-.nav ul a{font-size:.9rem;font-weight:500;color:var(--muted);transition:color .2s}
-.nav ul a:hover{color:var(--blue)}
+.logo{font-size:1rem;letter-spacing:.02em;font-weight:500}
+.nav ul{display:flex;gap:22px;list-style:none}
+.nav ul a{font-size:.95rem;color:var(--ink);transition:opacity .2s}
+.nav ul a:hover{opacity:.5}
 
 
 /* ==========================================================
    3. 히어로
    ========================================================== */
-.hero{padding:8px 0 clamp(70px,9vw,110px)}
+.hero{border-top:1px solid var(--line);padding:clamp(32px,4vw,56px) 0 clamp(40px,5vw,72px)}
 .hero-grid{
-  display:grid; grid-template-columns:1.6fr 1fr;
-  gap:clamp(28px,4vw,56px); align-items:start;
-}
-.headline-box{
-  background:var(--blue); color:#fff;
-  padding:clamp(24px,3vw,40px) clamp(26px,3vw,44px);
-  border-radius:4px;
-}
-.headline-box h1{
-  font-size:clamp(1.95rem,4.4vw,3.9rem);
-  font-weight:800; line-height:1.15; letter-spacing:-.045em;
-}
-.hero-sub{
-  margin-top:30px; max-width:540px;
-  font-size:clamp(.95rem,1.4vw,1.08rem); color:#3E424C;
-}
-.hero-cta{
-  display:inline-block; margin-top:26px;
-  font-size:.92rem; font-weight:600;
-  color:var(--blue); border-bottom:1px solid var(--blue);
+  display:grid; grid-template-columns:minmax(300px,400px) 1fr;
+  gap:clamp(32px,5vw,80px); align-items:start;
 }
 
-/* 정보 테이블 + 사진 카드 */
-.info-card{border:1px solid var(--blue);border-radius:4px;overflow:hidden}
-.fact{
-  display:flex; justify-content:space-between; gap:16px;
-  padding:11px 14px; border-bottom:1px solid var(--blue);
-  font-size:.85rem; color:var(--blue);
+/* 좌측 — 대표 프로젝트 표 + 사진 */
+.hl{border:1px solid var(--ink);border-bottom:none}
+.hl-row{
+  display:flex; justify-content:space-between; gap:14px;
+  padding:9px 12px; border-bottom:1px solid var(--ink);
+  font-size:.84rem;
 }
-.fact span:first-child{font-weight:600}
-.fact span:last-child{text-align:right;opacity:.72}
-.hero-photo{
-  aspect-ratio:3/4; background:var(--mist);
+.hl-row span:last-child{color:var(--muted);white-space:nowrap}
+.photo{
+  aspect-ratio:4/5; background:#D5D7DE; border:1px solid var(--ink); border-top:none;
   display:flex; align-items:center; justify-content:center;
-  font-size:.78rem; color:var(--muted);
+  font-size:.85rem; color:#6C6F78; overflow:hidden;
 }
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* 우측 — 타이틀 + CTA */
+.hero-right{
+  min-height:100%; display:flex; flex-direction:column;
+  justify-content:space-between; gap:48px;
+  padding-top:clamp(8px,1.5vw,20px);
+}
+.hero-right h1{
+  font-size:clamp(1.9rem,4.2vw,3.5rem);
+  font-weight:800; line-height:1.35; letter-spacing:-.04em;
+}
+.cta{
+  align-self:flex-end;
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--ink); color:#fff;
+  padding:18px 26px; border-radius:4px;
+  font-size:.95rem; font-weight:600;
+  transition:opacity .2s;
+}
+.cta:hover{opacity:.82}
+.cta .arrow{font-size:1.05rem;line-height:1}
 
 
 /* ==========================================================
-   4. About — 소개 + 도구 + 강점 3축
+   4. 강점 3축 띠
    ========================================================== */
-.about{background:var(--mist);text-align:center}
-
-.about-intro{max-width:680px;margin:0 auto}
-.about-intro h2{
-  font-size:clamp(1.9rem,4.2vw,3.1rem);
-  font-weight:800; letter-spacing:-.045em; line-height:1.22;
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px)}
+.axis{display:flex;gap:18px;align-items:flex-start}
+.axis-icon{
+  width:48px;height:48px;flex-shrink:0;
+  border:1px solid var(--ink);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
-.about-intro p{
-  margin-top:18px; font-size:clamp(.92rem,1.3vw,1.02rem);
-  color:#3E424C; line-height:1.8;
-}
-
-/* 도구 줄 */
-.tools{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
-  gap:16px clamp(28px,4vw,52px);
-  margin-top:clamp(40px,5vw,60px); padding:26px 0;
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  opacity:.6; transition:opacity .3s;
-}
-.tools:hover{opacity:1}
-.tool{display:flex;align-items:center;gap:8px}
-.tool img{width:22px;height:22px;object-fit:contain}
-.tool span{font-size:.88rem;font-weight:600}
-
-/* 강점 3축 — 아이콘 / 강점 / 설명 */
-.axes{
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:clamp(24px,3.5vw,56px);
-  margin-top:clamp(52px,6vw,80px);
-}
-.axis{text-align:left}
-.axis-icon{height:52px;margin-bottom:20px}
-.axis-icon img{height:52px;width:auto;object-fit:contain}
-.axis .lead{margin:0 0 2px;font-size:.82rem;color:var(--muted)}
-.axis h3{margin:0 0 10px;font-size:1.12rem;font-weight:800;letter-spacing:-.03em}
-.axis p{font-size:.88rem;color:#5A5E68;line-height:1.7}
+.axis-icon img{width:26px;height:26px;object-fit:contain}
+.axis .lead{margin:0 0 2px;font-size:.86rem;color:#4A4E58}
+.axis h3{margin:0 0 8px;font-size:1.05rem;font-weight:800;letter-spacing:-.03em}
+.axis p{font-size:.9rem;color:#4A4E58;line-height:1.75}
 
 
 /* ==========================================================
-   5. 프로젝트 목록
+   5. About me
    ========================================================== */
-.sec-head{margin-bottom:clamp(44px,6vw,72px)}
+.sec-title{font-size:1.5rem;font-weight:800;letter-spacing:-.035em;margin-bottom:clamp(28px,3vw,40px)}
+
+.about-grid{
+  display:grid; grid-template-columns:minmax(240px,300px) 1fr;
+  gap:clamp(28px,4vw,64px); align-items:start;
+}
+.about-q{font-size:1.12rem;font-weight:800;letter-spacing:-.035em;line-height:1.5}
+.about-body p{font-size:1rem;color:#2C2F38;line-height:1.95;margin-bottom:14px}
+.about-body p:last-child{margin-bottom:0}
+
+.about-sub{
+  display:grid; grid-template-columns:minmax(240px,300px) 1fr;
+  gap:clamp(28px,4vw,64px); align-items:start;
+  margin-top:clamp(40px,4.5vw,64px);
+}
+.blk-title{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
+
+.job{display:grid;grid-template-columns:minmax(150px,auto) minmax(120px,auto) 1fr;gap:8px 24px;padding:9px 0;font-size:.92rem;align-items:baseline}
+.job .term{color:var(--muted);font-size:.86rem}
+.job .co{font-weight:600}
+.job .role{color:#4A4E58}
+
+.skills{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.skill{
+  width:52px;height:52px;
+  border:1px solid var(--line);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--paper);
+}
+.skill img{width:30px;height:30px;object-fit:contain}
+.skill-gap{width:14px}
+
+
+/* ==========================================================
+   6. 주요 프로젝트
+   ========================================================== */
+.sec-head{margin-bottom:clamp(36px,4vw,56px)}
 .sec-head h2{
-  margin-top:16px;
-  font-size:clamp(1.6rem,3.4vw,2.5rem);
+  margin-top:12px;
+  font-size:clamp(1.5rem,3vw,2.2rem);
   font-weight:800; letter-spacing:-.035em; line-height:1.3;
 }
 .proj{
-  display:grid; grid-template-columns:180px 1fr 340px;
+  display:grid; grid-template-columns:180px 1fr 380px;
   gap:44px; align-items:start;
-  padding:44px 0; border-top:1px solid var(--line);
+  padding:40px 0; border-top:1px solid var(--line);
   transition:opacity .2s;
 }
 .proj:last-child{border-bottom:1px solid var(--line)}
-.proj:hover{opacity:.62}
-.proj h3{font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-.035em;line-height:1.34}
+.proj:hover{opacity:.66}
+.proj h3{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:800;letter-spacing:-.035em;line-height:1.4}
 .proj h3 span{display:block}
 .proj h3 span:last-child{color:var(--muted);font-weight:700}
-.proj .desc{margin-top:16px;font-size:.94rem;color:#4A4E58;max-width:560px}
-.tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.proj .desc{margin-top:14px;font-size:.92rem;color:#4A4E58;max-width:560px;line-height:1.8}
+.tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
 .tag{
-  font-size:.76rem; font-weight:600; color:var(--blue);
+  font-size:.74rem; font-weight:600; color:var(--blue);
   border:1px solid var(--blue); border-radius:999px; padding:4px 12px;
 }
-.thumb{border-radius:4px;overflow:hidden;font-size:.78rem;color:var(--muted)}
+.thumb{border-radius:4px;overflow:hidden}
 .thumb img{width:100%;height:auto;display:block}
 
 
 /* ==========================================================
-   6. 연락처 / 푸터
+   7. All Projects
    ========================================================== */
-.contact h2{font-size:clamp(1.8rem,5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.22}
+.row{
+  display:grid; grid-template-columns:200px 1fr auto;
+  gap:14px 32px; align-items:center;
+  padding:16px 0; border-top:1px solid var(--line);
+}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .term{font-size:.86rem;color:var(--muted)}
+.row .name{font-size:1rem;font-weight:700;letter-spacing:-.02em}
+.row .name em{font-style:normal;font-weight:400;color:#5A5E68}
+.row .note{display:block;margin-top:4px;font-size:.88rem;color:var(--muted);font-weight:400}
+.role-tag{
+  font-size:.78rem;font-weight:500;color:#fff;
+  background:#6E7280;border-radius:999px;padding:5px 16px;white-space:nowrap;
+}
+
+
+/* ==========================================================
+   8. 연락처 / 푸터
+   ========================================================== */
+.contact h2{font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:800;letter-spacing:-.035em;line-height:1.35;margin-top:16px}
 .contact a.mail{color:var(--blue);border-bottom:2px solid var(--blue)}
-.contact-links{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px 32px}
-footer{padding:32px 0;border-top:1px solid var(--line)}
+.contact-links{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px 28px}
+footer{padding:26px 0;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 
 /* ==========================================================
-   7. 반응형
+   9. 반응형
    ========================================================== */
-@media (max-width:960px){
-  .proj{grid-template-columns:1fr;gap:24px}
-  .thumb{max-width:460px}
-  .axes{grid-template-columns:1fr;gap:34px;margin-top:46px}
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-right{gap:32px}
+  .cta{align-self:flex-start}
+  .photo{max-width:400px}
+  .axes{grid-template-columns:1fr;gap:26px}
+  .about-grid,.about-sub{grid-template-columns:1fr;gap:22px}
+  .about-sub{gap:40px}
 }
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-photo{aspect-ratio:4/3}
+@media (max-width:960px){
+  .proj{grid-template-columns:1fr;gap:22px}
+  .thumb{max-width:460px}
+  .row{grid-template-columns:1fr;gap:6px;padding:18px 0}
+  .role-tag{justify-self:start;margin-top:4px}
 }
 @media (max-width:600px){
-  .nav ul{gap:18px}
-  .nav ul a{font-size:.82rem}
-  .axis-icon,.axis-icon img{height:44px}
+  .nav ul{gap:14px}
+  .nav ul a{font-size:.85rem}
+  .logo{font-size:.9rem}
+  .job{grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -224,7 +261,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <!-- ===== 헤더 ===== -->
 <header>
   <nav class="nav">
-    <a href="#" class="logo">조가인</a>
+    <a href="#" class="logo">2026 CHO GAIN</a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
@@ -239,30 +276,24 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   <div class="wrap">
     <div class="hero-grid">
 
+      <!-- 좌측 -->
       <div>
-        <div class="headline-box">
-          <h1>
-            요구사항을<br>
-            사용자 언어로<br>
-            번역하는 기획자
-          </h1>
+        <div class="hl">
+          <div class="hl-row"><span>한국주택금융공사 비대면채널 UI/UX 고도화</span><span>2026.06</span></div>
+          <div class="hl-row"><span>21대 대통령실 임시홈페이지 구축 · 운영</span><span>2025.07</span></div>
+          <div class="hl-row"><span>한국영상자료원 소스데이터 공유 플랫폼 구축</span><span>2024.02</span></div>
         </div>
-        <p class="hero-sub">
-          공공·금융·교육 도메인에서 정보구조와 화면을 설계해 왔습니다.
-          복잡한 요구사항 문서를 사용자가 헤매지 않는 흐름으로 옮기는 일,
-          그리고 그 설계가 실제 운영에서 작동하게 만드는 일을 합니다.
-        </p>
-        <a class="hero-cta" href="#work">프로젝트 보기</a>
+        <div class="photo"><img src="images/profile.jpg" alt="조가인"></div>
       </div>
 
-      <div>
-        <div class="info-card">
-          <div class="fact"><span>경력</span><span>4년</span></div>
-          <div class="fact"><span>도메인</span><span>공공 · 금융 · 교육</span></div>
-          <div class="fact"><span>주력</span><span>IA · 화면설계 · 운영</span></div>
-          <div class="fact"><span>전문 영역</span><span>KRDS 가이드라인</span></div>
-          <div class="hero-photo"><img src="images/profile.jpg" alt="조가인"></div>
-        </div>
+      <!-- 우측 -->
+      <div class="hero-right">
+        <h1>
+          사용자 언어로<br>
+          번역하는 서비스 기획자<br>
+          조가인
+        </h1>
+        <a class="cta" href="#work">프로젝트 보기 <span class="arrow">↓</span></a>
       </div>
 
     </div>
@@ -270,43 +301,77 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 
-<!-- ===== About — 소개 + 도구 + 강점 3축 ===== -->
-<section id="about" class="about">
+<!-- ===== 강점 3축 ===== -->
+<section>
   <div class="wrap">
-
-    <div class="about-intro">
-      <h2>번역하는 기획자</h2>
-      <p>SI 환경에서 공공기관과 금융기관 프로젝트를 맡아 왔습니다. RFP 분석부터 정보구조 설계, 화면정의서 작성, 오픈 이후 운영까지 한 사이클을 반복해서 경험했습니다.</p>
-      <p>행정안전부 디지털정부 UI/UX 가이드라인(KRDS) 고도화 사업에 컨설팅으로 참여해 8개 공공기관의 준수 여부를 검토했고, 가이드라인 회의에 직접 참석했습니다.</p>
-      <p>다음 단계로는 하나의 서비스를 길게 맡아 사용자 데이터를 보며 개선해 나가는 환경에서 일하고 싶습니다.</p>
-    </div>
-
-    <!-- 도구 — 로고 이미지가 없으면 <img> 태그만 지우세요 -->
-    <div class="tools">
-      <div class="tool"><img src="images/logo-ppt.png" alt=""><span>PowerPoint</span></div>
-      <div class="tool"><img src="images/logo-excel.png" alt=""><span>Excel</span></div>
-      <div class="tool"><img src="images/logo-krds.png" alt=""><span>KRDS</span></div>
-    </div>
-
-    <!-- 강점 3축 — 아이콘은 배경 투명 PNG -->
     <div class="axes">
       <div class="axis">
         <div class="axis-icon"><img src="images/icon-1.png" alt=""></div>
-        <p class="lead">요구사항을 읽어내는</p>
-        <h3>해석력</h3>
-        <p>VFX 소스데이터, 주택금융·보증처럼 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
+        <div>
+          <p class="lead">요구사항을 읽어내는</p>
+          <h3>해석력</h3>
+          <p>다양한 제안서를 접하며 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
+        </div>
       </div>
       <div class="axis">
         <div class="axis-icon"><img src="images/icon-2.png" alt=""></div>
-        <p class="lead">복잡함을 화면으로 옮기는</p>
-        <h3>설계력</h3>
-        <p>복잡한 요구사항과 프로세스를 일반 사용자가 이해할 수 있는 화면으로 옮깁니다.</p>
+        <div>
+          <p class="lead">복잡함을 화면으로 옮기는</p>
+          <h3>설계력</h3>
+          <p>공공·금융·미디어 등 다양한 분야의 경험으로 복잡한 요구사항과 프로세스를 일반 사용자가 이해할 수 있는 화면으로 옮깁니다.</p>
+        </div>
       </div>
       <div class="axis">
         <div class="axis-icon"><img src="images/icon-3.png" alt=""></div>
-        <p class="lead">제안부터 운영까지 이어온</p>
-        <h3>수행력</h3>
-        <p>설계뿐 아니라 제안·QA·감리·오픈 후 운영까지 프로젝트 전 과정을 경험했습니다.</p>
+        <div>
+          <p class="lead">제안부터 운영까지 이어온</p>
+          <h3>수행력</h3>
+          <p>설계뿐 아니라 제안·QA·감리·오픈 후 운영까지 프로젝트 전 과정을 경험했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== About me ===== -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="sec-title">About me</h2>
+
+    <div class="about-grid">
+      <p class="about-q">사용자 언어로<br>번역하는<br>서비스 기획자란?</p>
+      <div class="about-body">
+        <p>공공·금융·교육 도메인에서 정보구조와 화면을 설계해 왔습니다.</p>
+        <p>업무가 복잡한 서비스일수록 사용자는 화면 앞에서 멈춥니다. 저는 그 복잡한 절차를 사용자가 헤매지 않고 따라올 수 있는 흐름으로 바꾸고, 오픈한 뒤에도 그 흐름이 지켜지도록 운영까지 이어갑니다.</p>
+      </div>
+    </div>
+
+    <div class="about-sub">
+      <div>
+        <h3 class="blk-title">경력</h3>
+        <div class="job">
+          <span class="term">2023.10.03 — 재직 중</span>
+          <span class="co">㈜비브이에스</span>
+          <span class="role">기획팀 대리</span>
+        </div>
+        <div class="job">
+          <span class="term">2019.06 — 2020.07</span>
+          <span class="co">㈜용감한컴퍼니</span>
+          <span class="role">콘텐츠 기획팀 사원</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="blk-title">스킬</h3>
+        <div class="skills">
+          <div class="skill"><img src="images/logo-ppt.png" alt="PowerPoint"></div>
+          <div class="skill"><img src="images/logo-excel.png" alt="Excel"></div>
+          <div class="skill"><img src="images/logo-claude.png" alt="Claude"></div>
+          <span class="skill-gap"></span>
+          <div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
+          <div class="skill"><img src="images/logo-notion.png" alt="Notion"></div>
+        </div>
       </div>
     </div>
 
@@ -314,7 +379,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 
-<!-- ===== 프로젝트 ===== -->
+<!-- ===== 주요 프로젝트 ===== -->
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
@@ -394,10 +459,57 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 
+<!-- ===== All Projects ===== -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">ALL PROJECTS</h2>
+
+    <div class="row">
+      <span class="term">2025.10 — 2026.06</span>
+      <span class="name">한국주택금융공사 비대면 채널 UI/UX 개선 사업</span>
+      <span class="role-tag">컨설팅 · 기획</span>
+    </div>
+    <div class="row">
+      <span class="term">2025.04 — 2025.07</span>
+      <span class="name">제21대 대통령실 임시 홈페이지 기획 및 운영</span>
+      <span class="role-tag">기획 · 운영</span>
+    </div>
+    <div class="row">
+      <span class="term">2025.05 — 2025.12</span>
+      <span class="name">디지털 정부서비스 UI/UX 가이드라인(KRDS) 2차 고도화</span>
+      <span class="role-tag">컨설팅</span>
+    </div>
+    <div class="row">
+      <span class="term">2024.06 — 2024.08</span>
+      <span class="name">경기과학기술대 학과홈페이지 및 CMS 기능 수정</span>
+      <span class="role-tag">기획</span>
+    </div>
+    <div class="row">
+      <span class="term">2024.04 — 2024.06</span>
+      <span class="name">크레버스 CMS 영재관 통합 입시포털 <em>2024 웹어워드코리아 전문교육분야 대상</em></span>
+      <span class="role-tag">기획</span>
+    </div>
+    <div class="row">
+      <span class="term">2023.09 — 2024.02</span>
+      <span class="name">한국영상자료원 소스데이터 공유 플랫폼 구축</span>
+      <span class="role-tag">기획</span>
+    </div>
+    <div class="row">
+      <span class="term">기타</span>
+      <span class="name">다수의 제안 참여 (비상교육, 대한간호협회 등)
+        <span class="note">제21대 대통령실 홈페이지 구축 사업 수주 · HF 비대면 UI/UX 개선 사업 등 수주</span>
+      </span>
+      <span class="role-tag">제안</span>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ===== 연락처 ===== -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <p class="mono" style="margin-bottom:24px">Contact</p>
+    <p class="mono">Contact</p>
     <h2>
       함께 이야기 나눌 기회가 있다면<br>
       <a class="mail" href="mailto:aqwer77@naver.com">aqwer77@naver.com</a>
