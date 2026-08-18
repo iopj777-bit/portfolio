@@ -122,40 +122,50 @@ header{
 /* ==========================================================
    4. About me
    ========================================================== */
-.sec-title{font-size:1.5rem;font-weight:800;letter-spacing:-.035em;margin-bottom:clamp(28px,3vw,40px)}
-
 .about-grid{
-  display:grid; grid-template-columns:minmax(240px,300px) 1fr;
-  gap:clamp(28px,4vw,64px); align-items:start;
+  display:grid; grid-template-columns:minmax(260px,1fr) 1.4fr;
+  gap:clamp(32px,5vw,80px); align-items:start;
 }
-.about-q{font-size:1.12rem;font-weight:800;letter-spacing:-.035em;line-height:1.5}
-.about-body p{font-size:1rem;color:#2C2F38;line-height:1.95;margin-bottom:14px}
-.about-body p:last-child{margin-bottom:0}
-
-.about-sub{
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:clamp(28px,4vw,64px); align-items:start;
-  margin-top:clamp(40px,4.5vw,64px);
+.about-title{
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:800; letter-spacing:-.04em; line-height:1.25;
 }
-.blk-title{font-size:1.05rem;font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
+.about-title .mono{display:block;margin-bottom:18px;font-size:.9rem}
 
+/* 오른쪽 정보 블록 */
+.info-block{margin-bottom:clamp(28px,3vw,40px)}
+.info-block:last-child{margin-bottom:0}
+.info-block > .blk-title{
+  font-size:1.02rem;font-weight:800;letter-spacing:-.03em;margin-bottom:14px;
+}
+.info-block .basic{font-size:.98rem;color:#2C2F38}
+
+/* 경력 */
 .job{
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 28px;
-  padding:11px 0; font-size:.95rem;
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 24px;
+  padding:9px 0; font-size:.95rem;
 }
-.job .term{color:var(--muted);font-size:.88rem;min-width:160px}
-.job .co{font-weight:700;letter-spacing:-.02em;min-width:120px}
+.job .term{color:var(--muted);font-size:.88rem;min-width:150px}
+.job .co{font-weight:700;letter-spacing:-.02em;min-width:130px}
 .job .role{color:#4A4E58}
 
-.skills{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+/* 스킬 */
+.skills{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 .skill{
   width:52px;height:52px;
   border:1px solid var(--line);border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--paper);
+  display:flex;align-items:center;justify-content:center;background:var(--paper);
 }
 .skill img{width:30px;height:30px;object-fit:contain}
-.skill-gap{width:14px}
+.skill-gap{width:12px}
+
+/* 키워드 */
+.keywords{display:flex;flex-wrap:wrap;gap:10px}
+.keyword{
+  font-size:.88rem;font-weight:600;color:#3E424C;
+  background:var(--mist);border:1px solid var(--line);
+  border-radius:999px;padding:8px 16px;
+}
 
 
 /* ==========================================================
@@ -310,7 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         <div>
           <p class="lead">요구사항을 읽어내는</p>
           <h3>해석력</h3>
-          <p>공공·금융·교육 등 여러 분야의 제안서를 작성하며 쌓은 분석력으로 낯선 전문 영역을 빠르게 파악하고 구조로 정리합니다.</p>
+          <p>공공·금융·교육 등 여러 분야의 제안서를 작성하며 쌓은 분석력으로<br>낯선 분야의 요구사항을 빠르게 파악하고 구조로 정리합니다.</p>
         </div>
       </div>
       <div class="axis">
@@ -318,7 +328,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         <div>
           <p class="lead">복잡함을 화면으로 옮기는</p>
           <h3>설계력</h3>
-          <p>다양한 분야의 경험과 KRDS 전문성으로 복잡한 기능과 프로세스를 일반 사용자가 쉽게 이해할 수 있는 화면으로 옮깁니다.</p>
+          <p>다양한 분야의 경험과 KRDS 전문성으로 복잡한 기능과 프로세스를<br>일반 사용자가 쉽게 이해할 수 있는 화면으로 옮깁니다.</p>
         </div>
       </div>
       <div class="axis">
@@ -341,41 +351,58 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <h2 class="sec-title">About me</h2>
 
     <div class="about-grid">
-      <p class="about-q">사용자 언어로<br>번역하는<br>서비스 기획자란?</p>
-      <div class="about-body">
-        <p>공공·금융·교육 도메인에서 정보구조와 화면을 설계해 왔습니다.</p>
-        <p>업무가 복잡한 서비스일수록 사용자는 화면 앞에서 멈춥니다. 저는 그 복잡한 절차를 사용자가 헤매지 않고 따라올 수 있는 흐름으로 바꾸고, 오픈한 뒤에도 그 흐름이 지켜지도록 운영까지 이어갑니다.</p>
-      </div>
-    </div>
 
-    <div class="about-sub">
+      <!-- 왼쪽: 큰 제목 -->
+      <div class="about-title">
+        서비스 기획자<br>조가인
+      </div>
+
+      <!-- 오른쪽: 정보 -->
       <div>
-        <h3 class="blk-title">경력</h3>
-        <div class="job">
-          <span class="term">2023.10.03 — 재직 중</span>
-          <span class="co">㈜비브이에스</span>
-          <span class="role">기획팀 대리</span>
+        <div class="info-block">
+          <h3 class="blk-title">기본정보</h3>
+          <p class="basic">1995.07.19 (만 31세)</p>
         </div>
-        <div class="job">
-          <span class="term">2019.06 — 2020.07</span>
-          <span class="co">㈜용감한컴퍼니</span>
-          <span class="role">콘텐츠 기획팀 사원</span>
+
+        <div class="info-block">
+          <h3 class="blk-title">경력</h3>
+          <div class="job">
+            <span class="term">2023.10.03 — 재직 중</span>
+            <span class="co">㈜비브이에스</span>
+            <span class="role">기획팀 대리</span>
+          </div>
+          <div class="job">
+            <span class="term">2019.06 — 2020.07</span>
+            <span class="co">㈜용감한컴퍼니</span>
+            <span class="role">콘텐츠 기획팀 사원</span>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h3 class="blk-title">스킬</h3>
+          <div class="skills">
+            <div class="skill"><img src="images/logo-ppt.png" alt="PowerPoint"></div>
+            <div class="skill"><img src="images/logo-excel.png" alt="Excel"></div>
+            <div class="skill"><img src="images/logo-claude.png" alt="Claude"></div>
+            <span class="skill-gap"></span>
+            <div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
+            <div class="skill"><img src="images/logo-notion.png" alt="Notion"></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h3 class="blk-title">Keyword</h3>
+          <div class="keywords">
+            <span class="keyword">#적응력</span>
+            <span class="keyword">#친화력</span>
+            <span class="keyword">#주도성</span>
+            <span class="keyword">#책임감</span>
+            <span class="keyword">#실행력</span>
+          </div>
         </div>
       </div>
 
-      <div>
-        <h3 class="blk-title">스킬</h3>
-        <div class="skills">
-          <div class="skill"><img src="images/logo-ppt.png" alt="PowerPoint"></div>
-          <div class="skill"><img src="images/logo-excel.png" alt="Excel"></div>
-          <div class="skill"><img src="images/logo-claude.png" alt="Claude"></div>
-          <span class="skill-gap"></span>
-          <div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
-          <div class="skill"><img src="images/logo-notion.png" alt="Notion"></div>
-        </div>
-      </div>
     </div>
-
   </div>
 </section>
 
