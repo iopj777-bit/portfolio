@@ -30,7 +30,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{
   font-family:'Pretendard',-apple-system,sans-serif;
   background:var(--paper); color:var(--ink);
@@ -284,6 +284,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   .job{gap:4px 16px;padding:13px 0;border-top:1px solid var(--line)}
   .job .term,.job .co{min-width:0}
   .floating{padding:13px 18px;font-size:.86rem}
+
+  .proj{display:flex;flex-direction:column;gap:18px;padding:28px 0}
+  .proj-meta{order:0}
+  .thumb{order:-1;max-width:100%;margin-left:0}
+}
+
+@media (max-width:640px){
+  .brk{display:none}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -478,12 +486,12 @@ body.modal-lock{overflow:hidden}
     <div class="hero-top">
       <div class="hero-left">
         <h1>
-          사용자 언어로<br>
+          사용자 언어로<br class="brk"> 
           번역하는 서비스 기획자
         </h1>
         <p class="hero-sub">
-          업무가 복잡한 서비스일수록 사용자는 화면 앞에서 멈춥니다.<br>
-          저는 그 복잡한 절차를 사용자가 헤매지 않고 따라올 수 있는 흐름으로 바꾸고,<br>
+          업무가 복잡한 서비스일수록 사용자는 화면 앞에서 멈춥니다.<br class="brk"> 
+          저는 그 복잡한 절차를 사용자가 헤매지 않고 따라올 수 있는 흐름으로 바꾸고,<br class="brk"> 
           오픈한 뒤에도 그 흐름이 지켜지도록 운영까지 이어갑니다.
         </p>
       </div>
@@ -497,7 +505,7 @@ body.modal-lock{overflow:hidden}
         <div>
           <p class="lead">요구사항을 읽어내는</p>
           <h3>해석력</h3>
-          <p>공공·금융·교육 등 여러 분야의 제안서를 작성하며 쌓은 분석력으로<br>낯선 분야의 요구사항을 빠르게 파악하고 구조로 정리합니다.</p>
+          <p>공공·금융·교육 등 여러 분야의 제안서를 작성하며 쌓은 분석력으로<br class="brk"> 낯선 분야의 요구사항을 빠르게 파악하고 구조로 정리합니다.</p>
         </div>
       </div>
       <div class="axis">
@@ -505,7 +513,7 @@ body.modal-lock{overflow:hidden}
         <div>
           <p class="lead">복잡함을 화면으로 옮기는</p>
           <h3>설계력</h3>
-          <p>다양한 분야의 경험과 KRDS 전문성으로 복잡한 기능과 프로세스를<br>일반 사용자가 쉽게 이해할 수 있는 화면으로 옮깁니다.</p>
+          <p>다양한 분야의 경험과 KRDS 전문성으로 복잡한 기능과 프로세스를<br class="brk"> 일반 사용자가 쉽게 이해할 수 있는 화면으로 옮깁니다.</p>
         </div>
       </div>
       <div class="axis">
@@ -532,7 +540,7 @@ body.modal-lock{overflow:hidden}
       <!-- 왼쪽 -->
       <div class="about-left">
         <div class="about-head">
-          <p>복잡한 기능과 프로세스를<br>사용자 화면으로 번역하는<br>서비스 기획자 <strong>조가인</strong>입니다.</p>
+          <p>복잡한 기능과 프로세스를<br class="brk"> 사용자 화면으로 번역하는<br class="brk"> 서비스 기획자 <strong>조가인</strong>입니다.</p>
         </div>
         <div class="about-contact">
           <p class="name">Cho Ga In</p>
@@ -559,7 +567,7 @@ body.modal-lock{overflow:hidden}
 
         <div class="info-block field">
           <h3 class="blk-title">전문 분야</h3>
-          <p>서비스 기획 / UI·UX 설계<br>제안 / QA / 운영</p>
+          <p>서비스 기획 / UI·UX 설계<br class="brk"> 제안 / QA / 운영</p>
         </div>
 
         <div class="info-block">
@@ -703,7 +711,7 @@ body.modal-lock{overflow:hidden}
   <div class="wrap">
     <p class="mono">Contact</p>
     <h2>
-      함께 이야기 나눌 기회가 있다면<br>
+      함께 이야기 나눌 기회가 있다면<br class="brk"> 
       <a class="mail" href="mailto:aqwer77@naver.com">aqwer77@naver.com</a>
     </h2>
     <div class="contact-links">
@@ -796,7 +804,7 @@ body.modal-lock{overflow:hidden}
 
       <div class="dz flip">
         <div class="dz-text">
-          <h4>각 채널의 명확한 역할 재정립을 기반으로<br>IA를 설계해 고객 편의성을 확립했습니다.</h4>
+          <h4>각 채널의 명확한 역할 재정립을 기반으로<br class="brk"> IA를 설계해 고객 편의성을 확립했습니다.</h4>
           <p>채널 별 특성과 주요 이용 목적을 고려해 IA를 설계하고, 각 채널의 역할에 적합한 신규 서비스를 구성하여 서비스 접근성과 이용 편의성을 높였습니다.</p>
         </div>
         <div class="dz-img"><img src="images/HF/hf_diagram.png" alt="채널 별 역할 다이어그램"></div>
@@ -804,7 +812,7 @@ body.modal-lock{overflow:hidden}
 
       <div class="dz">
         <div class="dz-text">
-          <h4>고객 분석을 기반으로 이용 목적에 맞는<br>맞춤형 화면을 구성했습니다.</h4>
+          <h4>고객 분석을 기반으로 이용 목적에 맞는<br class="brk"> 맞춤형 화면을 구성했습니다.</h4>
           <p>실무자 인터뷰·MAZE·VOC 등 다양한 고객 분석을 근거로 주요 이용 목적과 이용 패턴을 파악하고, 핵심 서비스 접근성을 높여 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
         </div>
         <div class="dz-img mock">
@@ -864,7 +872,7 @@ body.modal-lock{overflow:hidden}
 
       <div class="dz flip">
         <div class="dz-text">
-          <h4>타 금융사 벤치마킹으로 신청절차 개선사항을 도출하고,<br>KRDS의 사용자 중심 설계 원칙을 반영해<br>UI/UX를 개선했습니다.</h4>
+          <h4>타 금융사 벤치마킹으로 신청절차 개선사항을 도출하고,<br class="brk"> KRDS의 사용자 중심 설계 원칙을 반영해<br class="brk"> UI/UX를 개선했습니다.</h4>
           <p>타 금융사의 신청 과정을 비교·분석하여 신청 단계별 정보와 입력 항목을 중심으로 개선사항을 도출하고, 사용자가 신청 흐름을 쉽게 이해할 수 있도록 직관적인 화면 구조와 UI/UX를 설계했습니다. 특히 KRDS의 단계표시기, 텍스트·날짜 입력 필드, 파일업로드 등 검증된 컴포넌트와 동의·입력 폼 기본 패턴을 적용해 완성도와 일관성을 높였습니다.</p>
         </div>
         <div class="dz-img mock tall">
@@ -875,7 +883,7 @@ body.modal-lock{overflow:hidden}
                 <span class="ap-dot"></span><span class="ap-dot"></span><span class="ap-dot"></span>
                 <span class="ap-dot"></span><span class="ap-dot"></span><span class="ap-dot"></span>
               </div>
-              <p class="ap-sub">일부 단계 안에 하위 단계가 섞여 있어<br>진행 상황을 파악하기 어려움</p>
+              <p class="ap-sub">일부 단계 안에 하위 단계가 섞여 있어<br class="brk"> 진행 상황을 파악하기 어려움</p>
             </div>
 
             <span class="ap-arrow">↓ 통합</span>
@@ -923,7 +931,7 @@ body.modal-lock{overflow:hidden}
 
       <div class="dz">
         <div class="dz-text">
-          <h4>모바일 이용 특성을 고려한 UI/UX를 설계해<br>모바일 환경에서의 이용 편의성을 강화했습니다.</h4>
+          <h4>모바일 이용 특성을 고려한 UI/UX를 설계해<br class="brk"> 모바일 환경에서의 이용 편의성을 강화했습니다.</h4>
           <p>모바일 환경에서의 이용 편의성을 고려해 주요 UI 패턴을 적용하고, 타 금융기관 벤치마킹을 통해 바텀시트·풀팝업·캘린더 UI 등을 활용하여 모바일 특성에 맞는 화면과 인터랙션을 설계했습니다.</p>
         </div>
         <div class="dz-img mock">
