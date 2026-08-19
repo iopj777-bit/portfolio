@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <g font-family="Pretendard,'Malgun Gothic',sans-serif">
+
+    <!-- Before -->
+    <text x="600" y="100" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.5" fill="#71757F">BEFORE · 하위 단계가 화면에 숨어 있음</text>
+
+    <rect x="150" y="125" width="900" height="205" rx="18" fill="#F3F4F8" stroke="#DCDEE5" stroke-width="1.5"/>
+
+    <line x1="200" y1="215" x2="1000" y2="215" stroke="#C7CAD3" stroke-width="2"/>
+    <g fill="#FFFFFF" stroke="#C7CAD3" stroke-width="1.5">
+      <circle cx="200" cy="215" r="11"/>
+      <circle cx="360" cy="215" r="11"/>
+      <circle cx="520" cy="215" r="11"/>
+      <circle cx="680" cy="215" r="11"/>
+      <circle cx="840" cy="215" r="11"/>
+      <circle cx="1000" cy="215" r="11"/>
+    </g>
+
+    <path d="M 500 236 Q 520 258 520 270" fill="none" stroke="#C7CAD3" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <path d="M 540 236 Q 520 258 520 270" fill="none" stroke="#C7CAD3" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <g fill="#C7CAD3">
+      <circle cx="497" cy="278" r="5"/>
+      <circle cx="520" cy="278" r="5"/>
+      <circle cx="543" cy="278" r="5"/>
+    </g>
+
+    <text x="600" y="308" text-anchor="middle" font-size="14" fill="#71757F">일부 단계 안에 하위 단계가 섞여 있어 전체 진행 상황을 파악하기 어려움</text>
+
+    <!-- arrow -->
+    <path d="M 520 340 Q 500 380 480 415" fill="none" stroke="#1B45D7" stroke-width="2"/>
+    <path d="M 468 401 L 480 425 L 495 405 Z" fill="#1B45D7"/>
+    <text x="540" y="385" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="500" fill="#1B45D7">통합</text>
+
+    <!-- After -->
+    <text x="600" y="440" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.5" fill="#1B45D7">AFTER · 단계 표시기 개선 + 하위 단계 통합</text>
+
+    <rect x="150" y="465" width="900" height="330" rx="18" fill="#FFFFFF" stroke="#1B45D7" stroke-width="2"/>
+
+    <rect x="190" y="495" width="108" height="32" rx="16" fill="#1B45D7"/>
+    <text x="244" y="516" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="700" letter-spacing="1" fill="#FFFFFF">STEP 2 / 4</text>
+
+    <line x1="260" y1="595" x2="920" y2="595" stroke="#DCDEE5" stroke-width="3" stroke-dasharray="5 5"/>
+    <line x1="260" y1="595" x2="480" y2="595" stroke="#1B45D7" stroke-width="3"/>
+
+    <circle cx="480" cy="595" r="37" fill="none" stroke="#1B45D7" stroke-opacity=".18" stroke-width="7"/>
+
+    <circle cx="260" cy="595" r="22" fill="#1B45D7"/>
+    <path d="M 250 595 L 257 603 L 271 587" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <circle cx="480" cy="595" r="28" fill="#FFFFFF" stroke="#1B45D7" stroke-width="4"/>
+    <text x="480" y="603" text-anchor="middle" font-size="20" font-weight="800" fill="#1B45D7">2</text>
+
+    <circle cx="700" cy="595" r="22" fill="#FFFFFF" stroke="#DCDEE5" stroke-width="2"/>
+    <text x="700" y="602" text-anchor="middle" font-size="16" font-weight="700" fill="#9AA0AC">3</text>
+
+    <circle cx="920" cy="595" r="22" fill="#FFFFFF" stroke="#DCDEE5" stroke-width="2"/>
+    <text x="920" y="602" text-anchor="middle" font-size="16" font-weight="700" fill="#9AA0AC">4</text>
+
+    <text x="260" y="646" text-anchor="middle" font-size="13" fill="#71757F">본인 확인</text>
+    <text x="480" y="646" text-anchor="middle" font-size="13" font-weight="700" fill="#1B45D7">신청정보 입력</text>
+    <text x="700" y="646" text-anchor="middle" font-size="13" fill="#9AA0AC">서류 제출</text>
+    <text x="920" y="646" text-anchor="middle" font-size="13" fill="#9AA0AC">완료</text>
+
+    <text x="600" y="710" text-anchor="middle" font-size="15" fill="#2C2F38">화면 안에 흩어져 있던 하위 단계를 하나로 통합하고,</text>
+    <text x="600" y="734" text-anchor="middle" font-size="15" fill="#2C2F38">현재 위치를 명확히 보여주는 단계 표시기를 적용했습니다.</text>
+
+  </g>
+</svg>
