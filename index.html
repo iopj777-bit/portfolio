@@ -357,7 +357,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .mc-row.hl-soft{background:rgba(27,69,215,.14)}
 .mc-row.short{width:65%}
 .mc-cta{margin-top:auto;height:22px;border-radius:11px;background:var(--blue)}
-.mc-cta.outline{background:#fff;border:1.5px solid var(--blue)}
+
+.mc-hero{height:44px;border-radius:8px;background:var(--blue);flex-shrink:0}
+.mc-tags{display:flex;gap:6px}
+.mc-chip{flex:1;height:16px;border-radius:999px;background:rgba(27,69,215,.14)}
+
+.mc-steps{display:flex;align-items:center;gap:4px}
+.mc-step{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.mc-step.done{background:var(--blue)}
+.mc-step.active{background:rgba(27,69,215,.5)}
+.mc-status{border:1px solid var(--line);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px}
+
+.mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mc-tile{aspect-ratio:1.5;border-radius:8px;background:var(--mist);border:1px solid var(--line)}
 
 /* ---- 신청절차 개선 목업 ---- */
 .mock-apply{width:100%;display:flex;flex-direction:column;gap:12px}
@@ -398,12 +410,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .mm-cta{height:20px;border-radius:10px;background:var(--blue);margin-top:2px}
 .mm-side{flex:1;display:flex;flex-direction:column;gap:12px;min-width:0}
 .mm-card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px;flex:1;display:flex;flex-direction:column;gap:6px}
-.mm-card-title{height:9px;border-radius:4px;background:rgba(11,11,12,.75);width:60%}
+.mm-card-label{font-size:.72rem;font-weight:700;color:var(--ink);margin-bottom:2px}
 .mm-card-row{height:8px;border-radius:4px;background:var(--mist)}
-.mm-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:2px}
+.mm-card-row.short{width:60%}
+
+.mm-modal-bar{display:flex;align-items:center;justify-content:space-between;padding-bottom:6px;margin-bottom:2px;border-bottom:1px solid var(--line)}
+.mm-modal-title{height:9px;width:55%;border-radius:4px;background:rgba(11,11,12,.75)}
+.mm-modal-x{font-size:.62rem;color:var(--muted);line-height:1}
+.mm-modal-cta{margin-top:auto;height:18px;border-radius:9px;background:var(--blue)}
+
+.mm-cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.mm-cal-arrow{font-size:.7rem;color:var(--muted);line-height:1}
+.mm-cal-month{height:8px;width:36%;border-radius:4px;background:rgba(11,11,12,.6)}
+.mm-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
 .mm-cal-dot{width:9px;height:9px;border-radius:50%;background:var(--line);margin:0 auto}
 .mm-cal-dot.sel{background:var(--blue)}
-.mm-caption{font-size:.72rem;font-weight:700;color:var(--ink);text-align:center;margin-top:auto}
+.mm-cal-dot.range{background:rgba(27,69,215,.35)}
 
 @media (max-width:520px){
   .mock-custom,.mock-mobile{flex-direction:column}
@@ -782,8 +804,8 @@ body.modal-lock{overflow:hidden}
 
       <div class="dz">
         <div class="dz-text">
-          <h4>고객의 주요 이용 목적을 고려해<br>맞춤형 화면을 구성했습니다.</h4>
-          <p>고객의 주요 이용 목적과 서비스 이용 패턴을 고려해 핵심 서비스 접근성을 높이고, 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
+          <h4>고객 분석을 기반으로 이용 목적에 맞는<br>맞춤형 화면을 구성했습니다.</h4>
+          <p>실무자 인터뷰·MAZE·VOC 등 다양한 고객 분석을 근거로 주요 이용 목적과 이용 패턴을 파악하고, 핵심 서비스 접근성을 높여 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
         </div>
         <div class="dz-img mock">
           <div class="mock-custom">
@@ -792,9 +814,12 @@ body.modal-lock{overflow:hidden}
               <span class="mc-title">신청 전</span>
               <div class="mc-phone">
                 <div class="mc-notch"></div>
-                <div class="mc-row hl"></div>
-                <div class="mc-row hl-soft"></div>
-                <div class="mc-row"></div>
+                <div class="mc-hero"></div>
+                <div class="mc-tags">
+                  <span class="mc-chip"></span>
+                  <span class="mc-chip"></span>
+                  <span class="mc-chip"></span>
+                </div>
                 <div class="mc-row"></div>
                 <div class="mc-row short"></div>
                 <div class="mc-cta"></div>
@@ -805,10 +830,15 @@ body.modal-lock{overflow:hidden}
               <span class="mc-title">신청 중</span>
               <div class="mc-phone">
                 <div class="mc-notch"></div>
-                <div class="mc-row"></div>
-                <div class="mc-row hl"></div>
-                <div class="mc-row hl-soft"></div>
-                <div class="mc-row hl-soft"></div>
+                <div class="mc-steps">
+                  <span class="mc-step done"></span>
+                  <span class="mc-step active"></span>
+                  <span class="mc-step"></span>
+                </div>
+                <div class="mc-status">
+                  <div class="mc-row hl-soft"></div>
+                  <div class="mc-row"></div>
+                </div>
                 <div class="mc-row short"></div>
                 <div class="mc-cta"></div>
               </div>
@@ -818,12 +848,14 @@ body.modal-lock{overflow:hidden}
               <span class="mc-title">이용 중</span>
               <div class="mc-phone">
                 <div class="mc-notch"></div>
+                <div class="mc-grid">
+                  <span class="mc-tile"></span>
+                  <span class="mc-tile"></span>
+                  <span class="mc-tile"></span>
+                  <span class="mc-tile"></span>
+                </div>
                 <div class="mc-row"></div>
-                <div class="mc-row hl"></div>
-                <div class="mc-row hl-soft"></div>
-                <div class="mc-row"></div>
-                <div class="mc-row short"></div>
-                <div class="mc-cta outline"></div>
+                <div class="mc-cta"></div>
               </div>
             </div>
           </div>
@@ -910,18 +942,29 @@ body.modal-lock{overflow:hidden}
             </div>
             <div class="mm-side">
               <div class="mm-card">
-                <div class="mm-card-title"></div>
+                <p class="mm-card-label">풀팝업</p>
+                <div class="mm-modal-bar">
+                  <span class="mm-modal-title"></span>
+                  <span class="mm-modal-x">✕</span>
+                </div>
                 <div class="mm-card-row"></div>
                 <div class="mm-card-row"></div>
-                <p class="mm-caption">풀팝업</p>
+                <div class="mm-card-row short"></div>
+                <div class="mm-modal-cta"></div>
               </div>
               <div class="mm-card">
-                <div class="mm-card-title"></div>
+                <p class="mm-card-label">캘린더</p>
+                <div class="mm-cal-nav">
+                  <span class="mm-cal-arrow">‹</span>
+                  <span class="mm-cal-month"></span>
+                  <span class="mm-cal-arrow">›</span>
+                </div>
                 <div class="mm-cal-grid">
                   <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
-                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
+                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
+                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot range"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
+                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
                 </div>
-                <p class="mm-caption">캘린더</p>
               </div>
             </div>
           </div>
@@ -935,15 +978,15 @@ body.modal-lock{overflow:hidden}
       <div class="review-grid">
         <div class="review-card">
           <span class="rv-label">아쉬웠던 점</span>
-          <p>[내용 입력]</p>
+          <p>타 금융사와 신청 절차를 비교해 불필요한 입력 항목과 자동화 요소를 제안했지만, 금융 규제상 제약으로 더 과감하게 개선하지 못한 점이 아쉬웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
-          <p>[내용 입력]</p>
+          <p>복잡한 프로세스와 금융 상품을 구조적으로 이해하는 방법, 그리고 모바일에 적합한 다양한 UI/UX 요소를 배웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">다시 한다면 개선할 점</span>
-          <p>[내용 입력]</p>
+          <p>HF는 이용층이 2030부터 고령층까지 넓은데, 고령층을 위한 쉬운 모드·도움말을 충분히 다루지 못했습니다. 다시 한다면 고객층 분석을 바탕으로 접근성 높은 방향을 제안하고 싶습니다.</p>
         </div>
       </div>
     </div>
