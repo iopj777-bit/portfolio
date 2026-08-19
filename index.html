@@ -303,14 +303,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .modal-close{width:44px;height:44px;border-radius:999px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.25rem;line-height:1;cursor:pointer;transition:background .2s}
 .modal-close:hover{background:var(--mist)}
 
-.md-inner{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.md-inner{max-width:1560px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 
 .md-head{padding:clamp(36px,4vw,60px) 0 clamp(24px,2.5vw,32px);border-bottom:1px solid var(--line)}
-.md-head-top{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end}
-.md-titlewrap{max-width:640px}
-.md-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.md-title{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
 .md-title .org{color:var(--blue)}
-.md-tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.md-head-row{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-start;margin-top:clamp(20px,2.5vw,30px)}
+.md-tags{display:flex;flex-wrap:wrap;gap:8px}
 .md-tag{font-size:.76rem;font-weight:600;color:var(--blue);border:1px solid var(--blue);border-radius:999px;padding:4px 12px}
 .md-meta{font-size:.9rem;color:#4A4E58;line-height:1.9}
 .md-meta .k{color:var(--ink);font-weight:700}
@@ -339,8 +338,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .dz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);align-items:start;margin-bottom:clamp(48px,5vw,80px)}
 .dz:last-child{margin-bottom:0}
 .dz.flip .dz-text{order:2}
-.dz-text h4{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;line-height:1.55;margin-bottom:20px}
-.dz-text p{font-size:1.1rem;color:#4A4E58;line-height:1.9}
+.dz-text h4{font-size:1.3rem;font-weight:800;letter-spacing:-.03em;line-height:1.55;margin-bottom:18px}
+.dz-text p{font-size:1.05rem;color:#4A4E58;line-height:1.9}
 .dz-img{aspect-ratio:4/3;background:var(--mist);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--muted);text-align:center;padding:20px}
 .dz-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
 
@@ -351,7 +350,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 body.modal-lock{overflow:hidden}
 
 @media (max-width:760px){
-  .md-head-top{flex-direction:column}
+  .md-head-row{flex-direction:column}
   .md-cover{aspect-ratio:16/9}
   .dz{grid-template-columns:1fr;gap:24px}
   .dz.flip .dz-text{order:0}
@@ -640,16 +639,14 @@ body.modal-lock{overflow:hidden}
 
   <div class="md-inner">
     <div class="md-head">
-      <div class="md-head-top">
-        <div class="md-titlewrap">
-          <h1 class="md-title"><span class="org">한국주택금융공사</span><span>비대면채널 UI/UX 고도화</span></h1>
+                <h1 class="md-title"><span class="org">한국주택금융공사</span><span>비대면채널 UI/UX 고도화</span></h1>
+          <div class="md-head-row">
           <div class="md-tags">
             <span class="md-tag">개인화 설계</span>
             <span class="md-tag">IA 재구성</span>
             <span class="md-tag">프로세스 분석</span>
             <span class="md-tag">벤치마킹</span>
           </div>
-        </div>
         <div class="md-meta">
           <div><span class="k">수행기간.</span> 2025.10 – 2026.06</div>
           <div><span class="k">대상.</span> 대표 · 인터넷뱅킹 · 스마트주택금융(APP)</div>
@@ -746,16 +743,14 @@ body.modal-lock{overflow:hidden}
 
   <div class="md-inner">
     <div class="md-head">
-      <div class="md-head-top">
-        <div class="md-titlewrap">
-          <h1 class="md-title"><span class="org">21대 대통령실</span><span>임시홈페이지 구축 · 운영</span></h1>
+                <h1 class="md-title"><span class="org">21대 대통령실</span><span>임시홈페이지 구축 · 운영</span></h1>
+          <div class="md-head-row">
           <div class="md-tags">
             <span class="md-tag">운영 담당</span>
             <span class="md-tag">신규 기능 설계</span>
             <span class="md-tag">콘텐츠 관리</span>
             <span class="md-tag">KRDS 준수</span>
           </div>
-        </div>
         <div class="md-meta">
           <div><span class="k">수행기간.</span> 2025.04 – 2025.07</div>
           <div><span class="k">대상.</span> 대통령실 임시홈페이지</div>
@@ -830,16 +825,14 @@ body.modal-lock{overflow:hidden}
 
   <div class="md-inner">
     <div class="md-head">
-      <div class="md-head-top">
-        <div class="md-titlewrap">
-          <h1 class="md-title"><span class="org">한국영상자료원</span><span>소스데이터 공유 플랫폼 구축</span></h1>
+                <h1 class="md-title"><span class="org">한국영상자료원</span><span>소스데이터 공유 플랫폼 구축</span></h1>
+          <div class="md-head-row">
           <div class="md-tags">
             <span class="md-tag">IA 설계</span>
             <span class="md-tag">회원 체계 표준화</span>
             <span class="md-tag">마이페이지 설계</span>
             <span class="md-tag">CMS 설계</span>
           </div>
-        </div>
         <div class="md-meta">
           <div><span class="k">수행기간.</span> 2023.10 – 2024.02</div>
           <div><span class="k">대상.</span> FO · BO 통합 플랫폼</div>
