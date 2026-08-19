@@ -306,7 +306,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .md-inner{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 
 .md-head{padding:clamp(36px,4vw,60px) 0 clamp(24px,2.5vw,32px);border-bottom:1px solid var(--line)}
-.md-head-top{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-start}
+.md-head-top{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end}
 .md-titlewrap{max-width:640px}
 .md-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
 .md-title .org{color:var(--blue)}
@@ -315,13 +315,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .md-meta{font-size:.9rem;color:#4A4E58;line-height:1.9}
 .md-meta .k{color:var(--ink);font-weight:700}
 
-.md-cover{margin-top:clamp(24px,3vw,36px);border-radius:12px;overflow:hidden;background:var(--mist);aspect-ratio:16/7}
+.md-cover{margin-top:clamp(24px,3vw,36px);border-radius:12px;overflow:hidden;background:var(--mist);aspect-ratio:16/9}
 .md-cover img{width:100%;height:100%;object-fit:cover}
+.md-cover-note{margin-top:10px;font-size:.82rem;color:var(--muted);text-align:right}
 
 .md-bg{padding:clamp(32px,3.5vw,48px) 0;border-bottom:1px solid var(--line)}
 .md-bg .mono{color:var(--blue);margin-bottom:14px}
 .md-bg h3{font-size:1.2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
-.md-bg p{font-size:1rem;color:#2C2F38;line-height:1.9;max-width:760px}
+.md-bg p{font-size:1rem;color:#2C2F38;line-height:1.9}
 
 .md-problems{padding:clamp(36px,4vw,56px) 0}
 .md-problems > .mono{color:var(--blue);margin-bottom:14px}
@@ -338,8 +339,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .dz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);align-items:start;margin-bottom:clamp(48px,5vw,80px)}
 .dz:last-child{margin-bottom:0}
 .dz.flip .dz-text{order:2}
-.dz-text h4{font-size:1.2rem;font-weight:800;letter-spacing:-.03em;line-height:1.55;margin-bottom:18px}
-.dz-text p{font-size:.98rem;color:#4A4E58;line-height:1.9}
+.dz-text h4{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;line-height:1.55;margin-bottom:20px}
+.dz-text p{font-size:1.1rem;color:#4A4E58;line-height:1.9}
 .dz-img{aspect-ratio:4/3;background:var(--mist);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--muted);text-align:center;padding:20px}
 .dz-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
 
@@ -657,6 +658,7 @@ body.modal-lock{overflow:hidden}
         </div>
       </div>
       <div class="md-cover"><img src="images/썸네일/HF_thum.png" alt="HF 대표 화면"></div>
+      <p class="md-cover-note">* 보안상 실제 화면을 공개할 수 없어 AI로 생성한 이미지로 대체했습니다.</p>
     </div>
 
     <div class="md-bg">
