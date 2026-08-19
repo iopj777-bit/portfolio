@@ -141,11 +141,13 @@ python3 -c "import cairosvg; cairosvg.svg2png(url='x.svg', write_to='x.png', out
 - [ ] HF 대표 배너 (16:7) — 폰+데스크톱 모니터, 블러 처리, navy. GPT 생성 예정
 - [ ] HF 리스트 썸네일 (16:9) — 위와 같은 톤. 현재 실화면이라 교체 필요
 - [x] HF 핵심설계 이미지들 (4:3):
-  - [1] 삼각형 다이어그램 → `hf_diagram.png` 적용 완료
-  - [2] 맞춤형 화면 → `images/HF/hf_custom_screen.svg` 적용 완료 (상태별 신청전/중/이용중 스켈레톤 폰 3개)
-  - [3] 신청절차 개선 → `images/HF/hf_apply_process.svg` 적용 완료 (7단계→4단계 Before/After 스텝 다이어그램)
-  - [4] 모바일 최적화 → `images/HF/hf_mobile_ui.svg` 적용 완료 (바텀시트/풀팝업/캘린더 UI 패턴)
-  - ⚠️ 이 Windows 환경엔 cairosvg가 요구하는 libcairo 네이티브 라이브러리가 없어 PNG 변환이 안 됨 → PNG 대신 SVG를 그대로 `<img src>`로 사용. 브라우저에서 정상 렌더링 확인함(headless Chrome 스크린샷). 추후 PNG로 통일하고 싶으면 다른 환경(Mac/Linux, 또는 claude.ai)에서 변환 필요.
+  - [1] 삼각형 다이어그램 → `hf_diagram.png` 적용 완료 (유일한 실제 이미지 파일)
+  - [2] 맞춤형 화면 → HTML/CSS 목업(`.mock-custom`)으로 적용 완료 (상태별 신청전/중/이용중 스켈레톤 폰 3개)
+  - [3] 신청절차 개선 → HTML/CSS 목업(`.mock-apply`)으로 적용 완료 (Before: 하위 단계 은닉 / After: STEP 2·4 표시기 + KRDS 적용 컴포넌트 칩 목록)
+  - [4] 모바일 최적화 → HTML/CSS 목업(`.mock-mobile`)으로 적용 완료 (바텀시트/풀팝업/캘린더 UI 패턴)
+  - ⚠️ **[2][3][4]는 SVG가 아니라 순수 HTML/CSS(div)로 구현되어 있음.** 처음엔 SVG로 만들었으나, `<img>`로 불러온 SVG는 페이지의 Pretendard 웹폰트를 못 쓰고 브라우저가 대체 폰트로 폴백하면서 일부 한글 글자가 깨져 렌더링되는 문제가 있었음(예: "하위"→"하쥐" 식으로 오검색). HTML/CSS로 다시 만들어 페이지 폰트를 그대로 쓰게 해서 해결. **앞으로 이 3개 다이어그램에 텍스트를 추가/수정할 땐 SVG가 아니라 `index.html`의 해당 `.mock-*` 마크업과 CSS(“HF 핵심설계 목업” 섹션, `.dz-img` 근처)를 직접 편집할 것.**
+  - `.mock-apply`는 콘텐츠가 많아 `.dz-img.tall`(aspect-ratio 해제)을 추가로 붙여둠 — 4:3 박스에 넣으면 내부 스크롤 생기니 유지할 것.
+  - cairosvg로 PNG 변환하려 했으나 이 Windows 환경엔 libcairo 네이티브 라이브러리가 없어 실패했음(참고용 — 지금은 SVG 자체를 안 쓰므로 무관).
 - [ ] 대통령실·영상자료원 이미지
 - [ ] profile.jpg, icon-1~3.png, 스킬 로고들(ppt/excel/claude/slack/notion)
 
