@@ -292,103 +292,68 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 
 /* ==========================================================
-   10. 프로젝트 상세 팝업 (풀스크린 모달)
+   10. 프로젝트 상세 팝업 (풀스크린 모달) ver3
    ========================================================== */
 .proj{cursor:pointer}
 
-.modal{
-  position:fixed; inset:0; z-index:100; background:var(--paper);
-  opacity:0; visibility:hidden; transform:translateY(20px);
-  transition:opacity .32s, visibility .32s, transform .32s;
-  overflow-y:auto;
-}
+.modal{position:fixed;inset:0;z-index:100;background:var(--paper);opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .32s,visibility .32s,transform .32s;overflow-y:auto}
 .modal.open{opacity:1;visibility:visible;transform:translateY(0)}
-
-.modal-bar{
-  position:sticky; top:0; z-index:10;
-  background:rgba(255,255,255,.9); backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px clamp(20px,4vw,56px);
-}
+.modal-bar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,4vw,56px)}
 .modal-bar .label{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.modal-close{
-  width:44px; height:44px; border-radius:999px;
-  background:var(--paper); border:1px solid var(--line);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.25rem; line-height:1; cursor:pointer; transition:background .2s;
-}
+.modal-close{width:44px;height:44px;border-radius:999px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.25rem;line-height:1;cursor:pointer;transition:background .2s}
 .modal-close:hover{background:var(--mist)}
 
-.md-inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.md-inner{max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 
-.md-top{
-  display:grid; grid-template-columns:1fr 0.9fr;
-  gap:clamp(32px,5vw,72px); align-items:start;
-  padding:clamp(40px,5vw,72px) 0 clamp(36px,4vw,56px);
-}
-.md-title{
-  font-size:clamp(2rem,4vw,3.4rem); font-weight:800;
-  letter-spacing:-.045em; line-height:1.15; color:var(--blue);
-}
-.md-title span{display:block;color:var(--ink);font-size:.62em;margin-top:6px;letter-spacing:-.03em}
-.md-desc{margin-top:26px;font-size:1.02rem;color:#3E424C;line-height:1.85;max-width:520px}
-.md-tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.md-head{padding:clamp(36px,4vw,60px) 0 clamp(24px,2.5vw,32px);border-bottom:1px solid var(--line)}
+.md-head-top{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-start}
+.md-titlewrap{max-width:640px}
+.md-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.md-title .org{color:var(--blue)}
+.md-tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .md-tag{font-size:.76rem;font-weight:600;color:var(--blue);border:1px solid var(--blue);border-radius:999px;padding:4px 12px}
+.md-meta{font-size:.9rem;color:#4A4E58;line-height:1.9}
+.md-meta .k{color:var(--ink);font-weight:700}
 
-.md-facts{margin-top:clamp(40px,5vw,72px)}
-.md-fact{
-  display:grid; grid-template-columns:130px 1fr; gap:16px;
-  padding:14px 0; border-top:1px solid var(--line); font-size:.96rem;
-}
-.md-fact:last-child{border-bottom:1px solid var(--line)}
-.md-fact .k{color:var(--blue);font-weight:600}
-.md-fact .v{color:#2C2F38}
-
-.md-cover{aspect-ratio:4/5;background:var(--mist);border-radius:12px;overflow:hidden}
+.md-cover{margin-top:clamp(24px,3vw,36px);border-radius:12px;overflow:hidden;background:var(--mist);aspect-ratio:16/7}
 .md-cover img{width:100%;height:100%;object-fit:cover}
 
-.md-notice{
-  padding:16px 20px; border-radius:8px; margin-bottom:clamp(32px,4vw,52px);
-  background:#FFF7E6; border:1px solid #F0D9A0;
-  font-size:.9rem; color:#7A5B12; line-height:1.6;
-}
+.md-bg{padding:clamp(32px,3.5vw,48px) 0;border-bottom:1px solid var(--line)}
+.md-bg .mono{color:var(--blue);margin-bottom:14px}
+.md-bg h3{font-size:1.2rem;font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+.md-bg p{font-size:1rem;color:#2C2F38;line-height:1.9;max-width:760px}
 
-.md-body{max-width:900px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
-.md-block{padding:clamp(30px,3.5vw,48px) 0;border-top:1px solid var(--line)}
-.md-block > .mono{color:var(--blue);margin-bottom:14px}
-.md-block h3{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
-.md-block p{font-size:1.05rem;color:#2C2F38;line-height:1.95;margin-bottom:14px}
-.md-block p:last-child{margin-bottom:0}
-.md-block ul{list-style:none}
-.md-block li{position:relative;padding-left:22px;font-size:1.05rem;color:#2C2F38;line-height:1.95;margin-bottom:10px}
-.md-block li::before{content:'';position:absolute;left:2px;top:.8em;width:6px;height:6px;border-radius:2px;background:var(--blue)}
+.md-problems{padding:clamp(36px,4vw,56px) 0}
+.md-problems > .mono{color:var(--blue);margin-bottom:14px}
+.md-problems > h3{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;margin-bottom:28px}
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;align-items:stretch}
+.prob-card{background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:clamp(24px,2.5vw,30px) clamp(18px,2vw,22px);text-align:center;display:flex;flex-direction:column}
+.prob-card .num{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500;padding-bottom:6px;border-bottom:1.5px solid var(--ink);margin-bottom:16px;align-self:center}
+.prob-card .pt{font-size:1.02rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;line-height:1.4}
+.prob-card .pd{font-size:.88rem;color:#5A5E68;line-height:1.65}
 
-.md-shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.md-shot{
-  aspect-ratio:4/3;background:var(--mist);border:1px solid var(--line);border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;color:var(--muted);text-align:center;padding:16px;
-}
-.md-shot img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.md-design{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
+.md-design > .mono{color:var(--blue);margin-bottom:14px}
+.md-design > h3{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;margin-bottom:clamp(32px,4vw,52px)}
+.dz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);align-items:start;margin-bottom:clamp(48px,5vw,80px)}
+.dz:last-child{margin-bottom:0}
+.dz.flip .dz-text{order:2}
+.dz-text h4{font-size:1.2rem;font-weight:800;letter-spacing:-.03em;line-height:1.55;margin-bottom:18px}
+.dz-text p{font-size:.98rem;color:#4A4E58;line-height:1.9}
+.dz-img{aspect-ratio:4/3;background:var(--mist);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--muted);text-align:center;padding:20px}
+.dz-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
 
-.md-foot{padding:clamp(40px,5vw,80px) 0;text-align:center}
-.md-foot button{
-  background:var(--ink);color:#fff;border:none;
-  padding:15px 32px;border-radius:999px;font-size:.95rem;font-weight:600;cursor:pointer;
-  font-family:inherit;transition:opacity .2s;
-}
+.md-foot{padding:clamp(40px,5vw,80px) 0;text-align:center;border-top:1px solid var(--line)}
+.md-foot button{background:var(--ink);color:#fff;border:none;padding:15px 32px;border-radius:999px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .2s}
 .md-foot button:hover{opacity:.85}
 
 body.modal-lock{overflow:hidden}
 
-@media (max-width:860px){
-  .md-top{grid-template-columns:1fr;gap:32px}
-  .md-cover{max-width:420px;aspect-ratio:4/3}
-  .md-facts{margin-top:20px}
-}
-@media (max-width:640px){
-  .md-shots{grid-template-columns:1fr}
+@media (max-width:760px){
+  .md-head-top{flex-direction:column}
+  .md-cover{aspect-ratio:16/9}
+  .dz{grid-template-columns:1fr;gap:24px}
+  .dz.flip .dz-text{order:0}
 }
 </style>
 </head>
@@ -661,174 +626,282 @@ body.modal-lock{overflow:hidden}
 
 
 <!-- ===========================================================
-     프로젝트 상세 팝업 3개
-     내용의 [대괄호] 부분을 실제 내용으로 채우세요.
+     프로젝트 상세 팝업 3개 (ver3)
+     [대괄호]와 이미지 자리를 실제 내용으로 채우세요.
      =========================================================== -->
 
-<!-- HF -->
+<!-- ===== HF ===== -->
 <div class="modal" id="m-hf">
   <div class="modal-bar">
     <span class="label">한국주택금융공사</span>
     <button class="modal-close" onclick="closeModal('m-hf')" aria-label="닫기">✕</button>
   </div>
+
   <div class="md-inner">
-    <div class="md-top">
-      <div>
-        <h1 class="md-title">한국주택금융공사<span>비대면채널 UI/UX 고도화</span></h1>
-        <p class="md-desc">[프로젝트 배경 — 어떤 서비스였고 왜 고도화가 필요했는지 2~3문장으로.]</p>
-        <div class="md-tags">
-          <span class="md-tag">개인화 설계</span>
-          <span class="md-tag">IA 재구성</span>
-          <span class="md-tag">프로세스 분석</span>
-          <span class="md-tag">벤치마킹</span>
+    <div class="md-head">
+      <div class="md-head-top">
+        <div class="md-titlewrap">
+          <h1 class="md-title"><span class="org">한국주택금융공사</span><span>비대면채널 UI/UX 고도화</span></h1>
+          <div class="md-tags">
+            <span class="md-tag">개인화 설계</span>
+            <span class="md-tag">IA 재구성</span>
+            <span class="md-tag">프로세스 분석</span>
+            <span class="md-tag">벤치마킹</span>
+          </div>
         </div>
-        <div class="md-facts">
-          <div class="md-fact"><span class="k">수행 기간</span><span class="v">2025.10 — 2026.06</span></div>
-          <div class="md-fact"><span class="k">프로젝트 유형</span><span class="v">웹·앱 UI/UX 고도화</span></div>
-          <div class="md-fact"><span class="k">담당 역할</span><span class="v">화면설계 · IA · 프로세스 분석</span></div>
+        <div class="md-meta">
+          <div><span class="k">수행기간.</span> 2025.10 – 2026.06</div>
+          <div><span class="k">대상.</span> 대표 · 인터넷뱅킹 · 스마트주택금융(APP)</div>
+          <div><span class="k">담당 역할.</span> 컨설팅 · IA · 화면설계</div>
+          <div><span class="k">참여도.</span> 40% (기획자 4명 투입)</div>
         </div>
       </div>
       <div class="md-cover"><img src="images/썸네일/HF_thum.png" alt="HF 대표 화면"></div>
     </div>
-  </div>
-  <div class="md-body">
-    <div class="md-notice">
-      본 프로젝트는 보안상 실제 화면을 공개할 수 없어, 일부 화면은 AI로 재구성한 이미지로 대체했습니다.
+
+    <div class="md-bg">
+      <p class="mono">Background</p>
+      <h3>프로젝트 배경</h3>
+      <p>한국주택금융공사의 비대면 채널을 사용자 중심으로 개선하는 고도화 사업입니다. 주택보증·주택연금·상품찾기·모바일 대출에 걸친 여러 서비스를 대상으로, 흩어진 상품 정보와 복잡한 신청 절차를 사용자가 쉽게 따라올 수 있는 구조로 다시 설계했습니다.</p>
     </div>
-    <div class="md-block" style="border-top:none;padding-top:0">
+
+    <div class="md-problems">
       <p class="mono">Problem</p>
-      <h3>문제</h3>
-      <p>[사용자·운영 관점에서 무엇이 문제였는지.]</p>
+      <h3>문제점</h3>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <span class="num">1</span>
+          <p class="pt">채널 별 역할 구분 미흡</p>
+          <p class="pd">채널 별 역할과 제공 정보의 구분이 불명확하여 고객의 정보 탐색 및 서비스 이용 과정에서 혼란 발생</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">2</span>
+          <p class="pt">주요 기능 분산</p>
+          <p class="pd">주요 기능(신청·조회·발급·관리)이 분산되어 사용자가 서비스 진행 과정과 처리 현황을 한눈에 파악하기 어려움</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">3</span>
+          <p class="pt">복잡한 신청 프로세스</p>
+          <p class="pd">7단계 이상의 신청 절차와 반복 입력, 수정이 어려운 UI로 사용자의 신청 부담 및 중도 이탈 증가</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">4</span>
+          <p class="pt">모바일 최적화 미흡</p>
+          <p class="pd">PC 중심의 UI/UX로 모바일 환경에서의 서비스 이용 편의성 저하</p>
+        </div>
+      </div>
     </div>
-    <div class="md-block">
-      <p class="mono">Role</p>
-      <h3>역할</h3>
-      <ul>
-        <li>[담당 서비스/화면 범위]</li>
-        <li>[구체적으로 설계한 것]</li>
-        <li>[분석·제안한 것]</li>
-      </ul>
-    </div>
-    <div class="md-block">
+  </div>
+
+  <div class="md-inner">
+    <div class="md-design">
       <p class="mono">Key Design</p>
-      <h3>핵심 설계</h3>
-      <p>[가장 중요한 설계 포인트.]</p>
-      <div class="md-shots">
-        <div class="md-shot">AI 재구성 이미지 자리<br>(개인화 홈)</div>
-        <div class="md-shot">AI 재구성 이미지 자리<br>(신청 프로세스)</div>
+      <h3>핵심설계</h3>
+
+      <div class="dz flip">
+        <div class="dz-text">
+          <h4>각 채널의 명확한 역할 재정립을 기반으로<br>IA를 설계해 고객 편의성을 확립했습니다.</h4>
+          <p>채널 별 특성과 주요 이용 목적을 고려해 IA를 설계하고, 각 채널의 역할에 적합한 신규 서비스를 구성하여 서비스 접근성과 이용 편의성을 높였습니다.</p>
+        </div>
+        <div class="dz-img">삼각형 다이어그램 자리<br>(채널 역할 · GPT 생성)</div>
+      </div>
+
+      <div class="dz">
+        <div class="dz-text">
+          <h4>고객의 주요 이용 목적을 고려해<br>맞춤형 화면을 구성했습니다.</h4>
+          <p>고객의 주요 이용 목적과 서비스 이용 패턴을 고려해 핵심 서비스 접근성을 높이고, 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
+        </div>
+        <div class="dz-img">img<br>(맞춤형 화면 · GPT 생성)</div>
+      </div>
+
+      <div class="dz flip">
+        <div class="dz-text">
+          <h4>타 금융사 벤치마킹으로 신청절차 개선사항을 도출하고,<br>KRDS의 사용자 중심 설계 원칙을 반영해<br>UI/UX를 개선했습니다.</h4>
+          <p>타 금융사의 신청 과정을 비교·분석하여 신청 단계별 정보와 입력 항목을 중심으로 개선사항을 도출하고, 사용자가 신청 흐름을 쉽게 이해할 수 있도록 직관적인 화면 구조와 UI/UX를 설계했습니다.</p>
+        </div>
+        <div class="dz-img">img<br>(신청절차 개선 · GPT 생성)</div>
+      </div>
+
+      <div class="dz">
+        <div class="dz-text">
+          <h4>모바일 이용 특성을 고려한 UI/UX를 설계해<br>모바일 환경에서의 이용 편의성을 강화했습니다.</h4>
+          <p>모바일 환경에서의 이용 편의성을 고려해 주요 UI 패턴을 적용하고, 타 금융기관 벤치마킹을 통해 바텀시트·풀팝업·캘린더 UI 등을 활용하여 모바일 특성에 맞는 화면과 인터랙션을 설계했습니다.</p>
+        </div>
+        <div class="dz-img">img<br>(모바일 최적화 · GPT 생성)</div>
       </div>
     </div>
     <div class="md-foot"><button onclick="closeModal('m-hf')">닫기</button></div>
   </div>
 </div>
 
-<!-- 대통령실 -->
+
+<!-- ===== 대통령실 ===== -->
 <div class="modal" id="m-president">
   <div class="modal-bar">
     <span class="label">21대 대통령실</span>
     <button class="modal-close" onclick="closeModal('m-president')" aria-label="닫기">✕</button>
   </div>
+
   <div class="md-inner">
-    <div class="md-top">
-      <div>
-        <h1 class="md-title">21대 대통령실<span>임시홈페이지 구축 · 운영</span></h1>
-        <p class="md-desc">[프로젝트 배경 — 임시홈페이지가 어떤 맥락에서 만들어졌고 무엇을 담았는지.]</p>
-        <div class="md-tags">
-          <span class="md-tag">운영 담당</span>
-          <span class="md-tag">신규 기능 설계</span>
-          <span class="md-tag">콘텐츠 관리</span>
-          <span class="md-tag">KRDS 준수</span>
+    <div class="md-head">
+      <div class="md-head-top">
+        <div class="md-titlewrap">
+          <h1 class="md-title"><span class="org">21대 대통령실</span><span>임시홈페이지 구축 · 운영</span></h1>
+          <div class="md-tags">
+            <span class="md-tag">운영 담당</span>
+            <span class="md-tag">신규 기능 설계</span>
+            <span class="md-tag">콘텐츠 관리</span>
+            <span class="md-tag">KRDS 준수</span>
+          </div>
         </div>
-        <div class="md-facts">
-          <div class="md-fact"><span class="k">수행 기간</span><span class="v">2025.04 — 2025.07</span></div>
-          <div class="md-fact"><span class="k">프로젝트 유형</span><span class="v">웹 구축 · 운영</span></div>
-          <div class="md-fact"><span class="k">담당 역할</span><span class="v">운영 · 신규 기능 설계</span></div>
+        <div class="md-meta">
+          <div><span class="k">수행기간.</span> 2025.04 – 2025.07</div>
+          <div><span class="k">대상.</span> 대통령실 임시홈페이지</div>
+          <div><span class="k">담당 역할.</span> 운영 · 신규 기능 설계</div>
+          <div><span class="k">참여도.</span> [참여도 입력]</div>
         </div>
       </div>
       <div class="md-cover"><img src="images/썸네일/president_thum.png" alt="대통령실 대표 화면"></div>
     </div>
-  </div>
-  <div class="md-body">
-    <div class="md-block" style="border-top:none;padding-top:0">
+
+    <div class="md-bg">
+      <p class="mono">Background</p>
+      <h3>프로젝트 배경</h3>
+      <p>[프로젝트 배경 — 임시홈페이지가 어떤 맥락에서 만들어졌고 무엇을 담았는지. 오픈 후 운영을 맡은 역할 중심으로.]</p>
+    </div>
+
+    <div class="md-problems">
       <p class="mono">Problem</p>
-      <h3>문제</h3>
-      <p>[운영 관점에서 무엇이 과제였는지.]</p>
+      <h3>문제점</h3>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <span class="num">1</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">2</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">3</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+      </div>
     </div>
-    <div class="md-block">
-      <p class="mono">Role</p>
-      <h3>역할</h3>
-      <ul>
-        <li>[운영에서 담당한 것]</li>
-        <li>[신규 기능 설계한 것]</li>
-        <li>[기록관 데이터 이관 지원]</li>
-      </ul>
-    </div>
-    <div class="md-block">
+  </div>
+
+  <div class="md-inner">
+    <div class="md-design">
       <p class="mono">Key Design</p>
-      <h3>핵심 설계</h3>
-      <p>[핵심 포인트.]</p>
-      <div class="md-shots">
-        <div class="md-shot">화면 이미지 자리</div>
-        <div class="md-shot">화면 이미지 자리</div>
+      <h3>핵심설계</h3>
+
+      <div class="dz flip">
+        <div class="dz-text">
+          <h4>[핵심 설계 문구 1]</h4>
+          <p>[설명]</p>
+        </div>
+        <div class="dz-img">img<br>(GPT 생성 또는 실화면)</div>
+      </div>
+
+      <div class="dz">
+        <div class="dz-text">
+          <h4>[핵심 설계 문구 2]</h4>
+          <p>[설명]</p>
+        </div>
+        <div class="dz-img">img</div>
       </div>
     </div>
     <div class="md-foot"><button onclick="closeModal('m-president')">닫기</button></div>
   </div>
 </div>
 
-<!-- 한국영상자료원 -->
+
+<!-- ===== 한국영상자료원 ===== -->
 <div class="modal" id="m-kofa">
   <div class="modal-bar">
     <span class="label">한국영상자료원</span>
     <button class="modal-close" onclick="closeModal('m-kofa')" aria-label="닫기">✕</button>
   </div>
+
   <div class="md-inner">
-    <div class="md-top">
-      <div>
-        <h1 class="md-title">한국영상자료원<span>소스데이터 공유 플랫폼 구축</span></h1>
-        <p class="md-desc">[프로젝트 배경 — 어떤 플랫폼이고 어떤 사용자를 위한 것이었는지.]</p>
-        <div class="md-tags">
-          <span class="md-tag">IA 설계</span>
-          <span class="md-tag">회원 체계 표준화</span>
-          <span class="md-tag">마이페이지 설계</span>
-          <span class="md-tag">CMS 설계</span>
+    <div class="md-head">
+      <div class="md-head-top">
+        <div class="md-titlewrap">
+          <h1 class="md-title"><span class="org">한국영상자료원</span><span>소스데이터 공유 플랫폼 구축</span></h1>
+          <div class="md-tags">
+            <span class="md-tag">IA 설계</span>
+            <span class="md-tag">회원 체계 표준화</span>
+            <span class="md-tag">마이페이지 설계</span>
+            <span class="md-tag">CMS 설계</span>
+          </div>
         </div>
-        <div class="md-facts">
-          <div class="md-fact"><span class="k">수행 기간</span><span class="v">2023.10 — 2024.02</span></div>
-          <div class="md-fact"><span class="k">프로젝트 유형</span><span class="v">웹 플랫폼 구축</span></div>
-          <div class="md-fact"><span class="k">담당 역할</span><span class="v">화면설계 · IA · 회원 체계</span></div>
+        <div class="md-meta">
+          <div><span class="k">수행기간.</span> 2023.10 – 2024.02</div>
+          <div><span class="k">대상.</span> FO · BO 통합 플랫폼</div>
+          <div><span class="k">담당 역할.</span> 화면설계 · IA · 회원 체계</div>
+          <div><span class="k">참여도.</span> [참여도 입력]</div>
         </div>
       </div>
       <div class="md-cover"><img src="images/썸네일/kofa_thum.png" alt="영상자료원 대표 화면"></div>
     </div>
-  </div>
-  <div class="md-body">
-    <div class="md-block" style="border-top:none;padding-top:0">
+
+    <div class="md-bg">
+      <p class="mono">Background</p>
+      <h3>프로젝트 배경</h3>
+      <p>[프로젝트 배경 — 어떤 플랫폼이고 어떤 사용자를 위한 것이었는지. 영상자료원은 실화면 사용 가능하니 실제 캡처 활용 가능.]</p>
+    </div>
+
+    <div class="md-problems">
       <p class="mono">Problem</p>
-      <h3>문제</h3>
-      <p>[기관·개인·전문가로 나뉜 복잡한 회원 체계 등, 풀어야 했던 문제.]</p>
+      <h3>문제점</h3>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <span class="num">1</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">2</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+        <div class="prob-card">
+          <span class="num">3</span>
+          <p class="pt">[문제점 제목]</p>
+          <p class="pd">[문제 설명]</p>
+        </div>
+      </div>
     </div>
-    <div class="md-block">
-      <p class="mono">Role</p>
-      <h3>역할</h3>
-      <ul>
-        <li>[FO/BO 화면설계 범위]</li>
-        <li>[회원 체계 표준화]</li>
-        <li>[마이페이지 · CMS 설계]</li>
-      </ul>
-    </div>
-    <div class="md-block">
+  </div>
+
+  <div class="md-inner">
+    <div class="md-design">
       <p class="mono">Key Design</p>
-      <h3>핵심 설계</h3>
-      <p>[핵심 포인트. 영상자료원은 실화면 사용 가능하니 실제 캡처를 넣으세요.]</p>
-      <div class="md-shots">
-        <div class="md-shot">실화면 캡처 자리</div>
-        <div class="md-shot">실화면 캡처 자리</div>
+      <h3>핵심설계</h3>
+
+      <div class="dz flip">
+        <div class="dz-text">
+          <h4>[핵심 설계 문구 1]</h4>
+          <p>[설명]</p>
+        </div>
+        <div class="dz-img">실화면 캡처 자리</div>
+      </div>
+
+      <div class="dz">
+        <div class="dz-text">
+          <h4>[핵심 설계 문구 2]</h4>
+          <p>[설명]</p>
+        </div>
+        <div class="dz-img">실화면 캡처 자리</div>
       </div>
     </div>
     <div class="md-foot"><button onclick="closeModal('m-kofa')">닫기</button></div>
   </div>
 </div>
+
 
 
 <!-- ===== 플로팅 버튼 =====
