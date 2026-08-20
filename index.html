@@ -435,9 +435,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .mm-cal-dot.sel{background:var(--accent)}
 .mm-cal-dot.range{background:rgba(184,81,26,.35)}
 
+.mock-qa{width:100%;display:flex;flex-direction:column;gap:14px}
+.qa-sheet{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.qa-sheet-head{display:flex;border-bottom:1px solid var(--line)}
+.qa-tab{flex:1;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:8px 0;color:var(--muted);background:var(--mist)}
+.qa-tab.active{color:var(--accent);background:var(--paper);font-weight:700}
+.qa-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:.78rem}
+.qa-row:last-child{border-bottom:none}
+.qa-id{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);flex:0 0 42px}
+.qa-desc{flex:1;color:var(--ink)}
+.qa-badge{font-size:.66rem;font-weight:700;padding:3px 10px;border-radius:999px;flex-shrink:0;background:rgba(184,81,26,.12);color:var(--accent)}
+.qa-audit{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--mist)}
+.qa-audit-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);font-weight:700;letter-spacing:.04em;display:block;margin-bottom:10px}
+.qa-audit-row{display:flex;align-items:center;gap:8px;font-size:.74rem;margin-bottom:8px}
+.qa-audit-row:last-child{margin-bottom:0}
+.qa-chip{padding:5px 10px;border-radius:999px;font-weight:600;white-space:nowrap}
+.qa-chip.issue{background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+.qa-chip.done{background:var(--accent);color:#fff}
+.qa-arrow{color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+
 @media (max-width:520px){
   .mock-custom,.mock-mobile{flex-direction:column}
   .mm-phone{flex:none}
+  .qa-audit-row{flex-wrap:wrap}
 }
 
 .md-review{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
@@ -1154,17 +1174,17 @@ body.modal-lock{overflow:hidden}
         <div class="prob-card">
           <span class="num">1</span>
           <p class="pt">전문 데이터의 구조화</p>
-          <p class="pd">파일 사이즈·Tris·Color Space 등 소스데이터 특유의 전문 메타데이터를 분석하고, 사용자가 이해하기 쉬운 등록·탐색 구조로 정리해야 했습니다.</p>
+          <p class="pd">파일 사이즈·Tris·Color Space 등 소스데이터 특유의 전문 메타데이터를 사용자가 이해하기 쉬운 등록·탐색 구조로 정리 필요</p>
         </div>
         <div class="prob-card">
           <span class="num">2</span>
           <p class="pt">탐색 중심의 플랫폼 설계</p>
-          <p class="pd">방대한 소스데이터 중 원하는 것을 쉽게 찾을 수 있도록, 썸네일 중심의 탐색 구조와 검색 체계를 새롭게 설계해야 했습니다.</p>
+          <p class="pd">방대한 소스데이터 중 원하는 것을 쉽게 찾을 수 있는 썸네일 중심의 탐색 구조와 검색 체계 설계 필요</p>
         </div>
         <div class="prob-card">
           <span class="num">3</span>
           <p class="pt">거래 기반의 회원·구매 체계 구축</p>
-          <p class="pd">실제 거래가 이루어지는 플랫폼인 만큼, 회원 체계부터 결제까지 신뢰할 수 있는 구매 흐름을 구축해야 했습니다.</p>
+          <p class="pd">실제 거래가 이루어지는 플랫폼인 만큼, 회원 체계부터 결제까지 신뢰할 수 있는 구매 흐름 구축 필요</p>
         </div>
       </div>
     </div>
@@ -1204,7 +1224,32 @@ body.modal-lock{overflow:hidden}
           <h4>산출물의 감리 대응과 테스트를 직접 수행해<br class="brk"> 품질을 끝까지 책임졌습니다.</h4>
           <p>통합·단위 테스트 케이스(국문·영문)를 직접 작성해 검증하고, 웹 접근성·오류 관련 감리 지적사항에 대한 소명을 작성·대응했습니다.</p>
         </div>
-        <div class="dz-img">이미지 준비 중</div>
+        <div class="dz-img mock tall">
+          <div class="mock-qa">
+            <div class="qa-sheet">
+              <div class="qa-sheet-head">
+                <span class="qa-tab active">국문 테스트 케이스</span>
+                <span class="qa-tab">영문 테스트 케이스</span>
+              </div>
+              <div class="qa-row"><span class="qa-id">TC-01</span><span class="qa-desc">일반·기업 회원가입 시 이메일 중복 검증</span><span class="qa-badge">PASS</span></div>
+              <div class="qa-row"><span class="qa-id">TC-02</span><span class="qa-desc">결제 완료 후 소스데이터 다운로드 권한 부여</span><span class="qa-badge">PASS</span></div>
+              <div class="qa-row"><span class="qa-id">TC-03</span><span class="qa-desc">통합검색 결과 다국어(국/영) 노출 확인</span><span class="qa-badge">PASS</span></div>
+            </div>
+            <div class="qa-audit">
+              <span class="qa-audit-label">감리 지적사항 대응</span>
+              <div class="qa-audit-row">
+                <span class="qa-chip issue">웹 접근성 · 대체텍스트 누락</span>
+                <span class="qa-arrow">→</span>
+                <span class="qa-chip done">소명 완료</span>
+              </div>
+              <div class="qa-audit-row">
+                <span class="qa-chip issue">오류 · 결제 실패 예외처리</span>
+                <span class="qa-arrow">→</span>
+                <span class="qa-chip done">조치 완료</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
