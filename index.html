@@ -355,6 +355,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 /* ---- 맞춤형 화면 목업 ---- */
 .mk-wrap{
+  width:100%; box-sizing:border-box;
   background:var(--mist); border-radius:14px;
   padding:clamp(24px,3vw,36px);
   display:flex; gap:clamp(24px,3vw,40px);
@@ -387,6 +388,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .mk-mini-card.mk-blue{background:#E6F1FB}
 .mk-mini-card.mk-green{background:#E1F5EE}
 .mk-mini-dark{background:#0B1B3F;border-radius:9px;padding:10px;margin-bottom:9px}
+.mk-gauge{height:6px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
+.mk-gauge span{display:block;height:100%;border-radius:3px;background:#5DCAA5}
+.mk-pct{font-size:11px;font-weight:700;color:#9FE1CB}
 .mk-chips{display:flex;gap:5px;margin-bottom:9px}
 .mk-chip{flex:1;height:14px;border-radius:5px;background:var(--mist);border:1px solid var(--line)}
 .mk-mini-btn{height:24px;border-radius:7px}
@@ -867,7 +871,7 @@ body.modal-lock{overflow:hidden}
           <h4>고객 분석을 기반으로 이용 목적에 맞는<br class="brk"> 맞춤형 화면을 구성했습니다.</h4>
           <p>실무자 인터뷰·MAZE·VOC 등 다양한 고객 분석을 근거로 주요 이용 목적과 이용 패턴을 파악하고, 핵심 서비스 접근성을 높여 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
         </div>
-        <div class="dz-img tall" style="background:none">
+        <div class="dz-img tall" style="background:none;border:none;padding:0">
           <div class="mk-wrap">
             <!-- 메인 폰 -->
             <div class="mk-phone-main">
@@ -944,7 +948,12 @@ body.modal-lock{overflow:hidden}
                   <div class="mk-line" style="width:56%;margin-bottom:10px"></div>
                   <div class="mk-mini-dark">
                     <div class="mk-hl" style="width:44%;background:rgba(255,255,255,.4);margin-bottom:7px"></div>
-                    <div class="mk-hl" style="width:66%;height:11px;background:#fff"></div>
+                    <div class="mk-hl" style="width:66%;height:11px;background:#fff;margin-bottom:10px"></div>
+                    <div class="mk-gauge"><span style="width:68%"></span></div>
+                    <div style="display:flex;justify-content:space-between;margin-top:5px">
+                      <span class="mk-hl" style="width:24px;height:5px;background:rgba(255,255,255,.35)"></span>
+                      <span class="mk-pct">68%</span>
+                    </div>
                   </div>
                   <div class="mk-grid4">
                     <div class="mk-cell"></div><div class="mk-cell"></div>
