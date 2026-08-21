@@ -354,30 +354,62 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .dz-img.tall{aspect-ratio:auto;overflow:visible}
 
 /* ---- 맞춤형 화면 목업 ---- */
-.mock-custom{display:flex;gap:14px;width:100%}
-.mc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
-.mc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.mc-title{font-size:.98rem;font-weight:800;letter-spacing:-.02em}
-.mc-phone{flex:1;width:100%;max-width:150px;border:1.5px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:7px;background:var(--paper)}
-.mc-notch{width:34px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 2px}
-.mc-row{height:13px;border-radius:5px;background:var(--mist);flex-shrink:0}
-.mc-row.hl{background:var(--accent)}
-.mc-row.hl-soft{background:rgba(184,81,26,.14)}
-.mc-row.short{width:65%}
-.mc-cta{margin-top:auto;height:22px;border-radius:11px;background:var(--accent)}
+.mk-wrap{
+  background:var(--mist); border-radius:14px;
+  padding:clamp(24px,3vw,36px);
+  display:flex; gap:clamp(24px,3vw,40px);
+  align-items:center; justify-content:center; flex-wrap:wrap;
+}
+.mk-phone-main{flex:0 0 auto;width:230px}
+.mk-phone{
+  background:#fff; border:1px solid var(--line); border-radius:24px;
+  padding:14px 14px 18px; box-shadow:0 6px 24px rgba(0,0,0,.06);
+}
+.mk-notch{width:44px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 14px}
+.mk-top{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.mk-logo{width:26px;height:26px;border-radius:8px;background:#E6F1FB}
+.mk-line{height:9px;border-radius:3px;background:var(--line)}
+.mk-dot{margin-left:auto;width:20px;height:20px;border-radius:50%;background:var(--mist)}
+.mk-greet{margin-bottom:14px}
+.mk-hero{background:var(--accent);border-radius:14px;padding:16px;margin-bottom:14px}
+.mk-hl{height:7px;border-radius:3px}
+.mk-hero-btn{height:30px;border-radius:9px;background:rgba(255,255,255,.9);margin-top:14px}
+.mk-3col{display:flex;gap:8px;margin-bottom:14px}
+.mk-box{flex:1;height:52px;border-radius:12px;background:var(--mist);border:1px solid var(--line)}
+.mk-row{height:40px;border-radius:12px;background:var(--mist);border:1px solid var(--line);margin-bottom:8px}
+.mk-row:last-child{margin-bottom:0}
+.mk-cap{text-align:center;font-size:13px;color:var(--muted);margin:14px 0 0}
 
-.mc-hero{height:44px;border-radius:8px;background:var(--accent);flex-shrink:0}
-.mc-tags{display:flex;gap:6px}
-.mc-chip{flex:1;height:16px;border-radius:999px;background:rgba(184,81,26,.14)}
+.mk-states{flex:0 0 auto;display:flex;flex-direction:column;gap:18px}
+.mk-state{display:flex;align-items:center;gap:14px}
+.mk-mini{width:140px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+.mk-mini-card{border-radius:9px;padding:10px;margin-bottom:9px}
+.mk-mini-card.mk-blue{background:#E6F1FB}
+.mk-mini-card.mk-green{background:#E1F5EE}
+.mk-mini-dark{background:#0B1B3F;border-radius:9px;padding:10px;margin-bottom:9px}
+.mk-chips{display:flex;gap:5px;margin-bottom:9px}
+.mk-chip{flex:1;height:14px;border-radius:5px;background:var(--mist);border:1px solid var(--line)}
+.mk-mini-btn{height:24px;border-radius:7px}
+.mk-blue-solid{background:var(--accent)}
+.mk-green-solid{background:#1D9E75}
+.mk-steps{display:flex;gap:4px;align-items:center;margin-bottom:10px}
+.mk-dot-s{width:12px;height:12px;border-radius:50%;background:var(--line);flex:0 0 auto}
+.mk-dot-s.on{background:#1D9E75}
+.mk-bar{flex:1;height:3px;background:var(--line);border-radius:2px}
+.mk-bar.on{background:#1D9E75}
+.mk-grid4{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mk-cell{height:26px;border-radius:6px;background:var(--mist);border:1px solid var(--line)}
 
-.mc-steps{display:flex;align-items:center;gap:4px}
-.mc-step{flex:1;height:4px;border-radius:2px;background:var(--line)}
-.mc-step.done{background:var(--accent)}
-.mc-step.active{background:rgba(184,81,26,.5)}
-.mc-status{border:1px solid var(--line);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.mk-desc p{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+.mk-tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;margin-bottom:5px}
+.mk-tag-blue{color:#185FA5;background:#E6F1FB}
+.mk-tag-green{color:#0F6E56;background:#E1F5EE}
+.mk-tag-gray{color:var(--muted);background:var(--mist);border:1px solid var(--line)}
 
-.mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.mc-tile{aspect-ratio:1.5;border-radius:8px;background:var(--mist);border:1px solid var(--line)}
+@media (max-width:640px){
+  .mk-wrap{flex-direction:column}
+  .mk-phone-main{width:210px}
+}
 
 /* ---- 신청절차 개선 목업 ---- */
 .mock-apply{width:100%;display:flex;flex-direction:column;gap:12px}
@@ -455,7 +487,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .qa-arrow{color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
 
 @media (max-width:520px){
-  .mock-custom,.mock-mobile{flex-direction:column}
+  .mock-mobile{flex-direction:column}
   .mm-phone{flex:none}
   .qa-audit-row{flex-wrap:wrap}
 }
@@ -835,55 +867,94 @@ body.modal-lock{overflow:hidden}
           <h4>고객 분석을 기반으로 이용 목적에 맞는<br class="brk"> 맞춤형 화면을 구성했습니다.</h4>
           <p>실무자 인터뷰·MAZE·VOC 등 다양한 고객 분석을 근거로 주요 이용 목적과 이용 패턴을 파악하고, 핵심 서비스 접근성을 높여 사용자에게 필요한 정보를 중심으로 효율적인 화면 경험을 제공했습니다.</p>
         </div>
-        <div class="dz-img mock">
-          <div class="mock-custom">
-            <div class="mc-col">
-              <span class="mc-eyebrow">Stage 01</span>
-              <span class="mc-title">신청 전</span>
-              <div class="mc-phone">
-                <div class="mc-notch"></div>
-                <div class="mc-hero"></div>
-                <div class="mc-tags">
-                  <span class="mc-chip"></span>
-                  <span class="mc-chip"></span>
-                  <span class="mc-chip"></span>
+        <div class="dz-img tall" style="background:none">
+          <div class="mk-wrap">
+            <!-- 메인 폰 -->
+            <div class="mk-phone-main">
+              <div class="mk-phone">
+                <div class="mk-notch"></div>
+                <div class="mk-top">
+                  <div class="mk-logo"></div>
+                  <div class="mk-line" style="width:88px"></div>
+                  <div class="mk-dot"></div>
                 </div>
-                <div class="mc-row"></div>
-                <div class="mc-row short"></div>
-                <div class="mc-cta"></div>
+                <div class="mk-greet">
+                  <div class="mk-hl" style="width:38%;background:var(--line);margin-bottom:8px"></div>
+                  <div class="mk-hl" style="width:60%;height:12px;background:var(--line)"></div>
+                </div>
+                <div class="mk-hero">
+                  <div class="mk-hl" style="width:52%;background:rgba(255,255,255,.55)"></div>
+                  <div class="mk-hl" style="width:76%;height:15px;background:#fff;margin-top:8px"></div>
+                  <div class="mk-hl" style="width:100%;background:rgba(255,255,255,.32);margin-top:12px"></div>
+                  <div class="mk-hl" style="width:82%;background:rgba(255,255,255,.32);margin-top:6px"></div>
+                  <div class="mk-hero-btn"></div>
+                </div>
+                <div class="mk-3col">
+                  <div class="mk-box"></div><div class="mk-box"></div><div class="mk-box"></div>
+                </div>
+                <div class="mk-line" style="width:56%;margin:0 0 10px"></div>
+                <div class="mk-row"></div>
+                <div class="mk-row"></div>
               </div>
+              <p class="mk-cap">사용자 상태에 따라 구성되는 홈 화면</p>
             </div>
-            <div class="mc-col">
-              <span class="mc-eyebrow">Stage 02</span>
-              <span class="mc-title">신청 중</span>
-              <div class="mc-phone">
-                <div class="mc-notch"></div>
-                <div class="mc-steps">
-                  <span class="mc-step done"></span>
-                  <span class="mc-step active"></span>
-                  <span class="mc-step"></span>
+
+            <!-- 상태별 작은 목업 -->
+            <div class="mk-states">
+              <div class="mk-state">
+                <div class="mk-mini">
+                  <div class="mk-line" style="width:56%;margin-bottom:10px"></div>
+                  <div class="mk-mini-card mk-blue">
+                    <div class="mk-hl" style="width:74%;background:rgba(55,138,221,.45);margin-bottom:6px"></div>
+                    <div class="mk-hl" style="width:52%;height:9px;background:#378ADD"></div>
+                  </div>
+                  <div class="mk-chips">
+                    <span class="mk-chip"></span><span class="mk-chip"></span><span class="mk-chip"></span>
+                  </div>
+                  <div class="mk-mini-btn mk-blue-solid"></div>
                 </div>
-                <div class="mc-status">
-                  <div class="mc-row hl-soft"></div>
-                  <div class="mc-row"></div>
+                <div class="mk-desc">
+                  <span class="mk-tag mk-tag-blue">탐색</span>
+                  <p>가입·추천 정보를<br>중심으로 노출</p>
                 </div>
-                <div class="mc-row short"></div>
-                <div class="mc-cta"></div>
               </div>
-            </div>
-            <div class="mc-col">
-              <span class="mc-eyebrow">Stage 03</span>
-              <span class="mc-title">이용 중</span>
-              <div class="mc-phone">
-                <div class="mc-notch"></div>
-                <div class="mc-grid">
-                  <span class="mc-tile"></span>
-                  <span class="mc-tile"></span>
-                  <span class="mc-tile"></span>
-                  <span class="mc-tile"></span>
+
+              <div class="mk-state">
+                <div class="mk-mini">
+                  <div class="mk-line" style="width:56%;margin-bottom:10px"></div>
+                  <div class="mk-steps">
+                    <span class="mk-dot-s on"></span><span class="mk-bar on"></span>
+                    <span class="mk-dot-s on"></span><span class="mk-bar"></span>
+                    <span class="mk-dot-s"></span>
+                  </div>
+                  <div class="mk-mini-card mk-green">
+                    <div class="mk-hl" style="width:50%;background:#9FE1CB;margin-bottom:6px"></div>
+                    <div class="mk-hl" style="width:72%;height:9px;background:#5DCAA5"></div>
+                  </div>
+                  <div class="mk-mini-btn mk-green-solid"></div>
                 </div>
-                <div class="mc-row"></div>
-                <div class="mc-cta"></div>
+                <div class="mk-desc">
+                  <span class="mk-tag mk-tag-green">진행</span>
+                  <p>진행 단계·현황을<br>중심으로 노출</p>
+                </div>
+              </div>
+
+              <div class="mk-state">
+                <div class="mk-mini">
+                  <div class="mk-line" style="width:56%;margin-bottom:10px"></div>
+                  <div class="mk-mini-dark">
+                    <div class="mk-hl" style="width:44%;background:rgba(255,255,255,.4);margin-bottom:7px"></div>
+                    <div class="mk-hl" style="width:66%;height:11px;background:#fff"></div>
+                  </div>
+                  <div class="mk-grid4">
+                    <div class="mk-cell"></div><div class="mk-cell"></div>
+                    <div class="mk-cell"></div><div class="mk-cell"></div>
+                  </div>
+                </div>
+                <div class="mk-desc">
+                  <span class="mk-tag mk-tag-gray">관리</span>
+                  <p>이용 현황·관리를<br>중심으로 노출</p>
+                </div>
               </div>
             </div>
           </div>
