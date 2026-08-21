@@ -416,33 +416,62 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 }
 
 /* ---- 신청절차 개선 목업 ---- */
-.mock-apply{width:100%;display:flex;flex-direction:column;gap:12px}
-.ap-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-align:center;font-weight:600}
-.ap-label.muted{color:var(--muted)}
-.ap-label.blue{color:var(--accent)}
-.ap-before{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 14px}
-.ap-dots{display:flex;justify-content:space-between;align-items:center;position:relative;padding:0 4px}
-.ap-dots::before{content:'';position:absolute;left:10px;right:10px;top:50%;height:2px;background:#D9CEBB}
-.ap-dot{position:relative;width:13px;height:13px;border-radius:50%;background:var(--paper);border:1.5px solid #D9CEBB}
-.ap-sub{font-size:.76rem;color:#635947;text-align:center;margin-top:12px;line-height:1.5}
-.ap-arrow{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--accent);font-weight:700}
-.ap-after{background:var(--paper);border:2px solid var(--accent);border-radius:12px;padding:16px}
-.ap-step-pill{display:inline-block;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.02em;padding:6px 14px;border-radius:999px;margin-bottom:16px}
-.ap-steps{display:flex;justify-content:space-between;align-items:flex-start;position:relative;padding:0 4px}
-.ap-steps::before{content:'';position:absolute;left:24px;right:24px;top:18px;height:2px;background:var(--line)}
-.ap-steps::after{content:'';position:absolute;left:24px;width:32%;top:18px;height:2px;background:var(--accent)}
-.ap-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
-.ap-circle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;background:var(--paper);border:2px solid var(--line);color:#A99C88}
-.ap-circle.done{background:var(--accent);border-color:var(--accent);color:#fff}
-.ap-circle.active{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 5px rgba(184,81,26,.16)}
-.ap-step-name{font-size:.7rem;color:var(--muted);text-align:center}
-.ap-step-name.active{color:var(--accent);font-weight:700}
-.ap-desc{font-size:.82rem;color:#2E2820;text-align:center;margin-top:16px;line-height:1.65}
-.ap-krds{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
-.ap-krds-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);font-weight:700;letter-spacing:.04em;margin-bottom:8px}
-.ap-chips{display:flex;flex-wrap:wrap;gap:6px}
-.ap-chip{font-size:.76rem;font-weight:600;color:var(--accent);border:1.3px solid var(--accent);border-radius:999px;padding:4px 11px}
-.ap-krds-src{font-size:.68rem;color:#A99C88;margin-top:8px;line-height:1.5}
+.af-wrap{background:var(--mist);border-radius:14px;padding:clamp(24px,3vw,34px);display:flex;gap:clamp(24px,3vw,40px);align-items:center;justify-content:center;flex-wrap:wrap}
+.af-phone-col{flex:0 0 auto;width:250px}
+.af-phone{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px 16px 18px;box-shadow:0 6px 24px rgba(0,0,0,.06)}
+.af-notch{width:44px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 14px}
+.af-steps{display:flex;align-items:center;margin-bottom:16px}
+.af-snum{width:20px;height:20px;border-radius:50%;background:#E3E5EC;color:#888;font-size:10px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.af-snum.on{background:var(--accent);color:#fff}
+.af-sbar{flex:1;height:2px;background:var(--line)}
+.af-sbar.on{background:var(--accent)}
+.af-lbl{height:6px;border-radius:3px;background:#B9BDC8;margin-bottom:6px}
+.af-field{height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;padding:0 11px;margin-bottom:10px}
+.af-field-date{justify-content:space-between}
+.af-fill{height:6px;border-radius:3px;background:#E3E5EC}
+.af-fill-w{height:5px;border-radius:3px;background:rgba(255,255,255,.9);display:inline-block}
+.af-2col{display:flex;gap:7px;margin-bottom:16px}
+.af-2col>div{flex:1}
+.af-2col .af-field{margin-bottom:0}
+
+.af-krds{border:1.5px solid var(--accent);border-radius:12px;padding:11px;margin-bottom:11px;position:relative}
+.af-krds-tag{position:absolute;top:-9px;left:12px;background:var(--accent);color:#fff;font-size:10px;font-weight:500;padding:2px 8px;border-radius:5px}
+.af-drop{border:1px dashed #E3C3A9;background:#FBF3EC;border-radius:8px;padding:12px;text-align:center;margin:3px 0 9px}
+.af-drop-btn{display:inline-flex;align-items:center;gap:5px;background:var(--accent);border-radius:6px;padding:5px 11px;color:#fff;font-size:11px}
+.af-file{display:flex;align-items:center;gap:7px;padding:5px 0;border-top:1px solid #EEF0F5}
+.af-chk{width:13px;height:13px;border-radius:50%;background:var(--mist);border:1px solid var(--line);color:#B9BDC8;font-size:8px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.af-chk.on{background:var(--accent);border:none;color:#fff}
+.af-agree{display:flex;gap:8px}
+.af-radio{flex:1;display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:7px;padding:7px 9px}
+.af-radio.on{border-color:var(--accent);background:#F7E8DD}
+.af-ro{width:14px;height:14px;border-radius:50%;border:1px solid #C9CDD6;flex:0 0 auto}
+.af-ro.on{border:4px solid var(--accent)}
+.af-rtxt{font-size:11px;color:var(--muted)}
+.af-rtxt.on{color:var(--accent);font-weight:500}
+.af-krds-btn{padding:6px}
+.af-submit{height:36px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-top:3px}
+
+.af-list{flex:0 0 auto;display:flex;flex-direction:column;gap:16px}
+.af-item{display:flex;align-items:flex-start;gap:12px;max-width:224px}
+.af-i-ico{width:34px;height:34px;border-radius:10px;background:#F7E8DD;color:var(--accent);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.af-i-t{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 3px}
+.af-i-d{font-size:12px;color:var(--muted);margin:0;line-height:1.55}
+.af-note{display:flex;align-items:center;gap:7px;background:#F7E8DD;border-radius:8px;padding:9px 11px;max-width:224px}
+.af-note-dot{width:8px;height:8px;border-radius:2px;background:var(--accent);flex:0 0 auto}
+.af-note p{font-size:11px;color:var(--accent);margin:0;line-height:1.5}
+
+.af-ico-cal,.af-ico-dl,.af-ico-check,.af-ico-x,.af-ico-search,.af-ico-merge,.af-ico-form{display:inline-block;width:1em;height:1em;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.af-ico-cal{color:#B9BDC8;font-size:13px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E")}
+.af-ico-dl{color:#fff;font-size:12px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5 5-5M12 4v12'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5 5-5M12 4v12'/%3E%3C/svg%3E")}
+.af-ico-check{color:#fff;font-size:8px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
+.af-ico-x{color:#B9BDC8;font-size:8px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E")}
+.af-ico-search{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E")}
+.af-ico-merge{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M8 4v4l4 4 4-4V4M12 12v8'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M8 4v4l4 4 4-4V4M12 12v8'/%3E%3C/svg%3E")}
+.af-ico-form{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Cline x1='8' y1='9' x2='16' y2='9'/%3E%3Cline x1='8' y1='13' x2='14' y2='13'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Cline x1='8' y1='9' x2='16' y2='9'/%3E%3Cline x1='8' y1='13' x2='14' y2='13'/%3E%3C/svg%3E")}
+
+@media (max-width:640px){
+  .af-wrap{flex-direction:column}
+}
 
 /* ---- 모바일 최적화 목업 ---- */
 .mock-mobile{width:100%;display:flex;gap:14px}
@@ -975,55 +1004,69 @@ body.modal-lock{overflow:hidden}
           <h4>타 금융사 벤치마킹으로 신청절차 개선사항을 도출하고,<br class="brk"> KRDS의 사용자 중심 설계 원칙을 반영해<br class="brk"> UI/UX를 개선했습니다.</h4>
           <p>타 금융사의 신청 과정을 비교·분석하여 신청 단계별 정보와 입력 항목을 중심으로 개선사항을 도출하고, 사용자가 신청 흐름을 쉽게 이해할 수 있도록 직관적인 화면 구조와 UI/UX를 설계했습니다. 특히 KRDS의 단계표시기, 텍스트·날짜 입력 필드, 파일업로드 등 검증된 컴포넌트와 동의·입력 폼 기본 패턴을 적용해 완성도와 일관성을 높였습니다.</p>
         </div>
-        <div class="dz-img mock tall">
-          <div class="mock-apply">
-            <span class="ap-label muted">BEFORE · 하위 단계가 화면에 숨어 있음</span>
-            <div class="ap-before">
-              <div class="ap-dots">
-                <span class="ap-dot"></span><span class="ap-dot"></span><span class="ap-dot"></span>
-                <span class="ap-dot"></span><span class="ap-dot"></span><span class="ap-dot"></span>
+        <div class="dz-img tall" style="background:none;border:none;padding:0">
+          <div class="af-wrap">
+            <div class="af-phone-col">
+              <div class="af-phone">
+                <div class="af-notch"></div>
+
+                <div class="af-steps">
+                  <span class="af-snum on">1</span><span class="af-sbar on"></span>
+                  <span class="af-snum on">2</span><span class="af-sbar"></span>
+                  <span class="af-snum">3</span>
+                </div>
+
+                <div class="af-lbl" style="width:38%"></div>
+                <div class="af-field"><span class="af-fill" style="width:55%"></span></div>
+
+                <div class="af-2col">
+                  <div>
+                    <div class="af-lbl" style="width:64%"></div>
+                    <div class="af-field"><span class="af-fill" style="width:60%"></span></div>
+                  </div>
+                  <div>
+                    <div class="af-lbl" style="width:52%"></div>
+                    <div class="af-field af-field-date"><span class="af-fill" style="width:40%"></span><i class="af-ico-cal"></i></div>
+                  </div>
+                </div>
+
+                <div class="af-krds">
+                  <span class="af-krds-tag">파일 업로드</span>
+                  <div class="af-drop"><span class="af-drop-btn"><i class="af-ico-dl"></i><span class="af-fill-w" style="width:32px"></span></span></div>
+                  <div class="af-file"><span class="af-fill" style="flex:1"></span><span class="af-chk on"><i class="af-ico-check"></i></span></div>
+                  <div class="af-file"><span class="af-fill" style="flex:1"></span><span class="af-chk"><i class="af-ico-x"></i></span></div>
+                </div>
+
+                <div class="af-krds">
+                  <span class="af-krds-tag">동의 여부</span>
+                  <div class="af-lbl" style="width:74%;background:#C9CDD6;margin:3px 0 10px"></div>
+                  <div class="af-agree">
+                    <div class="af-radio"><span class="af-ro"></span><span class="af-rtxt">동의 안 함</span></div>
+                    <div class="af-radio on"><span class="af-ro on"></span><span class="af-rtxt on">동의함</span></div>
+                  </div>
+                </div>
+
+                <div class="af-krds af-krds-btn">
+                  <span class="af-krds-tag">확인</span>
+                  <div class="af-submit"><span class="af-fill-w" style="width:34%"></span></div>
+                </div>
               </div>
-              <p class="ap-sub">일부 단계 안에 하위 단계가 섞여 있어<br class="brk"> 진행 상황을 파악하기 어려움</p>
             </div>
 
-            <span class="ap-arrow">↓ 통합</span>
-
-            <span class="ap-label blue">AFTER · 단계 표시기 개선 + 하위 단계 통합</span>
-            <div class="ap-after">
-              <span class="ap-step-pill">STEP 2 / 4</span>
-              <div class="ap-steps">
-                <div class="ap-step">
-                  <div class="ap-circle done">✓</div>
-                  <span class="ap-step-name">본인 확인</span>
-                </div>
-                <div class="ap-step">
-                  <div class="ap-circle active">2</div>
-                  <span class="ap-step-name active">신청정보 입력</span>
-                </div>
-                <div class="ap-step">
-                  <div class="ap-circle">3</div>
-                  <span class="ap-step-name">서류 제출</span>
-                </div>
-                <div class="ap-step">
-                  <div class="ap-circle">4</div>
-                  <span class="ap-step-name">완료</span>
-                </div>
+            <div class="af-list">
+              <div class="af-item">
+                <span class="af-i-ico"><i class="af-ico-search"></i></span>
+                <div><p class="af-i-t">입력 항목·프로세스 분석</p><p class="af-i-d">단계별 항목을 비교·분석해 개선점 도출</p></div>
               </div>
-              <p class="ap-desc">화면 안에 흩어져 있던 하위 단계를 하나로 통합하고, 현재 위치를 명확히 보여주는 단계 표시기를 적용했습니다.</p>
-
-              <div class="ap-krds">
-                <p class="ap-krds-label">KRDS 적용 컴포넌트</p>
-                <div class="ap-chips">
-                  <span class="ap-chip">단계표시기</span>
-                  <span class="ap-chip">텍스트 입력 필드</span>
-                  <span class="ap-chip">날짜 입력 필드</span>
-                  <span class="ap-chip">텍스트영역</span>
-                  <span class="ap-chip">파일업로드</span>
-                  <span class="ap-chip">동의</span>
-                  <span class="ap-chip">입력 폼</span>
-                </div>
-                <p class="ap-krds-src">KRDS 컴포넌트 &gt; 피드백·입력, 기본 패턴 &gt; 동의·입력 폼</p>
+              <div class="af-item">
+                <span class="af-i-ico"><i class="af-ico-merge"></i></span>
+                <div><p class="af-i-t">단계 통합·간소화</p><p class="af-i-d">불필요한 단계를 삭제하고, 숨겨진 단계를 다른 단계와 통합</p></div>
               </div>
+              <div class="af-item">
+                <span class="af-i-ico"><i class="af-ico-form"></i></span>
+                <div><p class="af-i-t">입력 UI/UX 개선</p><p class="af-i-d">KRDS 가이드라인과, 일관성·직관성이 부족한 UI/UX를 반영해 개선</p></div>
+              </div>
+              <div class="af-note"><span class="af-note-dot"></span><p>'파란 테두리'는 KRDS 가이드라인을 반영한 요소 예시</p></div>
             </div>
           </div>
         </div>
