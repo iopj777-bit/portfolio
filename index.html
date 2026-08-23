@@ -352,6 +352,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .dz-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
 .dz-img.mock{align-items:stretch;overflow:auto}
 .dz-img.tall{aspect-ratio:auto;overflow:visible}
+.dz-img.bare{background:none;border:none;aspect-ratio:auto;padding:0;align-items:stretch;overflow:visible}
 
 /* ---- 맞춤형 화면 목업 ---- */
 .mk-wrap{
@@ -473,33 +474,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   .af-wrap{flex-direction:column}
 }
 
-/* ---- 모바일 최적화 목업 ---- */
-.mock-mobile{width:100%;display:flex;gap:14px}
-.mm-phone{flex:0 0 44%;border:1.5px solid var(--line);border-radius:20px;padding:10px;display:flex;flex-direction:column;gap:7px;background:var(--paper)}
-.mm-row{height:13px;border-radius:5px;background:var(--mist);flex-shrink:0}
-.mm-sheet{margin-top:auto;border:2px solid var(--accent);border-radius:14px 14px 4px 4px;padding:10px;display:flex;flex-direction:column;gap:6px;background:var(--paper)}
-.mm-sheet-handle{width:26px;height:4px;background:rgba(184,81,26,.4);border-radius:2px;margin:0 auto 2px}
-.mm-sheet-label{font-size:.7rem;font-weight:700;color:var(--accent);text-align:center;margin-bottom:2px}
-.mm-cta{height:20px;border-radius:10px;background:var(--accent);margin-top:2px}
-.mm-side{flex:1;display:flex;flex-direction:column;gap:12px;min-width:0}
-.mm-card{background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:10px;flex:1;display:flex;flex-direction:column;gap:6px}
-.mm-card-label{font-size:.72rem;font-weight:700;color:var(--ink);margin-bottom:2px}
-.mm-card-row{height:8px;border-radius:4px;background:var(--mist)}
-.mm-card-row.short{width:60%}
-
-.mm-modal-bar{display:flex;align-items:center;justify-content:space-between;padding-bottom:6px;margin-bottom:2px;border-bottom:1px solid var(--line)}
-.mm-modal-title{height:9px;width:55%;border-radius:4px;background:rgba(28,23,18,.75)}
-.mm-modal-x{font-size:.62rem;color:var(--muted);line-height:1}
-.mm-modal-cta{margin-top:auto;height:18px;border-radius:9px;background:var(--accent)}
-
-.mm-cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.mm-cal-arrow{font-size:.7rem;color:var(--muted);line-height:1}
-.mm-cal-month{height:8px;width:36%;border-radius:4px;background:rgba(28,23,18,.6)}
-.mm-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.mm-cal-dot{width:9px;height:9px;border-radius:50%;background:var(--line);margin:0 auto}
-.mm-cal-dot.sel{background:var(--accent)}
-.mm-cal-dot.range{background:rgba(184,81,26,.35)}
-
 .mock-qa{width:100%;display:flex;flex-direction:column;gap:14px}
 .qa-sheet{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
 .qa-sheet-head{display:flex;border-bottom:1px solid var(--line)}
@@ -519,10 +493,56 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .qa-chip.done{background:var(--accent);color:#fff}
 .qa-arrow{color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
 
+/* ---- HF 모바일 최적화 목업 ---- */
+.mo-wrap{background:var(--mist);border-radius:14px;padding:clamp(24px,3vw,32px) clamp(16px,2vw,22px);display:flex;gap:clamp(14px,1.8vw,20px);align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.mo-col{flex:1 1 0;min-width:170px;max-width:210px}
+.mo-phone{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.06);height:320px;display:flex;flex-direction:column}
+.mo-top{padding:12px 14px 0;flex:1}
+.mo-notch{width:38px;height:4px;border-radius:3px;background:var(--line);margin:0 auto 12px}
+.mo-lbl{height:7px;border-radius:3px;background:#B9BDC8;display:inline-block}
+.mo-select{height:28px;border-radius:8px;border:1px solid var(--blue);background:#F5F9FE;display:flex;align-items:center;justify-content:space-between;padding:0 10px}
+.mo-fill{height:6px;border-radius:3px;background:#E3E5EC;display:inline-block}
+
+.mo-sheet{margin-top:auto;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -4px 16px rgba(0,0,0,.08);padding:11px 0 8px}
+.mo-handle{width:30px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 12px}
+.mo-sheet-t{font-size:11px;font-weight:600;color:#1A1A1A;margin:0 0 6px;padding:0 16px}
+.mo-opts{display:flex;flex-direction:column}
+.mo-opt{padding:10px 16px;font-size:11px;color:var(--muted);text-align:left;border-bottom:1px solid #F1F2F5}
+.mo-opt:last-child{border-bottom:none}
+.mo-opt.on{color:#185FA5;font-weight:600;background:#F5F9FE;display:flex;align-items:center;justify-content:space-between}
+
+.mo-head{display:flex;align-items:center;gap:8px;padding:13px 14px;border-bottom:1px solid #EEF0F5}
+.mo-head-t{font-size:11px;font-weight:600;color:#1A1A1A}
+.mo-body{padding:12px 14px 0;flex:1}
+.mo-search{height:32px;border-radius:8px;background:var(--mist);display:flex;align-items:center;gap:6px;padding:0 11px;margin-bottom:14px}
+.mo-results{display:flex;flex-direction:column;gap:11px}
+.mo-res{display:flex;flex-direction:column;gap:5px}
+
+.mo-cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;padding:0 8px;font-size:11px;font-weight:600;color:#1A1A1A}
+.mo-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:0 8px}
+.mo-dow{font-size:8px;color:var(--muted);text-align:center;padding-bottom:2px}
+.mo-dow.sun,.mo-dow.sat{color:#B9BDC8}
+.mo-day{font-size:9px;color:var(--muted);text-align:center;padding:3px 0}
+.mo-day.empty{color:transparent}
+.mo-day.sel{color:#fff;background:var(--blue);border-radius:50%}
+
+.mo-name{text-align:center;font-size:12px;color:#185FA5;font-weight:600;margin:12px 0 0}
+
+.mo-ico{display:inline-block;width:1em;height:1em;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.mo-ico-down{font-size:12px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.mo-ico-check{font-size:12px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
+.mo-ico-back{font-size:15px;color:#1A1A1A;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E")}
+.mo-ico-search{font-size:13px;color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E")}
+.mo-ico-cal{font-size:13px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E")}
+.mo-ico-left{font-size:12px;color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E")}
+.mo-ico-right{font-size:12px;color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E")}
+
 @media (max-width:520px){
-  .mock-mobile{flex-direction:column}
-  .mm-phone{flex:none}
   .qa-audit-row{flex-wrap:wrap}
+}
+
+@media (max-width:600px){
+  .mo-col{flex:1 1 100%;max-width:230px}
 }
 
 .md-review{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
@@ -1077,47 +1097,68 @@ body.modal-lock{overflow:hidden}
           <h4>모바일 이용 특성을 고려한 UI/UX를 설계해<br class="brk"> 모바일 환경에서의 이용 편의성을 강화했습니다.</h4>
           <p>모바일 환경에서의 이용 편의성을 고려해 주요 UI 패턴을 적용하고, 타 금융기관 벤치마킹을 통해 바텀시트·풀팝업·캘린더 UI 등을 활용하여 모바일 특성에 맞는 화면과 인터랙션을 설계했습니다.</p>
         </div>
-        <div class="dz-img mock">
-          <div class="mock-mobile">
-            <div class="mm-phone">
-              <div class="mm-row" style="height:24px"></div>
-              <div class="mm-row"></div>
-              <div class="mm-row"></div>
-              <div class="mm-sheet">
-                <div class="mm-sheet-handle"></div>
-                <p class="mm-sheet-label">바텀시트</p>
-                <div class="mm-row"></div>
-                <div class="mm-row"></div>
-                <div class="mm-cta"></div>
+        <div class="dz-img bare">
+          <div class="mo-wrap">
+
+            <div class="mo-col">
+              <div class="mo-phone">
+                <div class="mo-top">
+                  <div class="mo-notch"></div>
+                  <div class="mo-lbl" style="width:56%;background:#D5D7DE;margin-bottom:12px"></div>
+                  <div class="mo-lbl" style="width:30%;margin-bottom:6px"></div>
+                  <div class="mo-select"><span class="mo-fill" style="width:40%;background:#85B7EB"></span><i class="mo-ico mo-ico-down" style="color:#1B45D7"></i></div>
+                </div>
+                <div class="mo-sheet">
+                  <div class="mo-handle"></div>
+                  <p class="mo-sheet-t">혼인 상태 선택</p>
+                  <div class="mo-opts">
+                    <div class="mo-opt on">미혼<i class="mo-ico mo-ico-check"></i></div>
+                    <div class="mo-opt">기혼</div>
+                    <div class="mo-opt">신혼부부</div>
+                    <div class="mo-opt">결혼예정</div>
+                  </div>
+                </div>
               </div>
+              <p class="mo-name">바텀시트</p>
             </div>
-            <div class="mm-side">
-              <div class="mm-card">
-                <p class="mm-card-label">풀팝업</p>
-                <div class="mm-modal-bar">
-                  <span class="mm-modal-title"></span>
-                  <span class="mm-modal-x">✕</span>
-                </div>
-                <div class="mm-card-row"></div>
-                <div class="mm-card-row"></div>
-                <div class="mm-card-row short"></div>
-                <div class="mm-modal-cta"></div>
-              </div>
-              <div class="mm-card">
-                <p class="mm-card-label">캘린더</p>
-                <div class="mm-cal-nav">
-                  <span class="mm-cal-arrow">‹</span>
-                  <span class="mm-cal-month"></span>
-                  <span class="mm-cal-arrow">›</span>
-                </div>
-                <div class="mm-cal-grid">
-                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
-                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
-                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot range"></span><span class="mm-cal-dot sel"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
-                  <span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span><span class="mm-cal-dot"></span>
+
+            <div class="mo-col">
+              <div class="mo-phone">
+                <div class="mo-head"><i class="mo-ico mo-ico-back"></i><span class="mo-head-t">주소 검색</span></div>
+                <div class="mo-body">
+                  <div class="mo-search"><i class="mo-ico mo-ico-search"></i><span class="mo-fill" style="width:52%"></span></div>
+                  <div class="mo-results">
+                    <div class="mo-res"><span class="mo-lbl" style="width:78%;background:#C9CDD6"></span><span class="mo-lbl" style="width:54%"></span></div>
+                    <div class="mo-res"><span class="mo-lbl" style="width:66%;background:#C9CDD6"></span><span class="mo-lbl" style="width:60%"></span></div>
+                    <div class="mo-res"><span class="mo-lbl" style="width:72%;background:#C9CDD6"></span><span class="mo-lbl" style="width:48%"></span></div>
+                    <div class="mo-res"><span class="mo-lbl" style="width:60%;background:#C9CDD6"></span><span class="mo-lbl" style="width:56%"></span></div>
+                  </div>
                 </div>
               </div>
+              <p class="mo-name">풀팝업</p>
             </div>
+
+            <div class="mo-col">
+              <div class="mo-phone">
+                <div class="mo-top">
+                  <div class="mo-notch"></div>
+                  <div class="mo-lbl" style="width:44%;margin-bottom:6px"></div>
+                  <div class="mo-select"><span class="mo-fill" style="width:50%;background:#85B7EB"></span><i class="mo-ico mo-ico-cal" style="color:#1B45D7"></i></div>
+                </div>
+                <div class="mo-sheet">
+                  <div class="mo-handle"></div>
+                  <div class="mo-cal-head"><i class="mo-ico mo-ico-left"></i><span>2025.10</span><i class="mo-ico mo-ico-right"></i></div>
+                  <div class="mo-cal">
+                    <span class="mo-dow sun">일</span><span class="mo-dow">월</span><span class="mo-dow">화</span><span class="mo-dow">수</span><span class="mo-dow">목</span><span class="mo-dow">금</span><span class="mo-dow sat">토</span>
+                    <span class="mo-day empty"></span><span class="mo-day empty"></span><span class="mo-day">1</span><span class="mo-day">2</span><span class="mo-day">3</span><span class="mo-day">4</span><span class="mo-day">5</span>
+                    <span class="mo-day">6</span><span class="mo-day">7</span><span class="mo-day">8</span><span class="mo-day">9</span><span class="mo-day">10</span><span class="mo-day">11</span><span class="mo-day">12</span>
+                    <span class="mo-day">13</span><span class="mo-day">14</span><span class="mo-day sel">15</span><span class="mo-day">16</span><span class="mo-day">17</span><span class="mo-day">18</span><span class="mo-day">19</span>
+                  </div>
+                </div>
+              </div>
+              <p class="mo-name">캘린더</p>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1213,7 +1254,7 @@ body.modal-lock{overflow:hidden}
           <h4>단 2주 만에 임시홈페이지를 설계하고 오픈했습니다.</h4>
           <p>새 정부 출범 일정에 맞춰 화면 설계부터 오픈까지 빠르게 진행했고, 테스트 과정을 거쳐 안정적으로 홈페이지를 공개했습니다.</p>
         </div>
-        <div class="dz-img">이미지 준비 중</div>
+        <div class="dz-img"><img src="images/president_timeline_4x3.png" alt="2주 오픈 타임라인"></div>
       </div>
 
       <div class="dz">
