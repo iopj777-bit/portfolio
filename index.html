@@ -352,7 +352,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .dz-img img{width:100%;height:100%;object-fit:cover;border-radius:14px}
 .dz-img.mock{align-items:stretch;overflow:auto}
 .dz-img.tall{aspect-ratio:auto;overflow:visible}
-.dz-img.bare{background:none;border:none;aspect-ratio:auto;padding:0;align-items:stretch;overflow:visible}
+.dz-img.bare{background:none;border:none;aspect-ratio:auto;height:auto;padding:0;align-items:stretch;overflow:visible}
 
 /* ---- 맞춤형 화면 목업 ---- */
 .mk-wrap{
@@ -536,6 +536,82 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .mo-ico-cal{font-size:13px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E")}
 .mo-ico-left{font-size:12px;color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M15 6l-6 6 6 6'/%3E%3C/svg%3E")}
 .mo-ico-right{font-size:12px;color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E")}
+
+/* ---- 대통령실 2주 오픈 타임라인 목업 ---- */
+.tl-wrap{background:var(--mist);border-radius:14px;padding:clamp(28px,3.4vw,44px) clamp(22px,2.6vw,34px)}
+.tl-line{position:relative}
+.tl-track{position:absolute;top:29px;left:10%;right:10%;height:5px;border-radius:5px;background:linear-gradient(90deg,#C9D3F5 0%,#1B45D7 100%);z-index:1}
+.tl-stops{position:relative;z-index:2;display:flex}
+.tl-stop{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.tl-node{width:58px;height:58px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(20,28,60,.08)}
+.tl-node.start .tl-core{width:16px;height:16px;border-radius:50%;background:var(--ink)}
+.tl-node.end{background:var(--blue);border-color:var(--blue);box-shadow:0 6px 16px rgba(27,69,215,.28)}
+.tl-ico{display:inline-block;width:24px;height:24px;background:var(--ink);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.tl-node.end .tl-ico{background:#fff}
+.tl-txt{margin-top:15px}
+.tl-lbl{font-size:15px;font-weight:700;color:var(--ink);margin:0;line-height:1.25}
+.tl-stop.end .tl-lbl{color:var(--blue)}
+.tl-sub{font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.3}
+.tl-sub.date{font-weight:700;color:var(--ink);letter-spacing:.01em}
+.tl-stop.end .tl-sub.date{color:var(--blue)}
+.tl-ico-users{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3'/%3E%3Ccircle cx='16.5' cy='9' r='2.3'/%3E%3Cpath d='M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5'/%3E%3Cpath d='M15 14c2.4 0 4 1.6 4 4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3'/%3E%3Ccircle cx='16.5' cy='9' r='2.3'/%3E%3Cpath d='M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5'/%3E%3Cpath d='M15 14c2.4 0 4 1.6 4 4'/%3E%3C/svg%3E")}
+.tl-ico-grid{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='13.5' y='4' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='4' y='13.5' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='13.5' y='13.5' width='6.5' height='6.5' rx='1.4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='13.5' y='4' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='4' y='13.5' width='6.5' height='6.5' rx='1.4'/%3E%3Crect x='13.5' y='13.5' width='6.5' height='6.5' rx='1.4'/%3E%3C/svg%3E")}
+.tl-ico-check{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='16' height='16' rx='3'/%3E%3Cpath d='M8.5 12.2l2.5 2.5 4.5-5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='16' height='16' rx='3'/%3E%3Cpath d='M8.5 12.2l2.5 2.5 4.5-5'/%3E%3C/svg%3E")}
+.tl-ico-flag{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 21V4'/%3E%3Cpath d='M6 4.5h11l-2.4 3.2L17 11H6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 21V4'/%3E%3Cpath d='M6 4.5h11l-2.4 3.2L17 11H6'/%3E%3C/svg%3E")}
+
+/* ---- 대통령실 CMS 업로드 → 실화면 반영 (4:3 고정·폭 비례 스케일) ---- */
+.uf-wrap{container-type:inline-size;width:100%;aspect-ratio:4/3;position:relative;background:var(--mist);border-radius:14px;overflow:hidden}
+.uf-frame{position:absolute;inset:0;box-sizing:border-box;padding:5cqw 5.5cqw;display:flex;align-items:stretch;gap:2.5cqw;font-size:2.05cqw;font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;overflow:hidden}
+
+.uf-side{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+.uf-cap{font-size:1em;color:var(--muted);margin-bottom:1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.uf-cap b{font-weight:700;color:#1A1A1A}
+
+.uf-browser{flex:1;min-height:0;background:#fff;border:1px solid var(--line);border-radius:1.4cqw;overflow:hidden;box-shadow:0 1cqw 3cqw rgba(0,0,0,.07);display:flex;flex-direction:column}
+.uf-bar{display:flex;align-items:center;gap:.7cqw;padding:1.2cqw 1.6cqw;background:#F7F8FA;border-bottom:1px solid #EEF0F5;flex:0 0 auto}
+.uf-dot{width:1.1cqw;height:1.1cqw;border-radius:50%;background:var(--line)}
+.uf-url{font-family:'JetBrains Mono',monospace;font-size:.82em;color:#9AA0AB;background:#fff;border-radius:.7cqw;padding:.4cqw 1.2cqw;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-left:.5cqw}
+
+.uf-screen{flex:1;min-height:0;padding:1.8cqw 2cqw;display:flex;flex-direction:column;overflow:hidden}
+.uf-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.4cqw;border-bottom:1px solid #EEF0F5;margin-bottom:1.5cqw;flex:0 0 auto}
+.uf-h-t{font-size:1.05em;font-weight:700;color:#1A1A1A}
+.uf-badge{font-size:.8em;font-weight:600;color:#185FA5;background:#E6F1FB;padding:.4cqw 1.1cqw;border-radius:.6cqw}
+.uf-flabel{font-size:.82em;color:var(--muted);margin:0 0 .6cqw;font-weight:500;flex:0 0 auto}
+.uf-field{height:3.6cqw;border-radius:1cqw;border:1px solid var(--line);background:#fff;display:flex;align-items:center;padding:0 1.3cqw;margin-bottom:1.4cqw;flex:0 0 auto}
+.uf-field.on{border-color:var(--blue);background:#F5F9FE}
+.uf-field.uf-sel{justify-content:space-between}
+.uf-caret{width:.18cqw;height:1.6cqw;background:var(--blue);margin-left:.3cqw}
+.uf-fill{height:.7cqw;border-radius:.4cqw;background:#E3E5EC;display:inline-block}
+.uf-area{flex:1 1 auto;min-height:0;border:1px solid var(--line);border-radius:1cqw;background:#fff;padding:1.3cqw;display:flex;flex-direction:column;justify-content:center;gap:1cqw;margin-bottom:1.4cqw}
+.uf-attach{display:flex;align-items:center;gap:1cqw;border:1px dashed #B5D4F4;background:#F5F9FE;border-radius:1cqw;padding:1.1cqw 1.3cqw;margin-bottom:1.4cqw;flex:0 0 auto}
+.uf-attach-ok{margin-left:auto;width:1.8cqw;height:1.8cqw;border-radius:50%;background:#1D9E75;color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.uf-submit{flex:0 0 auto;width:100%;height:4.4cqw;border:none;border-radius:1cqw;background:var(--blue);color:#fff;font-size:1em;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.7cqw;cursor:default}
+
+.uf-shot{flex:1;min-height:0;overflow:hidden;background:#fff}
+.uf-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+
+.uf-flow{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1cqw}
+.uf-arrow{width:5cqw;height:5cqw;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 1cqw 2.5cqw rgba(20,28,60,.08);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.uf-arrow .uf-ico{width:2.6cqw;height:2.6cqw}
+.uf-flow-t{font-size:.86em;font-weight:600;color:#185FA5;text-align:center;line-height:1.3}
+
+.uf-ico{display:inline-block;width:2cqw;height:2cqw;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.uf-ico-down{color:#B9BDC8;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.uf-ico-clip{color:#378ADD;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11l-8.5 8.5a4 4 0 0 1-6-6L14 5.5a2.5 2.5 0 0 1 4 4l-8 8a1 1 0 0 1-1.5-1.5l7.5-7.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11l-8.5 8.5a4 4 0 0 1-6-6L14 5.5a2.5 2.5 0 0 1 4 4l-8 8a1 1 0 0 1-1.5-1.5l7.5-7.5'/%3E%3C/svg%3E")}
+.uf-ico-check{color:#fff;width:1.1cqw;height:1.1cqw;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
+.uf-ico-up{color:#fff;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2'/%3E%3Cpath d='M12 3v12M7 8l5-5 5 5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2'/%3E%3Cpath d='M12 3v12M7 8l5-5 5 5'/%3E%3C/svg%3E")}
+.uf-ico-right{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
+
+@media (max-width:560px){
+  .tl-track{top:24px;bottom:24px;left:24px;right:auto;width:5px;height:auto;background:linear-gradient(180deg,#C9D3F5 0%,#1B45D7 100%)}
+  .tl-stops{flex-direction:column;gap:22px;align-items:stretch}
+  .tl-stop{flex:none;flex-direction:row;align-items:center;text-align:left;gap:16px}
+  .tl-node{width:48px;height:48px;flex:0 0 auto}
+  .tl-node.start .tl-core{width:14px;height:14px}
+  .tl-ico{width:21px;height:21px}
+  .tl-txt{margin-top:0}
+  .tl-sub{margin-top:3px}
+}
 
 @media (max-width:520px){
   .qa-audit-row{flex-wrap:wrap}
@@ -1254,7 +1330,56 @@ body.modal-lock{overflow:hidden}
           <h4>단 2주 만에 임시홈페이지를 설계하고 오픈했습니다.</h4>
           <p>새 정부 출범 일정에 맞춰 화면 설계부터 오픈까지 빠르게 진행했고, 테스트 과정을 거쳐 안정적으로 홈페이지를 공개했습니다.</p>
         </div>
-        <div class="dz-img"><img src="images/president_timeline_4x3.png" alt="2주 오픈 타임라인"></div>
+        <div class="dz-img bare">
+          <div class="tl-wrap">
+            <div class="tl-line">
+              <div class="tl-track"></div>
+              <div class="tl-stops">
+
+                <div class="tl-stop start">
+                  <div class="tl-node start"><span class="tl-core"></span></div>
+                  <div class="tl-txt">
+                    <p class="tl-lbl">정부 출범</p>
+                    <p class="tl-sub date">2025.06.04</p>
+                  </div>
+                </div>
+
+                <div class="tl-stop">
+                  <div class="tl-node"><i class="tl-ico tl-ico-users"></i></div>
+                  <div class="tl-txt">
+                    <p class="tl-lbl">요구사항 정의</p>
+                    <p class="tl-sub">부서별 협의</p>
+                  </div>
+                </div>
+
+                <div class="tl-stop">
+                  <div class="tl-node"><i class="tl-ico tl-ico-grid"></i></div>
+                  <div class="tl-txt">
+                    <p class="tl-lbl">화면 설계</p>
+                    <p class="tl-sub">IA·주요 화면</p>
+                  </div>
+                </div>
+
+                <div class="tl-stop">
+                  <div class="tl-node"><i class="tl-ico tl-ico-check"></i></div>
+                  <div class="tl-txt">
+                    <p class="tl-lbl">테스트</p>
+                    <p class="tl-sub">오류 점검·수정</p>
+                  </div>
+                </div>
+
+                <div class="tl-stop end">
+                  <div class="tl-node end"><i class="tl-ico tl-ico-flag"></i></div>
+                  <div class="tl-txt">
+                    <p class="tl-lbl">임시홈페이지 오픈</p>
+                    <p class="tl-sub date">2025.06.19</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="dz">
@@ -1262,7 +1387,56 @@ body.modal-lock{overflow:hidden}
           <h4>오픈 이후 실시간 운영과 데이터 이관을 담당했습니다.</h4>
           <p>실시간으로 콘텐츠를 업로드하고, 이전 대통령실 홈페이지의 데이터 이관을 지원했습니다. 미디어·환경·구축·보안 등 다양한 담당자와 직접 회의에 참여해 커뮤니케이션하고, 사이트를 모니터링하며 안정적인 운영을 이어갔습니다.</p>
         </div>
-        <div class="dz-img">이미지 준비 중</div>
+        <div class="dz-img bare">
+          <div class="uf-wrap">
+            <div class="uf-frame">
+
+              <div class="uf-side">
+                <span class="uf-cap"><b>관리자 (CMS)</b> · 게시물 업로드</span>
+                <div class="uf-browser">
+                  <div class="uf-bar">
+                    <span class="uf-dot"></span><span class="uf-dot"></span><span class="uf-dot"></span>
+                    <span class="uf-url">admin.president.go.kr</span>
+                  </div>
+                  <div class="uf-screen">
+                    <div class="uf-head"><span class="uf-h-t">게시물 작성</span><span class="uf-badge">관리자</span></div>
+                    <p class="uf-flabel">제목</p>
+                    <div class="uf-field on"><span class="uf-fill" style="width:64%;background:#B7C9F5"></span><span class="uf-caret"></span></div>
+                    <p class="uf-flabel">분류</p>
+                    <div class="uf-field uf-sel"><span class="uf-fill" style="width:34%"></span><i class="uf-ico uf-ico-down"></i></div>
+                    <p class="uf-flabel">내용</p>
+                    <div class="uf-area">
+                      <span class="uf-fill" style="width:88%"></span>
+                      <span class="uf-fill" style="width:76%"></span>
+                      <span class="uf-fill" style="width:82%"></span>
+                    </div>
+                    <div class="uf-attach"><i class="uf-ico uf-ico-clip"></i><span class="uf-fill" style="width:44%"></span><span class="uf-attach-ok"><i class="uf-ico uf-ico-check"></i></span></div>
+                    <button class="uf-submit"><i class="uf-ico uf-ico-up"></i>게시</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="uf-flow">
+                <span class="uf-arrow"><i class="uf-ico uf-ico-right"></i></span>
+                <span class="uf-flow-t">실시간<br>게시</span>
+              </div>
+
+              <div class="uf-side">
+                <span class="uf-cap"><b>실사이트</b> · 게시물 목록</span>
+                <div class="uf-browser">
+                  <div class="uf-bar">
+                    <span class="uf-dot"></span><span class="uf-dot"></span><span class="uf-dot"></span>
+                    <span class="uf-url">president.go.kr</span>
+                  </div>
+                  <div class="uf-shot">
+                    <img src="images/president/president_speeches.jpg" alt="대통령의 말과 글 게시물 목록">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="dz flip">
