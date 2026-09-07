@@ -435,7 +435,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 }
 
 /* ---- 신청절차 개선 목업 ---- */
-.af-wrap{background:var(--mist);border-radius:14px;padding:clamp(24px,3vw,34px);display:flex;gap:clamp(24px,3vw,40px);align-items:center;justify-content:center;flex-wrap:wrap}
+.af-wrap{width:100%;background:var(--mist);border-radius:14px;padding:clamp(24px,3vw,34px);display:flex;gap:clamp(24px,3vw,40px);align-items:center;justify-content:center;flex-wrap:wrap;box-sizing:border-box}
 .af-phone-col{flex:0 0 auto;width:250px}
 .af-phone{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px 16px 18px;box-shadow:0 6px 24px rgba(0,0,0,.06)}
 .af-notch{width:44px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 14px}
@@ -470,46 +470,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .af-krds-btn{padding:6px}
 .af-submit{height:36px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-top:3px}
 
-.af-list{flex:0 0 auto;display:flex;flex-direction:column;gap:16px}
-.af-item{display:flex;align-items:flex-start;gap:12px;max-width:224px}
-.af-i-ico{width:34px;height:34px;border-radius:10px;background:#F5F9FE;color:var(--accent);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.af-i-t{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 3px}
-.af-i-d{font-size:12px;color:var(--muted);margin:0;line-height:1.55}
-.af-note{display:flex;align-items:center;gap:7px;background:#F5F9FE;border-radius:8px;padding:9px 11px;max-width:224px}
-.af-note-dot{width:8px;height:8px;border-radius:2px;background:var(--accent);flex:0 0 auto}
-.af-note p{font-size:11px;color:var(--accent);margin:0;line-height:1.5}
-
-.af-ico-cal,.af-ico-dl,.af-ico-check,.af-ico-x,.af-ico-search,.af-ico-merge,.af-ico-form{display:inline-block;width:1em;height:1em;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.af-ico-cal,.af-ico-dl,.af-ico-check,.af-ico-x{display:inline-block;width:1em;height:1em;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .af-ico-cal{color:#B9BDC8;font-size:13px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='5' width='16' height='16' rx='2'/%3E%3Cline x1='16' y1='3' x2='16' y2='7'/%3E%3Cline x1='8' y1='3' x2='8' y2='7'/%3E%3Cline x1='4' y1='11' x2='20' y2='11'/%3E%3C/svg%3E")}
 .af-ico-dl{color:#fff;font-size:12px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5 5-5M12 4v12'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5 5-5M12 4v12'/%3E%3C/svg%3E")}
 .af-ico-check{color:#fff;font-size:8px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
 .af-ico-x{color:#B9BDC8;font-size:8px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E")}
-.af-ico-search{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E")}
-.af-ico-merge{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M8 4v4l4 4 4-4V4M12 12v8'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M8 4v4l4 4 4-4V4M12 12v8'/%3E%3C/svg%3E")}
-.af-ico-form{font-size:17px;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Cline x1='8' y1='9' x2='16' y2='9'/%3E%3Cline x1='8' y1='13' x2='14' y2='13'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='4' y='4' width='16' height='16' rx='2'/%3E%3Cline x1='8' y1='9' x2='16' y2='9'/%3E%3Cline x1='8' y1='13' x2='14' y2='13'/%3E%3C/svg%3E")}
 
 @media (max-width:640px){
   .af-wrap{flex-direction:column}
 }
 
 .mock-qa{width:100%;display:flex;flex-direction:column;gap:14px}
-.qa-sheet{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
-.qa-sheet-head{display:flex;border-bottom:1px solid var(--line)}
-.qa-tab{flex:1;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:8px 0;color:var(--muted);background:var(--mist)}
-.qa-tab.active{color:var(--accent);background:var(--paper);font-weight:700}
-.qa-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:.78rem}
-.qa-row:last-child{border-bottom:none}
-.qa-id{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);flex:0 0 42px}
-.qa-desc{flex:1;color:var(--ink)}
-.qa-badge{font-size:.66rem;font-weight:700;padding:3px 10px;border-radius:999px;flex-shrink:0;background:rgba(27,69,215,.12);color:var(--accent)}
-.qa-audit{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--mist)}
-.qa-audit-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent);font-weight:700;letter-spacing:.04em;display:block;margin-bottom:10px}
-.qa-audit-row{display:flex;align-items:center;gap:8px;font-size:.74rem;margin-bottom:8px}
-.qa-audit-row:last-child{margin-bottom:0}
-.qa-chip{padding:5px 10px;border-radius:999px;font-weight:600;white-space:nowrap}
-.qa-chip.issue{background:var(--paper);border:1px solid var(--line);color:var(--muted)}
-.qa-chip.done{background:var(--accent);color:#fff}
-.qa-arrow{color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0}
+.qa-checklist{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.qa-checklist-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);letter-spacing:.06em}
+.qa-check{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--ink)}
+.qa-check-ico{width:20px;height:20px;border-radius:50%;background:#1D9E75;color:#fff;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 
 /* ---- HF 모바일 최적화 목업 ---- */
 .mo-wrap{background:var(--mist);border-radius:14px;padding:clamp(24px,3vw,32px) clamp(16px,2vw,22px);display:flex;gap:clamp(14px,1.8vw,20px);align-items:flex-start;justify-content:center;flex-wrap:wrap}
@@ -598,10 +573,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .uf-ico-up{color:#fff;-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2'/%3E%3Cpath d='M12 3v12M7 8l5-5 5 5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2'/%3E%3Cpath d='M12 3v12M7 8l5-5 5 5'/%3E%3C/svg%3E")}
 .uf-ico-right{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
 
-@media (max-width:520px){
-  .qa-audit-row{flex-wrap:wrap}
-}
-
 @media (max-width:600px){
   .mo-col{flex:1 1 100%;max-width:230px}
 }
@@ -657,8 +628,8 @@ body.modal-lock{overflow:hidden}
         </h1>
         <p class="hero-sub">
           <strong>업무가 복잡한 서비스</strong>일수록 사용자는 화면 앞에서 멈춥니다.<br class="brk">
-          저는 그 복잡한 절차를 <strong>사용자가 헤매지 않고 따라올 수 있는 흐름으로 바꾸고,</strong><br class="brk">
-          오픈한 뒤에도 그 흐름이 지켜지도록 <strong>운영까지 이어갑니다.</strong>
+          저는 <strong>그 복잡한 절차를 사용자가 헤매지 않고 따라올 수 있는 흐름</strong>으로 바꾸고,<br class="brk">
+          오픈한 뒤에도 <strong>그 흐름이 지켜지도록 운영까지</strong> 이어갑니다.
         </p>
       </div>
       <div class="photo"><img src="images/profile.jpg" alt="조가인"></div>
@@ -796,7 +767,7 @@ body.modal-lock{overflow:hidden}
           <span class="tag">운영 담당</span>
           <span class="tag">신규 기능 설계</span>
           <span class="tag">콘텐츠 관리</span>
-          <span class="tag">KRDS 준수</span>
+         
         </div>
       </div>
         <div class="proj-meta">
@@ -862,8 +833,7 @@ body.modal-lock{overflow:hidden}
     </div>
     <div class="row">
       <span class="term">기타</span>
-      <span class="name">다수의 제안 참여 (비상교육, 대한간호협회 등)
-        <span class="note">제21대 대통령실 홈페이지 구축 사업 수주 · HF 비대면 UI/UX 개선 사업 등 수주</span>
+      <span class="name">다수의 제안 참여 (비상교육, 대한간호협회 등) <em>제21대 대통령실 홈페이지 구축 사업 수주 · HF 비대면 UI/UX 개선 사업 등 수주</em></span>
       </span>
       <span class="role-tag">제안</span>
     </div>
@@ -1131,22 +1101,6 @@ body.modal-lock{overflow:hidden}
                 </div>
               </div>
             </div>
-
-            <div class="af-list">
-              <div class="af-item">
-                <span class="af-i-ico"><i class="af-ico-search"></i></span>
-                <div><p class="af-i-t">입력 항목·프로세스 분석</p><p class="af-i-d">단계별 항목을 비교·분석해 개선점 도출</p></div>
-              </div>
-              <div class="af-item">
-                <span class="af-i-ico"><i class="af-ico-merge"></i></span>
-                <div><p class="af-i-t">단계 통합·간소화</p><p class="af-i-d">불필요한 단계를 삭제하고, 숨겨진 단계를 다른 단계와 통합</p></div>
-              </div>
-              <div class="af-item">
-                <span class="af-i-ico"><i class="af-ico-form"></i></span>
-                <div><p class="af-i-t">입력 UI/UX 개선</p><p class="af-i-d">KRDS 가이드라인과, 일관성·직관성이 부족한 UI/UX를 반영해 개선</p></div>
-              </div>
-              <div class="af-note"><span class="af-note-dot"></span><p>'파란 테두리'는 KRDS 가이드라인을 반영한 요소 예시</p></div>
-            </div>
           </div>
         </div>
       </div>
@@ -1313,8 +1267,8 @@ body.modal-lock{overflow:hidden}
           <h4>단 2주 만에 임시홈페이지를 설계하고 오픈했습니다.</h4>
           <p>새 정부 출범 일정에 맞춰 화면 설계부터 오픈까지 빠르게 진행했고, 테스트 과정을 거쳐 안정적으로 홈페이지를 공개했습니다.</p>
         </div>
-        <div class="dz-img" style="background:none;border:none;padding:0">
-          <img src="images/president_timeline_4x3.png" alt="임시홈페이지 오픈 타임라인" style="width:100%;display:block">
+        <div class="dz-img">
+          <img src="images/president/president_timeline_4x3.png" alt="임시홈페이지 오픈 타임라인">
         </div>
       </div>
 
@@ -1502,27 +1456,16 @@ body.modal-lock{overflow:hidden}
         </div>
         <div class="dz-img mock tall">
           <div class="mock-qa">
-            <div class="qa-sheet">
-              <div class="qa-sheet-head">
-                <span class="qa-tab active">국문 테스트 케이스</span>
-                <span class="qa-tab">영문 테스트 케이스</span>
-              </div>
-              <div class="qa-row"><span class="qa-id">TC-01</span><span class="qa-desc">일반·기업 회원가입 시 이메일 중복 검증</span><span class="qa-badge">PASS</span></div>
-              <div class="qa-row"><span class="qa-id">TC-02</span><span class="qa-desc">결제 완료 후 소스데이터 다운로드 권한 부여</span><span class="qa-badge">PASS</span></div>
-              <div class="qa-row"><span class="qa-id">TC-03</span><span class="qa-desc">통합검색 결과 다국어(국/영) 노출 확인</span><span class="qa-badge">PASS</span></div>
+            <div class="qa-checklist">
+              <p class="qa-checklist-label">테스트 체크포인트 · 국문/영문</p>
+              <div class="qa-check"><span class="qa-check-ico">✓</span><span class="qa-check-t">일반·기업 회원가입 시 이메일 중복 검증</span></div>
+              <div class="qa-check"><span class="qa-check-ico">✓</span><span class="qa-check-t">결제 완료 후 소스데이터 다운로드 권한 부여</span></div>
+              <div class="qa-check"><span class="qa-check-ico">✓</span><span class="qa-check-t">통합검색 결과 다국어(국/영) 노출 확인</span></div>
             </div>
-            <div class="qa-audit">
-              <span class="qa-audit-label">감리 지적사항 대응</span>
-              <div class="qa-audit-row">
-                <span class="qa-chip issue">웹 접근성 · 대체텍스트 누락</span>
-                <span class="qa-arrow">→</span>
-                <span class="qa-chip done">소명 완료</span>
-              </div>
-              <div class="qa-audit-row">
-                <span class="qa-chip issue">오류 · 결제 실패 예외처리</span>
-                <span class="qa-arrow">→</span>
-                <span class="qa-chip done">조치 완료</span>
-              </div>
+            <div class="qa-checklist">
+              <p class="qa-checklist-label">감리 지적사항 대응</p>
+              <div class="qa-check"><span class="qa-check-ico">✓</span><span class="qa-check-t">웹 접근성 · 대체텍스트 누락 → 소명 완료</span></div>
+              <div class="qa-check"><span class="qa-check-ico">✓</span><span class="qa-check-t">오류 · 결제 실패 예외처리 → 조치 완료</span></div>
             </div>
           </div>
         </div>
