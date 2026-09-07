@@ -239,7 +239,7 @@ header{
 .row:last-child{border-bottom:1px solid var(--line)}
 .row .term{font-size:.86rem;color:var(--muted)}
 .row .name{font-size:1rem;font-weight:700;letter-spacing:-.02em}
-.row .name em{font-style:normal;font-weight:400;color:#4A4E58}
+.row .name em{font-style:normal;font-weight:400;font-size:.88em;color:#4A4E58}
 .row .note{display:block;margin-top:4px;font-size:.88rem;color:var(--muted);font-weight:400}
 .role-tag{
   font-size:.78rem;font-weight:500;color:#fff;
@@ -256,24 +256,6 @@ header{
 footer{padding:26px 0;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
-
-/* ==========================================================
-   8. 플로팅 버튼
-   ========================================================== */
-.floating{
-  display:none; /* PDF 준비되면 이 줄 삭제해서 다시 노출 */
-  position:fixed; right:clamp(16px,3vw,40px); bottom:clamp(16px,3vw,40px);
-  z-index:60;
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--ink); color:#fff;
-  padding:15px 22px; border-radius:999px;
-  font-size:.92rem; font-weight:600;
-  box-shadow:0 6px 24px rgba(0,0,0,.18);
-  opacity:0; visibility:hidden; transform:translateY(12px);
-  transition:opacity .3s, transform .3s, visibility .3s;
-}
-.floating.show{opacity:1;visibility:visible;transform:translateY(0)}
-.floating:hover{opacity:.85}
 
 
 /* ==========================================================
@@ -301,7 +283,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   .logo{font-size:.9rem}
   .job{gap:4px 16px;padding:13px 0;border-top:1px solid var(--line)}
   .job .term,.job .co{min-width:0}
-  .floating{padding:13px 18px;font-size:.86rem}
 
   .proj{display:flex;flex-direction:column;gap:18px;padding:28px 0}
   .proj-meta{order:0}
@@ -574,7 +555,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .uf-ico-right{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
 
 @media (max-width:600px){
-  .mo-col{flex:1 1 100%;max-width:230px}
+  .mo-wrap{flex-wrap:wrap;justify-content:center;gap:14px}
+  .mo-col{flex:0 1 calc(50% - 7px);width:calc(50% - 7px);min-width:0;max-width:200px}
+  .mo-phone{height:auto;aspect-ratio:.64}
 }
 
 .md-review{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
@@ -714,7 +697,7 @@ body.modal-lock{overflow:hidden}
             <div class="skill"><img src="images/logo-excel.png" alt="Excel"></div>
             <div class="skill"><img src="images/logo-claude.png" alt="Claude"></div>
             <span class="skill-gap"></span>
-            <div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
+            <br><div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
             <div class="skill"><img src="images/logo-notion.png" alt="Notion"></div>
           </div>
         </div>
@@ -1183,15 +1166,15 @@ body.modal-lock{overflow:hidden}
       <div class="review-grid">
         <div class="review-card">
           <span class="rv-label">아쉬웠던 점</span>
-          <p>타 금융사와 신청 절차를 비교해 불필요한 입력 항목과 자동화 요소를 제안했지만, 금융 규제상 제약으로 더 과감하게 개선하지 못한 점이 아쉬웠습니다.</p>
+          <p>타 금융사와 신청 절차를 비교해 불필요한 입력 항목과 자동화 요소를 제안했지만, <strong>금융 규제상 제약으로 더 과감하게 개선하지 못한 점</strong>이 아쉬웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
-          <p>복잡한 프로세스와 금융 상품을 구조적으로 이해하는 방법, 그리고 모바일에 적합한 다양한 UI/UX 요소를 배웠습니다.</p>
+          <p><strong>복잡한 프로세스와 금융 상품을 구조적으로 이해</strong>하는 방법, 그리고 <strong>모바일에 적합한 다양한 UI/UX 요소</strong>를 배웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">다시 한다면 개선할 점</span>
-          <p>HF는 이용층이 2030부터 고령층까지 넓은데, 고령층을 위한 쉬운 모드·도움말을 충분히 다루지 못했습니다. 다시 한다면 고객층 분석을 바탕으로 접근성 높은 방향을 제안하고 싶습니다.</p>
+          <p>HF는 이용층이 2030부터 고령층까지 넓은데, 고령층을 위한 쉬운 모드·도움말을 충분히 다루지 못했습니다. 다시 한다면 <strong>고객층 분석을 바탕으로 접근성 높은 방향을 제안</strong>하고 싶습니다.</p>
         </div>
       </div>
     </div>
@@ -1346,15 +1329,15 @@ body.modal-lock{overflow:hidden}
       <div class="review-grid">
         <div class="review-card">
           <span class="rv-label">아쉬웠던 점</span>
-          <p>빠르게 오픈해야 하는 임시홈페이지였던 만큼, 사용자 경험을 깊이 있게 설계하기보다 신속한 오픈과 안정적 운영에 집중할 수밖에 없었던 점이 아쉬웠습니다.</p>
+          <p>빠르게 오픈해야 하는 임시홈페이지였던 만큼, 사용자 경험을 깊이 있게 설계하기보다 <strong>신속한 오픈과 안정적 운영에 집중할 수밖에 없었던 점</strong>이 아쉬웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
-          <p>미디어·환경·구축·보안 등 다양한 담당자와 협업하며, 여러 이해관계자의 요구를 조율하고 운영 상황에 맞춰 유연하게 대응하는 방법을 배웠습니다.</p>
+          <p>미디어·환경·구축·보안 등 다양한 담당자와 협업하며, <strong></strong>여러 이해관계자의 요구를 조율하고 운영 상황에 맞춰 유연하게 대응하는 방법</strong>을 배웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">다시 한다면 개선할 점</span>
-          <p>다시 한다면 임시홈페이지라도 초기 설계 단계에서 사용자 관점을 함께 고려해, 빠른 오픈과 사용성을 모두 잡는 방향으로 접근하고 싶습니다.</p>
+          <p>다시 한다면 임시홈페이지라도 초기 설계 단계에서 사용자 관점을 함께 고려해, <strong>빠른 오픈과 사용성을 모두 잡는 방향으로 접근</strong>하고 싶습니다.</p>
         </div>
       </div>
     </div>
@@ -1478,15 +1461,15 @@ body.modal-lock{overflow:hidden}
       <div class="review-grid">
         <div class="review-card">
           <span class="rv-label">아쉬웠던 점</span>
-          <p>입사 직후 첫 프로젝트로 전 공정을 수행하다 보니, 각 화면을 더 깊이 있게 다듬기보다 방대한 산출물을 기한 내 완성하는 데 집중할 수밖에 없었던 점이 아쉬웠습니다.</p>
+          <p>입사 직후 첫 프로젝트로 전 공정을 수행하다 보니, <strong></strong>각 화면을 더 깊이 있게 다듬기보다 방대한 산출물을 기한 내 완성하는 데 집중할 수밖에 없었던 점</strong>이 아쉬웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
-          <p>소스데이터라는 낯선 전문 영역을 빠르게 파악해 구조화하는 방법을 익혔고, IA부터 화면정의서·테스트·감리 대응까지 기획의 전 공정을 경험하며 서비스를 끝까지 완성하는 감각을 배웠습니다.</p>
+          <p><strong>소스데이터라는 낯선 전문 영역을 빠르게 파악해 구조화하는 방법</strong>을 익혔고, <strong>IA부터 화면정의서·테스트·감리 대응까지 기획의 전 공정을 경험</strong>하며 서비스를 끝까지 완성하는 감각을 배웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">다시 한다면 개선할 점</span>
-          <p>다시 한다면 방대한 화면을 설계하며 쌓인 기준을 바탕으로, 초기에 설계 원칙을 더 촘촘히 세워 일관성과 효율을 함께 높이고 싶습니다.</p>
+          <p>다시 한다면 방대한 화면을 설계하며 쌓인 기준을 바탕으로, <strong>초기에 설계 원칙을 더 촘촘히 세워 일관성과 효율을 함께 높이고 싶습니다.</strong></p>
         </div>
       </div>
     </div>
@@ -1497,28 +1480,12 @@ body.modal-lock{overflow:hidden}
 
 
 
-<!-- ===== 플로팅 버튼 =====
-     PDF 준비되면 href를 "portfolio.pdf" 로 바꾸세요.
--->
-<a class="floating" id="floatBtn" href="#" download>
-  포트폴리오 PDF <span aria-hidden="true">↓</span>
-</a>
-
 <script>
-// 플로팅 버튼
-(function(){
-  var btn = document.getElementById('floatBtn');
-  function toggle(){
-    if (window.scrollY > window.innerHeight * 0.6) btn.classList.add('show');
-    else btn.classList.remove('show');
-  }
-  window.addEventListener('scroll', toggle, {passive:true});
-  toggle();
-})();
-
 // 프로젝트 상세 팝업
 function openModal(id){
-  document.getElementById(id).classList.add('open');
+  var modal = document.getElementById(id);
+  modal.classList.add('open');
+  modal.scrollTop = 0;
   document.body.classList.add('modal-lock');
 }
 function closeModal(id){
