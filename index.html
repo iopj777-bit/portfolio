@@ -96,6 +96,7 @@ header{
 }
 .hero-mark{
   font-family:'PearToucan-Bold','Pretendard',-apple-system,sans-serif;
+  color:var(--accent);
 }
 .hero-sub{
   margin-top:clamp(24px,2.5vw,36px); max-width:560px;
@@ -187,7 +188,7 @@ header{
   display:flex;align-items:center;justify-content:center;background:var(--paper);
 }
 .skill img{width:32px;height:32px;object-fit:contain}
-.skill-gap{width:12px}
+.skill-break{flex-basis:100%;height:0}
 
 /* 키워드 */
 .keywords{display:flex;flex-wrap:wrap;gap:10px}
@@ -696,8 +697,8 @@ body.modal-lock{overflow:hidden}
             <div class="skill"><img src="images/logo-ppt.png" alt="PowerPoint"></div>
             <div class="skill"><img src="images/logo-excel.png" alt="Excel"></div>
             <div class="skill"><img src="images/logo-claude.png" alt="Claude"></div>
-            <span class="skill-gap"></span>
-            <br><div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
+            <div class="skill-break"></div>
+            <div class="skill"><img src="images/logo-slack.png" alt="Slack"></div>
             <div class="skill"><img src="images/logo-notion.png" alt="Notion"></div>
           </div>
         </div>
@@ -1333,7 +1334,7 @@ body.modal-lock{overflow:hidden}
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
-          <p>미디어·환경·구축·보안 등 다양한 담당자와 협업하며, <strong></strong>여러 이해관계자의 요구를 조율하고 운영 상황에 맞춰 유연하게 대응하는 방법</strong>을 배웠습니다.</p>
+          <p>미디어·환경·구축·보안 등 다양한 담당자와 협업하며, <strong>여러 이해관계자의 요구를 조율하고 운영 상황에 맞춰 유연하게 대응하는 방법</strong>을 배웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">다시 한다면 개선할 점</span>
@@ -1461,7 +1462,7 @@ body.modal-lock{overflow:hidden}
       <div class="review-grid">
         <div class="review-card">
           <span class="rv-label">아쉬웠던 점</span>
-          <p>입사 직후 첫 프로젝트로 전 공정을 수행하다 보니, <strong></strong>각 화면을 더 깊이 있게 다듬기보다 방대한 산출물을 기한 내 완성하는 데 집중할 수밖에 없었던 점</strong>이 아쉬웠습니다.</p>
+          <p>입사 직후 첫 프로젝트로 전 공정을 수행하다 보니, <strong>각 화면을 더 깊이 있게 다듬기보다 방대한 산출물을 기한 내 완성하는 데 집중할 수밖에 없었던 점</strong>이 아쉬웠습니다.</p>
         </div>
         <div class="review-card">
           <span class="rv-label">새롭게 배운 점</span>
