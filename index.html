@@ -581,6 +581,35 @@ body.modal-lock{overflow:hidden}
   .dz{grid-template-columns:1fr;gap:24px}
   .dz.flip .dz-text{order:0}
 }
+
+/* ==========================================================
+   PDF 다운로드 버튼
+   ========================================================== */
+.pdf-btn{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+  color:#fff; background:var(--accent);
+  border:1px solid var(--accent); border-radius:999px;
+  padding:8px 18px; cursor:pointer; transition:opacity .2s;
+}
+.pdf-btn:hover{opacity:.85}
+@media (max-width:600px){
+  .pdf-btn{font-size:.82rem;padding:6px 13px}
+}
+
+/* ==========================================================
+   인쇄(PDF 저장) 전용 스타일
+   ========================================================== */
+@media print{
+  @page{margin:14mm}
+  header, .pdf-btn, .modal, footer{display:none!important}
+  html, body{background:#fff}
+  section{border-top:1px solid var(--line)}
+  .hero{padding-top:0}
+  .proj, .row, .axis, .review-card{break-inside:avoid}
+  .proj{cursor:default}
+  a[href]{color:inherit;text-decoration:none}
+}
 </style>
 </head>
 
@@ -594,6 +623,7 @@ body.modal-lock{overflow:hidden}
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><button class="pdf-btn" type="button" onclick="window.print()">PDF 다운로드</button></li>
     </ul>
   </nav>
 </header>
