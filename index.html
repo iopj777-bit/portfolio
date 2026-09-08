@@ -593,23 +593,25 @@ body.modal-lock{overflow:hidden}
   padding:8px 18px; cursor:pointer; transition:opacity .2s;
 }
 .pdf-btn:hover{opacity:.85}
+.pdf-btn:disabled{opacity:.6;cursor:wait}
 @media (max-width:600px){
   .pdf-btn{font-size:.82rem;padding:6px 13px}
 }
 
 /* ==========================================================
-   인쇄(PDF 저장) 전용 스타일
+   PDF 내보내기 모드 (html2canvas로 캡처하는 동안 body에 붙는 클래스)
+   1920px 데스크톱 레이아웃 + 프로젝트 상세 팝업을 모두 펼쳐서 캡처한다.
    ========================================================== */
-@media print{
-  @page{margin:14mm}
-  header, .pdf-btn, .modal, footer{display:none!important}
-  html, body{background:#fff}
-  section{border-top:1px solid var(--line)}
-  .hero{padding-top:0}
-  .proj, .row, .axis, .review-card{break-inside:avoid}
-  .proj{cursor:default}
-  a[href]{color:inherit;text-decoration:none}
+body.pdf-export header,
+body.pdf-export .pdf-btn{display:none!important}
+body.pdf-export .modal{
+  position:static!important; opacity:1!important; visibility:visible!important;
+  transform:none!important; height:auto!important; overflow:visible!important;
+  z-index:auto!important; border-top:6px solid var(--line);
 }
+body.pdf-export .modal-bar{position:static!important}
+body.pdf-export .modal-close,
+body.pdf-export .md-foot{display:none!important}
 </style>
 </head>
 
@@ -623,7 +625,7 @@ body.modal-lock{overflow:hidden}
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><button class="pdf-btn" type="button" onclick="window.print()">PDF 다운로드</button></li>
+      <li><button class="pdf-btn" type="button" onclick="downloadPdf()">PDF 다운로드</button></li>
     </ul>
   </nav>
 </header>
@@ -1511,7 +1513,78 @@ body.modal-lock{overflow:hidden}
 
 
 
+<script src="vendor/html2canvas.min.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
 <script>
+// ===== PDF 다운로드 (1920x1080, 프로젝트 상세 팝업 포함) =====
+async function downloadPdf(){
+  var btn = document.querySelector('.pdf-btn');
+  var originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'PDF 생성 중...';
+
+  var PAGE_W = 1920, PAGE_H = 1080;
+  document.body.classList.add('pdf-export');
+
+  try{
+    // 폰트 로딩 대기 (텍스트가 깨진 채 캡처되는 것을 방지)
+    if (document.fonts && document.fonts.ready) { await document.fonts.ready; }
+
+    // header, 스크립트를 제외한 body의 모든 최상위 요소(섹션·푸터·프로젝트 상세 팝업)를
+    // 화면에 보이는 순서 그대로 이어붙여 캡처한다.
+    var targets = Array.prototype.slice.call(document.body.children).filter(function(el){
+      return el.tagName !== 'HEADER' && el.tagName !== 'SCRIPT';
+    });
+
+    var pdf = new window.jspdf.jsPDF({ unit:'px', hotfixes:['px_scaling'], format:[PAGE_W, PAGE_H], orientation:'landscape', compress:true });
+    var pageCanvas = document.createElement('canvas');
+    pageCanvas.width = PAGE_W; pageCanvas.height = PAGE_H;
+    var pageCtx = pageCanvas.getContext('2d');
+    var cursorY = 0, pageIndex = 0;
+
+    function clearPage(){
+      pageCtx.fillStyle = '#ffffff';
+      pageCtx.fillRect(0, 0, PAGE_W, PAGE_H);
+    }
+    function flushPage(){
+      var imgData = pageCanvas.toDataURL('image/jpeg', 0.92);
+      if (pageIndex > 0) pdf.addPage([PAGE_W, PAGE_H], 'landscape');
+      pdf.addImage(imgData, 'JPEG', 0, 0, PAGE_W, PAGE_H);
+      pageIndex++;
+      clearPage();
+      cursorY = 0;
+    }
+    clearPage();
+
+    for (var i = 0; i < targets.length; i++){
+      var el = targets[i];
+      if (!el.offsetHeight) continue; // 숨겨진 요소는 건너뜀
+      var shot = await html2canvas(el, {
+        windowWidth: PAGE_W, width: PAGE_W, scale: 1,
+        useCORS: true, backgroundColor: '#ffffff'
+      });
+      var drawn = 0;
+      while (drawn < shot.height){
+        var chunk = Math.min(PAGE_H - cursorY, shot.height - drawn);
+        pageCtx.drawImage(shot, 0, drawn, PAGE_W, chunk, 0, cursorY, PAGE_W, chunk);
+        drawn += chunk;
+        cursorY += chunk;
+        if (cursorY >= PAGE_H) flushPage();
+      }
+    }
+    if (cursorY > 0) flushPage();
+
+    pdf.save('조가인_포트폴리오.pdf');
+  } catch(err){
+    console.error(err);
+    alert('PDF 생성 중 오류가 발생했습니다.\n' + err.message);
+  } finally {
+    document.body.classList.remove('pdf-export');
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
+}
+
 // 프로젝트 상세 팝업
 function openModal(id){
   var modal = document.getElementById(id);
