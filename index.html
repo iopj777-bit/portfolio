@@ -593,7 +593,6 @@ body.modal-lock{overflow:hidden}
   padding:8px 18px; cursor:pointer; transition:opacity .2s;
 }
 .dl-btn:hover{opacity:.85}
-.dl-btn:disabled{opacity:.6;cursor:wait}
 @media (max-width:600px){
   .dl-btn{font-size:.82rem;padding:6px 13px}
 }
@@ -1501,11 +1500,6 @@ body.modal-lock{overflow:hidden}
 <script>
 // ===== HTML 다운로드 (현재 화면을 그대로 담은 단일 파일로 저장) =====
 async function downloadHtml(){
-  var btn = document.querySelector('.dl-btn');
-  var originalLabel = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = '다운로드 준비 중...';
-
   function isSkippable(v){
     return !v || v.indexOf('data:') === 0 || v.indexOf('#') === 0 || v.indexOf('mailto:') === 0;
   }
@@ -1566,9 +1560,6 @@ async function downloadHtml(){
   } catch(err){
     console.error(err);
     alert('다운로드 중 오류가 발생했습니다.\n' + err.message);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = originalLabel;
   }
 }
 
