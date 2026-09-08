@@ -1500,29 +1500,76 @@ body.modal-lock{overflow:hidden}
 
 <script>
 // ===== HTML 다운로드 (현재 화면을 그대로 담은 단일 파일로 저장) =====
-function downloadHtml(){
-  var doc = document.documentElement.cloneNode(true);
+async function downloadHtml(){
+  var btn = document.querySelector('.dl-btn');
+  var originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '다운로드 준비 중...';
 
-  // 상대 경로(images/, vendor/, fonts/ 등)를 절대 URL로 바꿔서,
-  // 다운로드한 파일만 단독으로 열어도 이미지·폰트가 그대로 보이게 한다.
-  function toAbsolute(el, attr){
-    var v = el.getAttribute(attr);
-    if (!v || /^([a-z][a-z0-9+.-]*:)?\/\//i.test(v) || v.indexOf('data:') === 0 || v.indexOf('#') === 0 || v.indexOf('mailto:') === 0) return;
-    el.setAttribute(attr, new URL(v, location.href).href);
+  function isSkippable(v){
+    return !v || v.indexOf('data:') === 0 || v.indexOf('#') === 0 || v.indexOf('mailto:') === 0;
   }
-  doc.querySelectorAll('[src]').forEach(function(el){ toAbsolute(el, 'src'); });
-  doc.querySelectorAll('link[href]').forEach(function(el){ toAbsolute(el, 'href'); });
+  function toAbsoluteUrl(v){
+    return new URL(v, location.href).href;
+  }
+  function blobToDataUrl(blob){
+    return new Promise(function(resolve, reject){
+      var reader = new FileReader();
+      reader.onload = function(){ resolve(reader.result); };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  }
 
-  var html = '<!DOCTYPE html>\n' + doc.outerHTML;
-  var blob = new Blob([html], { type:'text/html' });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = '조가인_포트폴리오.html';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  try{
+    var doc = document.documentElement.cloneNode(true);
+
+    // 외부 스타일시트(폰트 CDN)는 절대 URL로만 바꿔둔다.
+    doc.querySelectorAll('link[href]').forEach(function(el){
+      var v = el.getAttribute('href');
+      if (isSkippable(v)) return;
+      el.setAttribute('href', toAbsoluteUrl(v));
+    });
+
+    // 이미지는 실제로 fetch해서 base64로 파일 안에 통째로 심는다.
+    // 네트워크가 막힌 이메일 첨부·업로드 미리보기에서도 사진이 그대로 보이게 하기 위함.
+    // 같은 이미지가 여러 번 쓰이는 경우(카드 썸네일 + 팝업 커버 등)는 한 번만 내려받는다.
+    var cache = {};
+    function fetchAsDataUrl(abs){
+      if (!cache[abs]){
+        cache[abs] = fetch(abs).then(function(res){ return res.blob(); }).then(blobToDataUrl);
+      }
+      return cache[abs];
+    }
+    var imgs = Array.prototype.slice.call(doc.querySelectorAll('img[src]'));
+    await Promise.all(imgs.map(async function(img){
+      var v = img.getAttribute('src');
+      if (isSkippable(v)) return;
+      var abs = toAbsoluteUrl(v);
+      try{
+        img.setAttribute('src', await fetchAsDataUrl(abs));
+      } catch(e){
+        img.setAttribute('src', abs); // 실패 시 최소한 절대경로라도 남긴다
+      }
+    }));
+
+    var html = '<!DOCTYPE html>\n' + doc.outerHTML;
+    var blob = new Blob([html], { type:'text/html' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '조가인_포트폴리오.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch(err){
+    console.error(err);
+    alert('다운로드 중 오류가 발생했습니다.\n' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
 }
 
 // 프로젝트 상세 팝업
